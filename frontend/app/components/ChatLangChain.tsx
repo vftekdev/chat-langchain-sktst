@@ -118,10 +118,10 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
     onNew,
   });
 
-  const test1 = test;
-
+  const userlength = test.length;
+  const truncatetext = userlength > 10 ? test.substring(0,10) + "..." : test;
   return (
-    <div className="overflow-hidden h-full w-full flex lg:flex-row flex-col relative bg-green-500">
+    <div className="overflow-hidden h-full w-full flex lg:flex-row flex-col relative bg-white">
       <div className="flex absolute top-2 right-2 lg:top-5 lg:right-5 z-10 m-4">
         <NextImage
           src="/images/solar_user_bold.svg"
@@ -130,8 +130,8 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
           width={20}
           height={20}
         />
-        <div className="px-2">
-          {test}
+        <div className="px-2 md:{'test'}">
+          {truncatetext}
         </div>
         <form action={SignOut}>
             <button>Sign Out</button>

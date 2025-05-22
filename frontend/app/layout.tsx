@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <Hotjar_GoogleAnalytics_Snippet />
       <body className="font-helveticaneue h-full">
-        <div className="flex flex-col h-full w-full text-black bg-violet-500">
+        <div className="flex flex-col h-full w-full text-black bg-white">
           <NuqsAdapter>{children}</NuqsAdapter>
         </div>
       </body>

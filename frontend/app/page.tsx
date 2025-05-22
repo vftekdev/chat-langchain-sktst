@@ -52,15 +52,3 @@ export default async function SignIn() {
     </main>
   )
 }
-
-// function Page(): React.ReactElement {
-//   return (
-//     <main className="w-full h-full">
-//       <React.Suspense fallback={null}>
-//         <GraphProvider>
-//           <ChatLangChain />
-//         </GraphProvider>
-//       </React.Suspense>
-//     </main>
-//   );
-// }
