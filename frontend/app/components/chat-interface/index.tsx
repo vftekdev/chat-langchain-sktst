@@ -31,7 +31,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
 
   return (
     // <ThreadPrimitive.Root className={cn("flex flex-col w-full bg-white overflow-hidden", isEmpty ? "h-full" : "h-screen",)}>
-    <ThreadPrimitive.Root className="flex flex-col h-screen w-full bg-red-500">
+    <ThreadPrimitive.Root className={cn("flex flex-col overflow-hidden w-full bg-red-500", isEmpty ? "" : "h-screen",)}>
       {!isEmpty ? (
         <ThreadPrimitive.Viewport
           className={cn(
