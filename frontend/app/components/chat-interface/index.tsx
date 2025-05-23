@@ -69,11 +69,6 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
             <div className="flex flex-col items-center justify-center">
               <p className="text-center text-black font-medium text-sm sm:text-lg m-1">SEEK helps you verify if something is true or not</p>
               <p className="text-center text-black font-bold text-3xl sm:text-4xl m-1">What would you like to know?</p>
-              {/* <button className=""
-              onClick={async()=> {
-                await navigator.clipboard.writeText()
-                
-              }}>Copy</button> */}
             </div>
             <div className="my-4 sm:mt-8">
               <ChatComposer
