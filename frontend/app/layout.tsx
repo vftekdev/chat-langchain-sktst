@@ -17,10 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="">
+    <html lang="en" className="h-full">
       <Hotjar_GoogleAnalytics_Snippet />
-      <body className="font-helveticaneue">
-        <div className="flex flex-col w-full text-black bg-white">
+      <body className="font-helveticaneue h-full">
+        <div className="flex flex-col w-full text-black bg-white h-full">
           <NuqsAdapter>{children}</NuqsAdapter>
         </div>
       </body>

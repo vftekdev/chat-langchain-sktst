@@ -38,7 +38,7 @@ function ThreadHistoryComponent() {
   };
 
   return (
-    <div className="overflow-y-auto h-screen">
+    <div className="overflow-y-auto lg:h-screen">
       {/* Tablet & up */}
       <div className="hidden lg:flex flex-col w-[260px] bg-[#F9F9F9] bg-indigo-500">
         <div className="flex-grow my-6 flex flex-col overflow-hidden">
