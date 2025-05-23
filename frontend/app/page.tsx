@@ -10,7 +10,7 @@ export default async function SignIn() {
   console.log(session);
   const user = session?.user;
   return user ? (
-    <main className="w-full h-full">
+    <main className="w-full">
       <React.Suspense fallback={null}>
         <GraphProvider>
           <ChatLangChain test={user.name} />
