@@ -121,7 +121,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
   const userlength = test.length;
   const truncatetext = userlength > 10 ? test.substring(0,10) + "..." : test;
   return (
-    <div className="overflow-hidden w-full flex lg:flex-row flex-col relative bg-green-500">
+    <div className="overflow-hidden w-full flex lg:flex-row flex-col relative bg-white">
       <div className="flex absolute top-2 right-2 lg:top-5 lg:right-5 z-10 m-4">
         <NextImage
           src="/images/solar_user_bold.svg"
