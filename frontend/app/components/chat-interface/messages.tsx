@@ -58,31 +58,33 @@ function FeedbackButtons() {
 
   return (
     <div className="mt-4">
-      <CopyToClipboard />
-      <div className="flex gap-2 items-center">
-        <p>Was this answer helpful?</p>
-        <TooltipIconButton
-          delayDuration={200}
-          variant="ghost"
-          tooltip="Good response"
-          onClick={() => {
-            sendFeedback(runId, feedbackKey, goodScore);
-            setFeedback("good");
-          }}
-        >
-          <ThumbsUpIcon className="w-4 h-4" />
-        </TooltipIconButton>
-        <TooltipIconButton
-          delayDuration={200}
-          variant="ghost"
-          tooltip="Bad response"
-          onClick={() => {
-            sendFeedback(runId, feedbackKey, badScore);
-            setFeedback("bad");
-          }}
-        >
-          <ThumbsDownIcon className="w-4 h-4" />
-        </TooltipIconButton>
+      <div className="flex">
+        <div className="flex gap-2 items-center grow">
+          <p>Was this answer helpful?</p>
+          <TooltipIconButton
+            delayDuration={200}
+            variant="ghost"
+            tooltip="Good response"
+            onClick={() => {
+              sendFeedback(runId, feedbackKey, goodScore);
+              setFeedback("good");
+            }}
+          >
+            <ThumbsUpIcon className="w-4 h-4" />
+          </TooltipIconButton>
+          <TooltipIconButton
+            delayDuration={200}
+            variant="ghost"
+            tooltip="Bad response"
+            onClick={() => {
+              sendFeedback(runId, feedbackKey, badScore);
+              setFeedback("bad");
+            }}
+          >
+            <ThumbsDownIcon className="w-4 h-4" />
+          </TooltipIconButton>
+        </div>
+        <CopyToClipboard />
       </div>
       <ReportIssue />
     </div>
@@ -108,15 +110,9 @@ function CopyToClipboard () {
       <ActionBarPrimitive.Copy className="flex">
         <MessagePrimitive.If copied={false}>
           <CopyIcon/>
-          <div className="ml-2">
-            Copy Answer
-          </div>
         </MessagePrimitive.If>
         <MessagePrimitive.If copied>
           <CheckIcon/>
-          <div className="ml-2">
-            Copied!
-          </div>
         </MessagePrimitive.If>
       </ActionBarPrimitive.Copy>
     </div>
