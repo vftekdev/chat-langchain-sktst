@@ -58,7 +58,7 @@ function FeedbackButtons() {
 
   return (
     <div className="mt-4">
-      <div className="flex">
+      <div className="flex items-center">
         <div className="flex gap-2 items-center grow">
           <p>Was this answer helpful?</p>
           <TooltipIconButton
@@ -109,10 +109,10 @@ function CopyToClipboard () {
     <div>
       <ActionBarPrimitive.Copy className="flex">
         <MessagePrimitive.If copied={false}>
-          <CopyIcon/>
+          <CopyIcon className="w-4 h-4"/>
         </MessagePrimitive.If>
         <MessagePrimitive.If copied>
-          <CheckIcon/>
+          <CheckIcon className="w-4 h-4"/>
         </MessagePrimitive.If>
       </ActionBarPrimitive.Copy>
     </div>
