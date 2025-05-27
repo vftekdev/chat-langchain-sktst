@@ -29,6 +29,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
   useSelectedDocumentsUI();
   useRouterLogicUI();
 
+
   return (
     // <ThreadPrimitive.Root className={cn("flex flex-col w-full bg-white overflow-hidden", isEmpty ? "h-full" : "h-screen",)}>
     <ThreadPrimitive.Root className={cn("flex flex-col overflow-hidden w-full bg-white", isEmpty ? "" : "h-screen",)}>
