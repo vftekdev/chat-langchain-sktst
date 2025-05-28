@@ -134,8 +134,8 @@ export const AssistantMessage: FC = () => {
         {shouldRenderMessageBreak ? (
           <hr className="relative left-1/2 -translate-x-1/2 w-[90vw] sm:w-[45vw] mt-4 sm:mt-6 border-gray-600" />
         ) : null}
+        {isLast ? <FeedbackButtons /> : <FeedbackButtons />}
       </div>
-      {isLast && <FeedbackButtons />}
     </MessagePrimitive.Root>
   );
 };
