@@ -5,8 +5,8 @@ import asyncio
 
 # pip install ragas==0.0.11
 # change the model used in ragas (search "gpt" in ragas folder in site-packages folder)
-# Add "In your analysis, you should only put the sentences that you saw, don't add any other sentences to your answer. Also don't add empty new lines in your answer."
-# right after the "Think in steps..." sentence (like just add it to the right)
+# in context_recall.py (search "context_recall" in ragas folder in site-packages folder), add "In your analysis, you should only put the sentences that you saw, don't add any other sentences to your answer. Also don't add empty new lines in your answer."
+# right after the "Think in steps..." sentence (like just add it to the right after the sentence)
 from ragas import evaluate as ragas_evaluate
 from ragas.metrics import (
     faithfulness,
