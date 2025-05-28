@@ -122,6 +122,7 @@ function CopyToClipboard () {
 export const AssistantMessage: FC = () => {
   const threadRuntime = useThreadRuntime();
   const threadState = threadRuntime.getState();
+  const test = useMessage((m) => m.content);
   const isLast = useMessage((m) => m.isLast);
   const shouldRenderMessageBreak =
     threadState.messages.filter((msg) => msg.role === "user")?.length > 1 &&
@@ -134,7 +135,7 @@ export const AssistantMessage: FC = () => {
         {shouldRenderMessageBreak ? (
           <hr className="relative left-1/2 -translate-x-1/2 w-[90vw] sm:w-[45vw] mt-4 sm:mt-6 border-gray-600" />
         ) : null}
-        {isLast && <FeedbackButtons />}
+        {test && <FeedbackButtons />}
       </div>
     </MessagePrimitive.Root>
   );
