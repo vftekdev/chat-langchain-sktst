@@ -122,6 +122,9 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
   const truncatetext = userlength > 10 ? test.substring(0,10) + "..." : test;
   return (
     <div className="overflow-hidden w-full flex lg:flex-row flex-col relative bg-white">
+      <div className="flex absolute top-2 lg:top-5 right-60 z-10 mx-2 my-4 border border-[#D7D7D7] rounded-lg px-2">
+        <a className="text-black" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">Report Issue</a>
+      </div>
       <div className="flex absolute top-2 right-2 lg:top-5 lg:right-5 z-10 m-4 border border-[#D7D7D7] rounded-lg px-2">
         <NextImage
           src="/images/solar_user_bold.svg"
