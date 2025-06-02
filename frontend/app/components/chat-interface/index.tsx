@@ -31,10 +31,11 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
 
   return (
     // <ThreadPrimitive.Root className={cn("flex flex-col w-full bg-white overflow-hidden", isEmpty ? "h-full" : "h-screen",)}>
-    <ThreadPrimitive.Root className={cn("flex flex-col overflow-hidden w-full bg-[#F9F9F9] dark:bg-black", isEmpty ? "" : "h-screen",)}>
+    <ThreadPrimitive.Root className={cn("flex flex-col overflow-hidden w-full bg-white dark:bg-black", isEmpty ? "" : "h-screen",)}>
       {!isEmpty ? (
         <ThreadPrimitive.Viewport
           className={cn(
+            "flex-1 overflow-y-auto scroll-smooth bg-inherit transition-all duration-300 ease-in-out w-full px-6",
             "flex-1 overflow-y-auto scroll-smooth bg-inherit transition-all duration-300 ease-in-out w-full px-6",
             isEmpty ? "pb-[30vh] sm:pb-[50vh]" : "pb-24 sm:pb-12",
             "scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent",
@@ -52,8 +53,20 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
       ) : null}
       <ThreadChatScrollToBottom />
       {isEmpty ? (
-        <div className="flex items-center justify-center flex-grow my-auto py-12">
-          <div className="flex flex-col items-center bg-white rounded-3xl dark:bg-black relative px-8 sm:px-16 lg:px-28 py-12">
+        <div className="flex items-center justify-center flex-grow my-auto">
+          <div className="flex flex-col items-center bg-white dark:bg-black px-6 py-6 md:px-44 lg:py-36 relative">
+            <div className="lg:absolute top-4 lg:left-5 flex flex-row gap-4 m-4">
+              <NextImage
+                  src="/images/verafiles_banner.png"
+                  className=""
+                  alt="Verafiles Logo"
+                  width={192}
+                  height={192}
+              />
+              <div className="flex items-center text-[10px] md:text-xs text-black border border-[#D7D7D7] rounded-lg px-2">
+                Claude 3.5 Haiku
+              </div>
+            </div>
             <div className="flex flex-col items-center justify-center">
               <p className="text-center text-[#F6911D] font-bold text-3xl sm:text-4xl m-1">What would you like to know?</p>
               <p className="text-center text-black font-medium text-sm sm:text-lg m-1">SEEK helps you check facts and look for misinformation trends</p>
