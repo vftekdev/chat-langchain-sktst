@@ -32,11 +32,11 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
 
   return (
     // <ThreadPrimitive.Root className={cn("flex flex-col w-full bg-white overflow-hidden", isEmpty ? "h-full" : "h-screen",)}>
-    <ThreadPrimitive.Root className={cn("flex flex-col overflow-hidden w-full bg-white", isEmpty ? "" : "h-screen",)}>
+    <ThreadPrimitive.Root className={cn("flex flex-col overflow-hidden w-full bg-white dark:bg-black", isEmpty ? "" : "h-screen",)}>
       {!isEmpty ? (
         <ThreadPrimitive.Viewport
           className={cn(
-            "flex-1 overflow-y-auto scroll-smooth bg-inherit transition-all duration-300 ease-in-out w-full",
+            "flex-1 overflow-y-auto scroll-smooth bg-inherit transition-all duration-300 ease-in-out w-full px-6",
             isEmpty ? "pb-[30vh] sm:pb-[50vh]" : "pb-24 sm:pb-12",
             "scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent",
           )}
@@ -54,8 +54,8 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
       <ThreadChatScrollToBottom />
       {isEmpty ? (
         <div className="flex items-center justify-center flex-grow my-auto">
-          <div className="flex flex-col items-center bg-white px-4 py-24 sm:p-24 relative">
-            <div className="absolute top-4 left-1/2 max-lg:-translate-x-1/2 lg:left-5 flex flex-row gap-4 m-4">
+          <div className="flex flex-col items-center bg-white dark:bg-black px-6 py-6 md:px-44 lg:py-36 relative">
+            <div className="lg:absolute top-4 lg:left-5 flex flex-row gap-4 m-4">
               <NextImage
                   src="/images/verafiles_banner.png"
                   className=""
