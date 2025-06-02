@@ -15,7 +15,8 @@ class AgentConfiguration(BaseConfiguration):
     # models
 
     query_model: str = field(
-        default="anthropic/claude-3-5-haiku-20241022",
+        # default="anthropic/claude-3-5-haiku-20241022",
+        default="anthropic/claude-3-5-haiku-latest",
         # default="openai/gpt-4o-mini",
         metadata={
             "description": "The language model used for processing and refining queries. Should be in the form: provider/model-name."
@@ -23,7 +24,8 @@ class AgentConfiguration(BaseConfiguration):
     )
 
     response_model: str = field(
-        default="anthropic/claude-3-5-haiku-20241022",
+        # default="anthropic/claude-3-5-haiku-20241022",
+        default="anthropic/claude-3-5-haiku-latest",
         # default="openai/gpt-4o-mini",
         metadata={
             "description": "The language model used for generating responses. Should be in the form: provider/model-name."
