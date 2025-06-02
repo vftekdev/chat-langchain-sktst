@@ -122,8 +122,8 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
   const truncatetext = userlength > 10 ? test.substring(0,10) + "..." : test;
   return (
     <div className="overflow-hidden w-full flex lg:flex-row flex-col relative bg-white dark:bg-black">
-      <div className="flex absolute top-12 right-4 sm:top-2 lg:top-5 sm:right-64 z-10 mx-2 my-4 border border-[#D7D7D7] rounded-lg px-2">
-        <a className="text-black font-normal" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">Report Issue</a>
+      <div className="flex absolute top-2 lg:top-5 right-60 z-10 mx-2 my-4 border border-[#D7D7D7] rounded-lg px-2">
+        <a className="text-black" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">Report Issue</a>
       </div>
       <div className="flex absolute top-2 right-2 lg:top-5 lg:right-5 z-10 m-4 font-normal border border-[#D7D7D7] rounded-lg px-2">
         <NextImage
@@ -140,7 +140,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
             <button>Sign Out</button>
         </form>
       </div>
-      {/* <div className="absolute bottom-2 right-2 lg:bottom-5 lg:right-5 z-10">
+      <div className="absolute bottom-2 right-2 lg:bottom-5 lg:right-5 z-10">
         <button onClick={() => document.body.classList.toggle('dark')}
           className="h-12 w-12 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-gray-700">
           <svg className="fill-violet-700 block dark:hidden" fill="currentColor" viewBox="0 0 20 20">
@@ -152,7 +152,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
                   fill-rule="evenodd" clip-rule="evenodd"></path>
           </svg>
         </button>
-      </div> */}
+      </div>
       <div className="">
         <ThreadHistory />
       </div>
