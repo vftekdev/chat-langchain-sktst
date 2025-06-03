@@ -41,7 +41,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
             "scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent",
           )}
         >
-          <div className="md:pl-8 lg:pl-24 mt-2 max-w-full">
+          <div className="lg:pl-24 mt-2 max-w-full">
             <ThreadPrimitive.Messages
               components={{
                 UserMessage: UserMessage,
