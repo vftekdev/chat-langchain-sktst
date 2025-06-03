@@ -92,19 +92,17 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
           </div>
         </div>
       ) : (
-        <div className="max-w-full">
+        <div>
           <ChatComposer
             submitDisabled={props.submitDisabled}
             messages={props.messages}
           />
-          <div className="flex max-w-4xl">
-            <p className="text-justify w-full lg:ml-24 md:ml-6 mx-3 mb-8">
-              SEEK uses VERA Files articles to create answers using AI. 
-              AI answers may contain errors. 
-              Always check the sources cited to verify the facts.
-              <a className="text-blue" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank"> Report Issues.</a>
-            </p>
-          </div>
+          <p className="mx-2">
+            SEEK uses VERA Files articles to create answers using AI. 
+            AI answers may contain errors. 
+            Always check the sources cited to verify the facts.
+            <a className="text-blue" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank"> Report Issues.</a>
+          </p>
         </div>
       )}
     </ThreadPrimitive.Root>
