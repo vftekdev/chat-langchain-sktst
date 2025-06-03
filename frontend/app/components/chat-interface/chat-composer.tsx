@@ -71,12 +71,6 @@ export const ChatComposer: FC<ChatComposerProps> = (
           </ComposerPrimitive.Cancel>
         </ThreadPrimitive.If>
       </div>
-      <p className="">
-        SEEK uses VERA Files articles to create answers using AI. 
-        AI answers may contain errors. 
-        Always check the sources cited to verify the facts.
-        <a className="text-blue" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank"> Report Issues.</a>
-      </p>
     </ComposerPrimitive.Root>
   );
 };
