@@ -60,7 +60,7 @@ function FeedbackButtons() {
     <div className="mt-4">
       <div className="flex items-center">
         <div className="flex gap-2 items-center grow">
-          <p>Was this answer helpful?</p>
+          <p>Did this answer your question?</p>
           <TooltipIconButton
             delayDuration={200}
             variant="ghost"
