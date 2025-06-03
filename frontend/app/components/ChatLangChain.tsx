@@ -141,7 +141,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
             <button>Sign Out</button>
         </form>
       </div>
-      <div className="absolute bottom-2 right-2 lg:bottom-5 lg:right-5 z-10">
+      {/* <div className="absolute bottom-2 right-2 lg:bottom-5 lg:right-5 z-10">
         <button onClick={() => document.body.classList.toggle('dark')}
           className="h-12 w-12 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-gray-700">
           <svg className="fill-violet-700 block dark:hidden" fill="currentColor" viewBox="0 0 20 20">
@@ -153,7 +153,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
                   fill-rule="evenodd" clip-rule="evenodd"></path>
           </svg>
         </button>
-      </div>
+      </div> */}
       <div className="">
         <ThreadHistory />
       </div>
