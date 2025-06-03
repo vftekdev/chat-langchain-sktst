@@ -37,7 +37,7 @@ export const ChatComposer: FC<ChatComposerProps> = (
       className={cn(
         // "bg-[#282828] focus-within:border-aui-ring/20 flex w-full items-center md:justify-left justify-center rounded-lg border px-2.5 py-2.5 shadow-sm transition-all duration-300 ease-in-out border-gray-600"
         "focus-within:border-aui-ring/20 flex w-full items-center md:justify-left justify-center rounded-2xl border px-2 py-2 shadow-sm transition-all duration-300 ease-in-out border-[#A5A5A5]",
-        isEmpty ? "" : "md:ml-24 ml-3 mb-6",
+        isEmpty ? "" : "lg:ml-24 md:ml-8 mb-6",
         isEmpty ? "w-full" : "md:w-[70%] w-[95%] md:max-w-[832px]",
       )}
     >

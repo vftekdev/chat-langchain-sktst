@@ -63,7 +63,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
                   width={192}
                   height={192}
               />
-              <div className="flex items-center text-[10px] md:text-xs text-black border border-[#D7D7D7] rounded-lg px-2">
+              <div className="flex items-center text-[10px] md:text-xs text-black font-light border border-[#D7D7D7] rounded-lg px-2">
                 Claude 3.5 Haiku
               </div>
             </div>
@@ -76,12 +76,12 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
                 submitDisabled={props.submitDisabled}
                 messages={props.messages}
               />
-              <p className="text-black text-justify font-light text-xs md:text-sm mt-6">This tool answers your questions based on fact checks, 
-              fact sheets and limited articles that VERA Files staff have written and edited. 
-              This may not yet reflect our most recently published articles, 
-              and may include responses based on the original time an article was published. 
-              We strive to update our dataset with the most recent articles at the end of each day. 
-              Read more about our tool here (insert link)</p>
+              <p className="text-black text-justify font-light text-xs md:text-sm mt-6">
+                SEEK uses VERA Files articles to create answers using AI. 
+                AI answers may contain errors. 
+                Always check the sources cited to verify the facts.
+                <a className="text-blue" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank"> Report Issues.</a>
+              </p>
             </div>
             <div className="w-full mt-2 md:mt-4">
               <h1 className="text-3xl text-black font-bold">
@@ -92,12 +92,12 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
           </div>
         </div>
       ) : (
-        <div>
+        <div className="max-w-full">
           <ChatComposer
             submitDisabled={props.submitDisabled}
             messages={props.messages}
           />
-          <p className="w-full md:ml-24 ml-3">
+          <p className="w-full lg:ml-24 md:ml-8">
             SEEK uses VERA Files articles to create answers using AI. 
             AI answers may contain errors. 
             Always check the sources cited to verify the facts.
