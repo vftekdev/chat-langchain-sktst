@@ -139,8 +139,8 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
       <div className="">
         <ThreadHistory />
       </div>
-      <div className=" w-full overflow-hidden">
-        {/* <div className="flex flex-row items-center bg-white rounded-3xl">
+      <div className="w-full overflow-hidden">
+        <div className="flex flex-row items-center bg-white rounded-3xl">
           <div className="flex flex-row gap-4 m-4">
             <NextImage
                 src="/images/verafiles_banner.png"
@@ -178,7 +178,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
             />
             <a className="text-black hover:border-0 mt-0.5 px-2" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">Report Issues</a>
           </div>
-        </div> */}
+        </div>
           <AssistantRuntimeProvider runtime={runtime}>
             <ThreadChat submitDisabled={isSubmitDisabled} messages={messages} />
           </AssistantRuntimeProvider>
