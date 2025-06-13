@@ -70,7 +70,6 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
                 <a className="text-blue" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank"> Report Issues.</a>
               </p>
             </div>
-            <hr className="border-gray-400"/>
             <div className="w-full mt-2 md:mt-4">
               <div className="flex">
                 <NextImage
