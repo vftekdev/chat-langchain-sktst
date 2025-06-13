@@ -36,8 +36,6 @@ function FeedbackButtons() {
   const goodScore = 1;
   const badScore = 0;
 
-  if (runId || isStreaming) return null;
-
   if (feedback) {
     return (
       <div className="flex gap-2 items-center mt-4">
