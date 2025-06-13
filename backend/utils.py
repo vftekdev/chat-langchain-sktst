@@ -11,7 +11,6 @@ from typing import Any, Literal, Optional, Union
 from langchain.chat_models import init_chat_model
 from langchain_core.documents import Document
 from langchain_core.language_models import BaseChatModel
-from langchain_core.runnables import RunnableLambda
 
 
 def _format_doc(doc: Document) -> str:
@@ -65,10 +64,6 @@ def format_docs(docs: Optional[list[Document]]) -> str:
 </documents>"""
 
 
-def vf_when_all_is_lost(inputs):
-    return ("Looks like our LLM providers are down. Please try again in a few minutes.")
-
-
 def load_chat_model(fully_specified_name: str) -> BaseChatModel:
     """Load a chat model from a fully specified name.
 
@@ -84,7 +79,7 @@ def load_chat_model(fully_specified_name: str) -> BaseChatModel:
     model_kwargs = {"temperature": 0}
     if provider == "google_genai":
         model_kwargs["convert_system_message_to_human"] = True
-    return init_chat_model(model, model_provider=provider, **model_kwargs).with_fallbacks([RunnableLambda(vf_when_all_is_lost)])
+    return init_chat_model(model, model_provider=provider, **model_kwargs)
 
 
 def reduce_docs(

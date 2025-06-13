@@ -16,6 +16,7 @@ from backend.retrieval_graph.configuration import AgentConfiguration
 from backend.retrieval_graph.researcher_graph.graph import graph as researcher_graph
 from backend.retrieval_graph.state import AgentState, InputState, Router
 from backend.utils import format_docs, load_chat_model
+from langchain_core.runnables import RunnableLambda
 
 
 async def analyze_and_route_query(
@@ -193,6 +194,10 @@ def check_finished(state: AgentState) -> Literal["respond", "conduct_research"]:
         return "respond"
 
 
+def vf_when_all_is_lost(inputs):
+    return ("Looks like our LLM providers are down. Please try again in a few minutes.")
+
+
 async def respond(
     state: AgentState, *, config: RunnableConfig
 ) -> dict[str, list[BaseMessage]]:
@@ -214,7 +219,7 @@ async def respond(
     context = format_docs(state.documents[:top_k])
     prompt = configuration.response_system_prompt.format(context=context)
     messages = [{"role": "system", "content": prompt}] + state.messages
-    response = await model.ainvoke(messages)
+    response = await model.with_fallbacks([RunnableLambda(vf_when_all_is_lost)]).ainvoke(messages)
     return {"messages": [response], "answer": response.content}
 
 
