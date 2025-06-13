@@ -37,7 +37,7 @@ function FeedbackButtons() {
   const goodScore = 1;
   const badScore = 0;
 
-  if (!runId || isStreaming) return null;
+  if (runId || isStreaming) return null;
 
   if (feedback) {
     return (
@@ -132,7 +132,7 @@ export const AssistantMessage: FC = () => {
         {shouldRenderMessageBreak ? (
           <hr className="relative left-1/2 -translate-x-1/2 w-[90vw] sm:w-[45vw] mt-4 sm:mt-6 border-gray-600" />
         ) : null}
-        {threadState.isRunning && <FeedbackButtons />}
+        {isLast && <FeedbackButtons />}
       </div>
     </MessagePrimitive.Root>
   );
