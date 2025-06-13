@@ -145,7 +145,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
       <div className="">
         <ThreadHistory />
       </div>
-      <div className="flex flex-col px-6 py-6 md:px-28">
+      <div className="flex flex-col px-6 py-6 md:px-28 w-full overflow-hidden">
         <div className="flex flex-row items-center bg-white rounded-3xl">
           <div className="flex flex-row gap-4 m-4">
             <NextImage
