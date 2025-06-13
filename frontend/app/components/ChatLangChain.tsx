@@ -185,9 +185,9 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
             <a className="text-black hover:border-0 mt-0.5 px-2" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">Report Issues</a>
           </div>
         </div>
-          <AssistantRuntimeProvider runtime={runtime}>
-            <ThreadChat submitDisabled={isSubmitDisabled} messages={messages} />
-          </AssistantRuntimeProvider>
+        <AssistantRuntimeProvider runtime={runtime}>
+          <ThreadChat submitDisabled={isSubmitDisabled} messages={messages} />
+        </AssistantRuntimeProvider>
       </div>
       <Toaster />
     </div>
