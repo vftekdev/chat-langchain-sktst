@@ -14,7 +14,13 @@ import {
   convertLangchainMessages,
 } from "../utils/convert_messages";
 import { ThreadChat } from "./chat-interface";
-import { SelectModel } from "./SelectModel";
+import {
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
+import { DropdownMenu} from "@radix-ui/react-dropdown-menu";
 import { ThreadHistory } from "./thread-history";
 import { Toaster } from "./ui/toaster";
 import { useGraphContext } from "../contexts/GraphContext";
@@ -120,26 +126,9 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
 
   const userlength = test.length;
   const truncatetext = userlength > 10 ? test.substring(0,10) + "..." : test;
+
   return (
-    <div className="overflow-hidden w-full flex lg:flex-row flex-col relative bg-white dark:bg-black">
-      <div className="flex absolute top-12 right-4 sm:top-2 lg:top-5 sm:right-64 z-10 mx-2 my-4 border border-[#D7D7D7] rounded-lg px-2">
-        <a className="text-black font-normal" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">Report Issue</a>
-      </div>
-      <div className="flex absolute top-2 right-2 lg:top-5 lg:right-5 z-10 m-4 font-normal border border-[#D7D7D7] rounded-lg px-2">
-        <NextImage
-          src="/images/solar_user_bold.svg"
-          className=""
-          alt="User Logo"
-          width={20}
-          height={20}
-        />
-        <div className="px-2 md:{'test'}">
-          {truncatetext}
-        </div>
-        <form action={SignOut}>
-            <button>Sign Out</button>
-        </form>
-      </div>
+    <div className="overflow-hidden w-full flex lg:flex-row flex-col bg-[#F9F9F9] dark:bg-black">
       {/* <div className="absolute bottom-2 right-2 lg:bottom-5 lg:right-5 z-10">
         <button onClick={() => document.body.classList.toggle('dark')}
           className="h-12 w-12 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -156,10 +145,51 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
       <div className="">
         <ThreadHistory />
       </div>
-      <div className="w-full overflow-hidden">
-        <AssistantRuntimeProvider runtime={runtime}>
-          <ThreadChat submitDisabled={isSubmitDisabled} messages={messages} />
-        </AssistantRuntimeProvider>
+      <div className="flex flex-col px-6 py-6 md:px-28">
+        <div className="flex flex-row items-center bg-white rounded-3xl">
+          <div className="flex flex-row gap-4 m-4">
+            <NextImage
+                src="/images/verafiles_banner.png"
+                className=""
+                alt="Verafiles Logo"
+                width={192}
+                height={192}
+            />
+            <div className="flex items-center text-[10px] md:text-xs text-black font-light border border-[#D7D7D7] rounded-lg px-2">
+              Claude 3.5 Haiku
+            </div>
+          </div>
+          <div className="flex bg-[#F7F9FB] rounded-md text-sm ml-auto mr-4 my-4 p-3">
+            <NextImage
+              src="/images/solar_user_bold.svg"
+              className=""
+              alt="User Icon"
+              width={20}
+              height={20}
+            />
+            <div className="flex md:{'test'} mt-0.5 px-2">
+              {truncatetext}
+              <form action={SignOut}>
+                  <button>Sign Out</button>
+              </form>
+            </div>
+          </div>
+          <div className="flex bg-[#F7F9FB] rounded-md text-sm ml-2 mr-6 my-4 p-3">
+            <NextImage
+              src="/images/ic_baseline-report.svg"
+              className=""
+              alt="Report Issue Icon"
+              width={20}
+              height={20}
+            />
+            <a className="text-black hover:border-0 mt-0.5 px-2" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">Report Issues</a>
+          </div>
+        </div>
+        <div className="w-full overflow-hidden">
+          <AssistantRuntimeProvider runtime={runtime}>
+            <ThreadChat submitDisabled={isSubmitDisabled} messages={messages} />
+          </AssistantRuntimeProvider>
+        </div>
       </div>
       <Toaster />
     </div>
