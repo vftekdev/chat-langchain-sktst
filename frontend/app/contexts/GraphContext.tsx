@@ -100,7 +100,7 @@ export function GraphProvider({ children }: { children: ReactNode }) {
     };
 
     // Clear the runId from the state
-    // setRunId("");
+    setRunId("");
 
     const stream = client.runs.stream(currentThreadId, "chat", {
       input,
@@ -126,7 +126,7 @@ export function GraphProvider({ children }: { children: ReactNode }) {
         if (chunk.data?.metadata?.run_id) {
           console.log(chunk.data?.metadata);
           _runId = chunk.data.metadata.run_id;
-          setRunId(_runId ?? "");
+          setRunId(_runId);
         }
         if (!hasProgressBeenSet) {
           setMessages((prevMessages) => {
