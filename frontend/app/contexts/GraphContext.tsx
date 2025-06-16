@@ -100,7 +100,7 @@ export function GraphProvider({ children }: { children: ReactNode }) {
     };
 
     // Clear the runId from the state
-    setRunId("");
+    // setRunId("");
 
     const stream = client.runs.stream(currentThreadId, "chat", {
       input,
