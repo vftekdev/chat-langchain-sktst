@@ -124,11 +124,15 @@ def load_api_docs():
 # function for custom metadata
 def metadata_func(record: dict, metadata: dict) -> dict:
 
-    metadata["title"] = record.get("article_title")
-    metadata["publish_date"] = record.get("publish_date")
-    metadata["claim_author"] = record.get("claim_author")
-    metadata["rating"] = record.get("rating")
-    metadata["source"] = record.get("url")
+    metadata["article_author"] = "None" if record.get("article_author") == "" else record.get("article_author")
+    metadata["category"] = "None" if record.get("category") == "" else record.get("category")
+    metadata["title"] = "None" if record.get("article_title") == "" else record.get("article_title")
+    metadata["publish_date"] = "None" if record.get("publish_date") == "" else record.get("publish_date")
+    metadata["claim_author"] = "None" if record.get("claim_author") == "" else record.get("claim_author")
+    metadata["claim"] = "None" if record.get("claim") == "" else record.get("claim")
+    metadata["rating"] = "None" if record.get("rating") == "" else record.get("rating")
+    metadata["explanation"] = "None" if record.get("explanation") == "" else record.get("explanation")
+    metadata["source"] = "None" if record.get("url") == "" else record.get("url")
 
     return metadata
 
@@ -155,7 +159,7 @@ def ingest_docs():
     DATABASE_NAME = os.environ["DATABASE_NAME"]
     RECORD_MANAGER_DB_URL = f"postgresql://{DATABASE_USERNAME}:{DATABASE_PASSWORD}@{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_NAME}"
 
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=6000, chunk_overlap=200)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=4000, chunk_overlap=200)
     embedding = get_embeddings_model()
 
     with weaviate.connect_to_weaviate_cloud(
@@ -212,6 +216,21 @@ def ingest_docs():
             doc for doc in docs_transformed if len(doc.page_content) > 10
         ]
 
+        for doc in docs_transformed:
+            doc.page_content = (
+                doc.page_content + '\n\n\nAbout this article:'
+                + '\n<article_author>' + str(doc.metadata.get("article_author", "None")) + '</article_author>'
+                + '\n<article_category>' + str(doc.metadata.get("category", "None")) + '</article_category>'
+                + '\n<article_title>' + str(doc.metadata.get("title", "None")) + '</article_title>'
+                + '\n<publish_date>' + str(doc.metadata.get("publish_date", "None")) + '</publish_date>'
+                + '\n<claim_author>' + str(doc.metadata.get("claim_author", "None")) + '</claim_author>'
+                + '\n<claim>' + str(doc.metadata.get("claim", "None")) + '</claim>'
+                + '\n<rating>' + str(doc.metadata.get("rating", "None")) + '</rating>'
+                + '\n<explanation>' + str(doc.metadata.get("explanation", "None")) + '</explanation>'
+                + '\n<source_url>' + str(doc.metadata.get("source", "None")) + '</source_url>'
+                + '\n\n'
+            )
+
         # We try to return 'source' and 'title' metadata when querying vector store and
         # Weaviate will error at query time if one of the attributes is missing from a
         # retrieved document.
@@ -225,7 +244,7 @@ def ingest_docs():
             docs_transformed,
             record_manager,
             vectorstore,
-            # cleanup="full",
+            cleanup="scoped_full",
             source_id_key="source",
             force_update=(os.environ.get("FORCE_UPDATE") or "false").lower() == "true",
         )
