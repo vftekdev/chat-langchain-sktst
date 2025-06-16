@@ -124,8 +124,10 @@ export function GraphProvider({ children }: { children: ReactNode }) {
 
       for await (const chunk of stream) {
         if (!runId && chunk.data?.metadata?.run_id) {
+          console.log(chunk.data?.metadata);
           _runId = chunk.data.metadata.run_id;
-          setRunId(_runId);
+          setRunId(_runId ?? "");
+          
         }
         if (!hasProgressBeenSet) {
           setMessages((prevMessages) => {
