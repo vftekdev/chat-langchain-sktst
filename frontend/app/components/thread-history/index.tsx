@@ -43,25 +43,35 @@ function ThreadHistoryComponent() {
   return (
     <div className="overflow-y-auto lg:h-screen">
       {/* Tablet & up */}
-      <div className={`hidden lg:flex flex-col bg-white transition-all ${expanded ? "w-[260px]": ""}`}>
+      <div className={`hidden lg:flex flex-col overflow-hidden transition-all ${expanded ? "w-[260px] bg-white": "bg-[#F9F9F9] w-min"}`}>
         <div className="flex-grow my-6 flex flex-col overflow-hidden">
-          <div className={`flex flex-row items-center justify-between border-b-[1px] pt-3 px-2 mx-4 -mt-4 text-gray-200 ${expanded ? "" : "p-0 m-0"}`}>
+          <div className={`flex flex-row items-center border-b-[1px] pt-3 px-2 mx-4 -mt-4 text-gray-200 transition-all ${expanded ? "" : "p-0 m-0 border-none"}`}>
             <p className={`text-lg text-black font-bold ${expanded ? "block" : "hidden"}`}>Chat History</p>
             {userId ? (
               <TooltipIconButton
                 tooltip="New chat"
                 variant="ghost"
-                className="w-fit p-2"
+                className="w-fit p-2 ml-auto mr-.5"
                 onClick={createNewSession}
               >
                 <SquarePen className="w-5 h-5 text-black" />
               </TooltipIconButton>
             ) : null}
             <button onClick={() => setExpanded(curr => !curr)}>
-              {expanded ? <ChevronFirst className="text-black" /> : <ChevronLast className="text-black" />}
+              {expanded ? 
+              <TooltipIconButton 
+                tooltip="Close Chat History"
+              >
+                <ChevronFirst className="text-black" />
+              </TooltipIconButton> :
+              <TooltipIconButton
+                tooltip="Open Chat History"
+              >
+                <ChevronLast className="ml-1 text-black" />
+              </TooltipIconButton> }
             </button>
           </div>
-          <div className={`overflow-y-auto flex-grow scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent overflow-hidden transition-all ${expanded ? "" : "hidden"}`}>
+          <div className={`overflow-y-auto flex-grow scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent overflow-hidden transition-all ${expanded ? "" : "w-0 scrollbar-none"}`}>
             {isUserThreadsLoading && !userThreads.length ? (
               <div className="flex flex-col gap-1 px-3 pt-3">
                 {Array.from({ length: 25 }).map((_, i) => (
