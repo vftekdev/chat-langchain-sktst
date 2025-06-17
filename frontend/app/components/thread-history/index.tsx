@@ -1,5 +1,5 @@
 import { TooltipIconButton } from "../ui/assistant-ui/tooltip-icon-button";
-import { SquarePen, History } from "lucide-react";
+import { SquarePen, History, ChevronFirst, ChevronLast } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Skeleton } from "../ui/skeleton";
 import React from "react";
@@ -7,6 +7,7 @@ import { useGraphContext } from "../../contexts/GraphContext";
 import { groupThreads } from "./utils";
 import { ThreadsList } from "./thread-list";
 import { useQueryState } from "nuqs";
+import { useState } from "react";
 
 const LoadingThread = () => <Skeleton className="w-full h-8 bg-[#373737]" />;
 
@@ -37,13 +38,15 @@ function ThreadHistoryComponent() {
     clearMessages();
   };
 
+  const [expanded, setExpanded] = useState(true);
+
   return (
     <div className="overflow-y-auto lg:h-screen">
       {/* Tablet & up */}
       <div className="hidden lg:flex flex-col w-[260px] bg-white">
         <div className="flex-grow my-6 flex flex-col overflow-hidden">
-          <div className="flex flex-row items-center justify-between border-b-[1px] pt-3 px-2 mx-4 -mt-4 text-gray-200">
-            <p className="text-lg text-black font-bold">Chat History</p>
+          <div className={`flex flex-row items-center border-b-[1px] pt-3 px-2 mx-4 -mt-4 text-gray-200 ${expanded ? "justify-between": ""}`}>
+            <p className={`text-lg text-black font-bold ${expanded ? "block" : "hidden"}`}>Chat History</p>
             {userId ? (
               <TooltipIconButton
                 tooltip="New chat"
@@ -54,10 +57,13 @@ function ThreadHistoryComponent() {
                 <SquarePen className="w-5 h-5 text-black" />
               </TooltipIconButton>
             ) : null}
+            <button onClick={() => setExpanded(curr => !curr)}>
+              {expanded ? <ChevronFirst className="text-black" /> : <ChevronLast className="text-black" />}
+            </button>
           </div>
           <div className="overflow-y-auto flex-grow scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent">
             {isUserThreadsLoading && !userThreads.length ? (
-              <div className="flex flex-col gap-1 px-3 pt-3">
+              <div className={`flex flex-col gap-1 px-3 pt-3 ${expanded ? "block" : "hidden"}`}>
                 {Array.from({ length: 25 }).map((_, i) => (
                   <LoadingThread key={`loading-thread-${i}`} />
                 ))}

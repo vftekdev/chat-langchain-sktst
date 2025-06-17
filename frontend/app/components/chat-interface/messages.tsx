@@ -110,7 +110,6 @@ export const AssistantMessage: FC = () => {
   const shouldRenderMessageBreak =
     threadState.messages.filter((msg) => msg.role === "user")?.length > 1 &&
     !isLast;
-  console.log(isLast);
 
   return (
     <MessagePrimitive.Root className="flex w-full md:max-w-4xl md:mx-0 mx-auto max-w-[95%] md:py-4 py-2">
