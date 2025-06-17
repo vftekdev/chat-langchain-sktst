@@ -43,9 +43,9 @@ function ThreadHistoryComponent() {
   return (
     <div className="overflow-y-auto lg:h-screen">
       {/* Tablet & up */}
-      <div className="hidden lg:flex flex-col w-[260px] bg-white">
+      <div className={`hidden lg:flex flex-col bg-white transition-all ${expanded ? "w-[260px]": ""}`}>
         <div className="flex-grow my-6 flex flex-col overflow-hidden">
-          <div className={`flex flex-row items-center border-b-[1px] pt-3 px-2 mx-4 -mt-4 text-gray-200 ${expanded ? "justify-between": ""}`}>
+          <div className={`flex flex-row items-center justify-between border-b-[1px] pt-3 px-2 mx-4 -mt-4 text-gray-200 ${expanded ? "" : "p-0 m-0"}`}>
             <p className={`text-lg text-black font-bold ${expanded ? "block" : "hidden"}`}>Chat History</p>
             {userId ? (
               <TooltipIconButton
@@ -61,7 +61,7 @@ function ThreadHistoryComponent() {
               {expanded ? <ChevronFirst className="text-black" /> : <ChevronLast className="text-black" />}
             </button>
           </div>
-          <div className={`overflow-y-auto flex-grow scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent ${expanded ? "block" : "hidden"}`}>
+          <div className={`overflow-y-auto flex-grow scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent`}>
             {isUserThreadsLoading && !userThreads.length ? (
               <div className="flex flex-col gap-1 px-3 pt-3">
                 {Array.from({ length: 25 }).map((_, i) => (
