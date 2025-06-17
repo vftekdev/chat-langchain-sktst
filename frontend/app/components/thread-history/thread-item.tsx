@@ -34,7 +34,7 @@ export function Thread(props: ThreadProps) {
         <TooltipIconButton
           tooltip="Delete thread"
           variant="ghost"
-          className="hover:bg-[#373737] flex-shrink-0 p-2"
+          className="hover:bg-[#F9F9F9] flex-shrink-0 p-2"
           onClick={props.onDelete}
         >
           <Trash2 className="w-4 h-4 text-[#575757] hover:text-red-500 transition-colors ease-in" />
