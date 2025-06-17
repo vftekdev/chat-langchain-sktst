@@ -6,6 +6,7 @@ Functions:
 """
 
 import uuid
+import os
 from typing import Any, Literal, Optional, Union
 
 from langchain.chat_models import init_chat_model
