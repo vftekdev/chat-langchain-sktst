@@ -43,7 +43,7 @@ function ThreadHistoryComponent() {
   return (
     <div className="overflow-y-auto lg:h-screen">
       {/* Tablet & up */}
-      <div className={`hidden lg:flex flex-col overflow-hidden transition-all ${expanded ? "w-[260px] bg-white": "bg-[#F9F9F9] w-min"}`}>
+      <div className={`hidden lg:flex flex-col overflow-hidden transition-all ${expanded ? "w-[260px] bg-white": "bg-[#F9F9F9]"}`}>
         <div className="flex-grow my-6 flex flex-col overflow-hidden">
           <div className={`flex flex-row items-center border-b-[1px] pt-3 px-2 mx-4 -mt-4 text-gray-200 transition-all ${expanded ? "" : "p-0 m-0 border-none"}`}>
             <p className={`text-lg text-black font-bold ${expanded ? "block" : "hidden"}`}>Chat History</p>
@@ -61,17 +61,21 @@ function ThreadHistoryComponent() {
               {expanded ? 
               <TooltipIconButton 
                 tooltip="Close Chat History"
+                variant="ghost"
+                className="mt-[3px]"
               >
                 <ChevronFirst className="text-black" />
               </TooltipIconButton> :
               <TooltipIconButton
                 tooltip="Open Chat History"
+                variant="ghost"
+                className="mt-[3px]"
               >
-                <ChevronLast className="ml-1 text-black" />
+                <ChevronLast className="ml-1 mt-.5 text-black" />
               </TooltipIconButton> }
             </button>
           </div>
-          <div className={`overflow-y-auto flex-grow scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent overflow-hidden transition-all ${expanded ? "" : "w-0 scrollbar-none"}`}>
+          <div className={`overflow-y-auto flex-grow scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent ${expanded ? "" : "hidden"}`}>
             {isUserThreadsLoading && !userThreads.length ? (
               <div className="flex flex-col gap-1 px-3 pt-3">
                 {Array.from({ length: 25 }).map((_, i) => (
