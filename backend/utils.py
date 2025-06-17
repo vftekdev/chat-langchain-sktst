@@ -11,6 +11,7 @@ from typing import Any, Literal, Optional, Union
 from langchain.chat_models import init_chat_model
 from langchain_core.documents import Document
 from langchain_core.language_models import BaseChatModel
+from langchain_voyageai import VoyageAIRerank
 
 
 def _format_doc(doc: Document) -> str:
@@ -30,7 +31,7 @@ def _format_doc(doc: Document) -> str:
     return f"<document{meta}>\n{doc.page_content}\n</document>"
 
 
-def format_docs(docs: Optional[list[Document]]) -> str:
+def format_docs(docs: Optional[list[Document]], query) -> str:
     """Format a list of documents as XML.
 
     This function takes a list of Document objects and formats them into a single XML string.
@@ -58,10 +59,16 @@ def format_docs(docs: Optional[list[Document]]) -> str:
     """
     if not docs:
         return "<documents></documents>"
+
+    # re-rank documents
+    compressor = VoyageAIRerank(
+        model="rerank-2-lite", voyageai_api_key=os.environ["VOYAGE_API_KEY"], top_k=5
+    )
+    docs = compressor.compress_documents(docs, query)
+
     formatted = "\n".join(_format_doc(doc) for doc in docs)
-    return f"""<documents>
-{formatted}
-</documents>"""
+
+    return f"""<documents>{formatted}</documents>"""
 
 
 def load_chat_model(fully_specified_name: str) -> BaseChatModel:
