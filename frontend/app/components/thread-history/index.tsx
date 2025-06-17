@@ -61,7 +61,7 @@ function ThreadHistoryComponent() {
               {expanded ? <ChevronFirst className="text-black" /> : <ChevronLast className="text-black" />}
             </button>
           </div>
-          <div className={`overflow-y-auto flex-grow scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent overflow-hidden transition-all ${expanded ? "" : "w-0"}`}>
+          <div className={`overflow-y-auto flex-grow scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent overflow-hidden transition-all ${expanded ? "" : "hidden"}`}>
             {isUserThreadsLoading && !userThreads.length ? (
               <div className="flex flex-col gap-1 px-3 pt-3">
                 {Array.from({ length: 25 }).map((_, i) => (
