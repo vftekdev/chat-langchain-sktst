@@ -1,6 +1,7 @@
 import { useThreadRuntime } from "@assistant-ui/react";
 import NextImage from "next/image";
 import { MoveRight } from "lucide-react";
+import { MoveRight } from "lucide-react";
 
 const suggestedQuestions = [
   "What does verafiles do?",
@@ -26,7 +27,7 @@ export function SuggestedQuestions() {
           key={`suggested-question-${idx}`}
           className="flex w-full bg-[#F7F9FB] rounded-lg shadow-lg cursor-pointer col-span-12 xl:col-span-4"
         >
-          <p className="flex flex-row gap-2 px-4 py-1.5 text-[#0F5579] text-lg transition-colors ease-in hover:text-[#2891E0]">
+          <p className="flex flex-row transition-colors ease-in items-center font-light text-[#4B4B4B] text-wrap text-lg hover:text-black gap-2 px-4 py-1">
             {question}
           </p>
           <NextImage
