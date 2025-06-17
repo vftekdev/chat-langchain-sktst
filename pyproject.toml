@@ -21,7 +21,7 @@ langgraph = ">=0.4.5"
 beautifulsoup4 = "^4.12.2"
 weaviate-client = "^4.0.0"
 lxml = "^4.9.3"
-# voyageai = "^0.1.4"
+voyageai = "^0.3.2,<1"
 pillow = "^10.2.0"
 # do not remove this, it's used for indexing
 psycopg2-binary = "^2.9.9"
