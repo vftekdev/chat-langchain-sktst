@@ -26,7 +26,7 @@ export function SuggestedQuestions() {
           key={`suggested-question-${idx}`}
           className="flex w-full bg-[#F7F9FB] rounded-lg cursor-pointer col-span-12 xl:col-span-4"
         >
-          <p className="flex flex-row transition-colors ease-in items-center font-light text-[#4B4B4B] text-wrap text-lg hover:text-black gap-2 px-4 py-1">
+          <p className="flex transition-colors ease-in items-center font-light text-[#4B4B4B] text-wrap text-lg hover:text-black gap-2 px-4 py-1">
             {question}
           </p>
           <NextImage
