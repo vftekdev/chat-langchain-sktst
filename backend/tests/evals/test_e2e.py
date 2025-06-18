@@ -19,8 +19,8 @@ SCORE_RETRIEVAL_RECALL = "retrieval_recall"
 SCORE_ANSWER_CORRECTNESS = "answer_correctness_score"
 SCORE_ANSWER_VS_CONTEXT_CORRECTNESS = "answer_vs_context_correctness_score"
 
-JUDGE_MODEL_NAME = "anthropic/claude-3-5-haiku-20241022"
-
+#JUDGE_MODEL_NAME = "anthropic/claude-3-5-haiku-20241022"
+JUDGE_MODEL_NAME = "anthropic/claude-3-7-sonnet-20250219"
 judge_llm = load_chat_model(JUDGE_MODEL_NAME)
 
 
