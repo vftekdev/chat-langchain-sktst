@@ -33,8 +33,6 @@ export function SuggestedQuestions() {
             src="/images/arrow-right.svg"
             className="text-black ml-auto mr-3"
             alt="Search Icon"
-            width={32}
-            height={32}
             style={{ width: "auto", height: "auto" }}
           />
         </div>
