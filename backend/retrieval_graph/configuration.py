@@ -26,7 +26,8 @@ class AgentConfiguration(BaseConfiguration):
 
     response_model: str = field(
         # default="anthropic/claude-3-5-haiku-20241022",
-        default="anthropic/claude-3-5-haiku-latest",
+        # default="anthropic/claude-3-5-haiku-latest",
+        default="anthropic/claude-3-7-sonnet-20250219",    
         # default="openai/gpt-4o-mini",
         metadata={
             "description": "The language model used for generating responses. Should be in the form: provider/model-name."
