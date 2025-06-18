@@ -6,6 +6,8 @@ and key functions for processing & routing user queries, generating research pla
 conducting research, and formulating responses.
 """
 
+import os
+
 from typing import Any, Literal, TypedDict, cast
 
 from langchain_core.messages import BaseMessage
@@ -17,6 +19,7 @@ from backend.retrieval_graph.researcher_graph.graph import graph as researcher_g
 from backend.retrieval_graph.state import AgentState, InputState, Router
 from backend.utils import format_docs, load_chat_model
 from langchain_core.runnables import RunnableLambda
+from langchain_voyageai import VoyageAIRerank
 
 
 async def analyze_and_route_query(
@@ -214,9 +217,16 @@ async def respond(
     """
     configuration = AgentConfiguration.from_runnable_config(config)
     model = load_chat_model(configuration.response_model)
-    # TODO: add a re-ranker here
-    top_k = 20
-    context = format_docs(state.documents[:top_k], state.query)
+
+    # re-rank documents
+    compressor = VoyageAIRerank(
+        model="rerank-2-lite", voyageai_api_key=os.environ["VOYAGE_API_KEY"], top_k=6
+    )
+    state.documents = compressor.compress_documents(state.documents, state.query)
+    
+    # top_k = 20
+    # context = format_docs(state.documents[:top_k])
+    context = format_docs(state.documents)
     prompt = configuration.response_system_prompt.format(context=context)
     messages = [{"role": "system", "content": prompt}] + state.messages
     response = await model.with_fallbacks([RunnableLambda(vf_when_all_is_lost)]).ainvoke(messages)
