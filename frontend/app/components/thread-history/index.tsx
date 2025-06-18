@@ -100,7 +100,7 @@ function ThreadHistoryComponent() {
               <History className="w-6 h-6" />
             </TooltipIconButton>
           </SheetTrigger>
-          <SheetContent side="left" className="bg-[#282828] border-none">
+          <SheetContent side="left" className="bg-white border-none">
             {isUserThreadsLoading && !userThreads.length ? (
               <div className="flex flex-col gap-1 px-3 pt-3">
                 {Array.from({ length: 25 }).map((_, i) => (
