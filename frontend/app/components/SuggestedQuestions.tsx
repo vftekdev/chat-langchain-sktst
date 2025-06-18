@@ -26,17 +26,17 @@ export function SuggestedQuestions() {
           key={`suggested-question-${idx}`}
           className="flex w-full bg-[#F7F9FB] rounded-lg cursor-pointer col-span-12 xl:col-span-4"
         >
-          <p className="flex flex-row transition-colors ease-in items-center font-light text-[#4B4B4B] text-wrap text-lg hover:text-black gap-2 px-4 py-1">
+          <p className="flex transition-colors ease-in items-center font-light text-[#4B4B4B] text-wrap text-lg hover:text-black gap-2 px-4 py-1">
             {question}
-            <NextImage
-                src="/images/arrow-right.svg"
-                className="text-black"
-                alt="Search Icon"
-                width={32}
-                height={32}
-                style={{ width: "auto", height: "auto" }}
-              />
           </p>
+          <NextImage
+            src="/images/arrow-right.svg"
+            className="text-black ml-auto mr-3"
+            alt="Search Icon"
+            width={32}
+            height={32}
+            style={{ width: "auto", height: "auto" }}
+          />
         </div>
       ))}
     </div>
