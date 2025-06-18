@@ -8,7 +8,8 @@ from typing import Annotated, Any, Literal, Optional, Type, TypeVar
 from langchain_core.runnables import RunnableConfig, ensure_config
 
 MODEL_NAME_TO_RESPONSE_MODEL = {
-    "anthropic_claude_3_5_sonnet": "anthropic/claude-3-5-sonnet-20240620",
+    # "anthropic_claude_3_5_sonnet": "anthropic/claude-3-5-sonnet-20240620",
+    "anthropic_claude_3_7_sonnet": "anthropic/claude-3-7-sonnet-20250219",
 }
 
 
