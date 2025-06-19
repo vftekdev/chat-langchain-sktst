@@ -126,6 +126,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
 
   const userlength = test.length;
   const truncatetext = userlength > 10 ? test.substring(0,10) + "..." : test;
+  const [expanded, setExpanded] = useState(true);
 
   return (
     <div className="overflow-hidden w-full flex lg:flex-row flex-col bg-[#F9F9F9] dark:bg-black">
@@ -159,7 +160,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
               Claude 3.7 Sonnet
             </div>
           </div>
-          <div className="flex bg-[#F7F9FB] rounded-md text-sm ml-auto mr-4 my-4 p-3">
+          <div onClick={() => setExpanded(curr => !curr)} className="flex bg-[#F7F9FB] rounded-md text-sm ml-auto mr-4 my-4 p-3">
             <NextImage
               src="/images/solar_user_bold.svg"
               className=""
@@ -167,7 +168,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
               width={20}
               height={20}
             />
-            <div className="flex md:{'test'} mt-0.5 px-2">
+            <div className={`flex md:{'test'} mt-0.5 px-2 ${expanded ? "block" : "hidden"}`}>
               {truncatetext}
               <form action={SignOut}>
                   <button>Sign Out</button>
