@@ -101,6 +101,7 @@ const QuestionCard = ({ question }: { question: Question }) => {
   );
 };
 
+const [expanded, setExpanded] = useState(true);
 export const useGeneratingQuestionsUI = () =>
   useAssistantToolUI({
     toolName: "generating_questions",
@@ -110,7 +111,6 @@ export const useGeneratingQuestionsUI = () =>
       if (!input.args?.questions || input.args.questions.length === 0) {
         return null;
       }
-      const [expanded, setExpanded] = useState(true);
 
       return (
         <div onClick={() => setExpanded(curr => !curr)} className="flex flex-col mb-4">
