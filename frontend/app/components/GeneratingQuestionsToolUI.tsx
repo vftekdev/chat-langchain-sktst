@@ -11,7 +11,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { TooltipIconButton } from "./ui/assistant-ui/tooltip-icon-button";
 import { DocumentCard, Document } from "./DocumentCard";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 type Question = {
   question: string;
@@ -110,14 +110,15 @@ export const useGeneratingQuestionsUI = () =>
       if (!input.args?.questions || input.args.questions.length === 0) {
         return null;
       }
+      const [expanded, setExpanded] = useState(true);
 
       return (
-        <div className="flex flex-col mb-4">
+        <div onClick={() => setExpanded(curr => !curr)} className="flex flex-col mb-4">
           <span className="flex flex-row gap-2 items-center justify-start pb-4 text-black-300">
             <Globe className="w-5 h-5" />
             <p className="text-xl">Research Plan & Sources</p>
           </span>
-          <div className="mb-10">
+          <div className={`mb-10 ${expanded ? "" : "hidden"}`}>
             <div className="flex flex-wrap items-start justify-start gap-2">
               {(input.args.questions as Question[]).map(
                 (question, questionIndex) => (

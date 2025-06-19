@@ -25,7 +25,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
   useGeneratingQuestionsUI();
   useAnswerHeaderToolUI();
   useProgressToolUI();
-  useSelectedDocumentsUI();
+  // useSelectedDocumentsUI();
   useRouterLogicUI();
 
 
