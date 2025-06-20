@@ -139,7 +139,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
       <div className="">
         <ThreadHistory />
       </div>
-      <div className="px-6 lg:py-6 md:px-28 w-full overflow-hidden">
+      <div className="px-6 lg:py-6 md:px-16 w-full overflow-hidden">
         <div className="flex flex-row items-center bg-white rounded-3xl">
           <div className="flex flex-row gap-4 m-4">
             <NextImage
@@ -153,22 +153,39 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
               Claude 3.7 Sonnet
             </div>
           </div>
-          <div onClick={() => setExpanded(curr => !curr)} className="flex bg-[#F7F9FB] rounded-md text-sm ml-auto mr-4 my-4 p-3">
-            <NextImage
-              src="/images/solar_user_bold.svg"
-              className=""
-              alt="User Icon"
-              width={20}
-              height={20}
-            />
-            <div className={`flex md:{'test'} mt-0.5 px-2 ${expanded ? "block" : "hidden"}`}>
-              {truncatetext}
-              <form action={SignOut}>
-                  <button>Sign Out</button>
-              </form>
+          <div className="flex bg-[#F7F9FB] relative rounded-md text-xs xl:text-sm ml-auto mr-2 my-4 px-3 py-2">
+            <div onClick={() => setExpanded(curr => !curr)} className="flex flex-row items-center justify-center hover:cursor-pointer">
+              <NextImage
+                src="/images/solar_user_bold.svg"
+                className=""
+                alt="User Icon"
+                width={18}
+                height={18}
+              />
+              <div className="mr-auto mt-0.5 ml-2">User</div>
+              <NextImage
+                src="/images/chevron-down.svg"
+                className="mt-0.5 ml-0.5"
+                alt="Chevron Down"
+                width={20}
+                height={20}
+              />
+            </div>
+            <div className={`absolute top-full right-0 mt-2 z-50 rounded shadow-lg bg-[#F7F9FB] w-max transition ease-in-out duration-200 ${expanded ? "transform opacity-100 scale-100" : "transform opacity-0 scale-95"}`} >
+              
+              <div className={`flex flex-col justify-end items-end px-4 py-3 gap-1 ${expanded ? "block" : "invisible"}`}>
+                <div>
+                  {test}
+                </div>
+                <div>
+                  <form action={SignOut}>
+                    <button>Sign Out</button>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="flex bg-[#F7F9FB] rounded-md text-sm ml-2 mr-6 my-4 p-3">
+          <div className="flex items-center bg-[#F7F9FB] rounded-md text-xs xl:text-sm ml-2 mr-6 my-4 px-3 py-2">
             <NextImage
               src="/images/ic_baseline-report.svg"
               className=""
