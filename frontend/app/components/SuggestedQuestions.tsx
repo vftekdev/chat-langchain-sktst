@@ -31,10 +31,10 @@ export function SuggestedQuestions() {
           </p>
           <NextImage
             src="/images/arrow-right.svg"
-            className="text-black ml-auto mr-3"
-            alt="Search Icon"
-            width={32}
-            height={32}
+            className="text-black ml-auto mr-4"
+            alt="Right Arrow Icon"
+            width={24}
+            height={24}
           />
         </div>
       ))}
