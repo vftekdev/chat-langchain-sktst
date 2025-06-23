@@ -171,8 +171,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
                 height={20}
               />
             </div>
-            <div className={`absolute top-full right-0 mt-2 z-50 rounded shadow-lg bg-[#F7F9FB] w-max transition ease-in-out duration-200 ${expanded ? "transform opacity-100 scale-100" : "transform opacity-0 scale-95"}`} >
-              
+            <div className={`absolute top-full right-0 mt-2 z-50 rounded shadow-lg bg-[#F7F9FB] w-max transition ease-in-out duration-200 ${expanded ? "transform opacity-100 scale-100" : "transform opacity-0 scale-95"}`}>
               <div className={`flex flex-col justify-end items-end px-4 py-3 gap-1 ${expanded ? "block" : "invisible"}`}>
                 <div>
                   {test}
