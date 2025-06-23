@@ -51,7 +51,7 @@ function ThreadHistoryComponent() {
               <TooltipIconButton
                 tooltip="New chat"
                 variant="ghost"
-                className="w-fit p-2 ml-auto mr-.5"
+                className="ml-auto mr-1 hover:bg-[#E5E7EB]"
                 onClick={createNewSession}
               >
                 <SquarePen className="w-5 h-5 text-black" />
@@ -62,16 +62,16 @@ function ThreadHistoryComponent() {
               <TooltipIconButton 
                 tooltip="Close Chat History"
                 variant="ghost"
-                className="mt-[3px]"
+                className="mt-[3px] hover:bg-[#E5E7EB]"
               >
-                <ChevronFirst className="text-black" />
+                <ChevronFirst className="w-6 h-6 text-black" />
               </TooltipIconButton> :
               <TooltipIconButton
                 tooltip="Open Chat History"
                 variant="ghost"
-                className="mt-[3px]"
+                className="mt-[3px] hover:bg-[#E5E7EB]"
               >
-                <ChevronLast className="ml-1 mt-.5 text-black" />
+                <ChevronLast className="w-6 h-6 text-black" />
               </TooltipIconButton> }
             </button>
           </div>
