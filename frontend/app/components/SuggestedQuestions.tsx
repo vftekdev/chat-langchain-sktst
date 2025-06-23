@@ -24,9 +24,9 @@ export function SuggestedQuestions() {
         <div
           onClick={() => handleSend(question)}
           key={`suggested-question-${idx}`}
-          className="flex w-full bg-[#F7F9FB] rounded-lg cursor-pointer col-span-12 xl:col-span-4"
+          className="flex w-full bg-[#F7F9FB] rounded-lg shadow-lg cursor-pointer col-span-12 xl:col-span-4"
         >
-          <p className="flex transition-colors ease-in items-center font-light text-[#4B4B4B] text-wrap text-lg hover:text-black gap-2 px-4 py-1">
+          <p className="flex transition-colors ease-in items-center tracking-wide leading-6 font-light text-[#4B4B4B] text-nowrap text-md hover:text-black gap-2 px-4 py-1">
             {question}
           </p>
           <NextImage
