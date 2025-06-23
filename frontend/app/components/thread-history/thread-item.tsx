@@ -26,7 +26,7 @@ export function Thread(props: ThreadProps) {
         variant="ghost"
         onClick={props.onClick}
       >
-        <p className="truncate text-sm font-light w-full text-left">
+        <p className="truncate text-sm !font-light w-full text-left">
           {props.label}
         </p>
       </Button>

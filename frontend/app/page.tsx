@@ -29,8 +29,8 @@ export default async function SignIn() {
           height={208}
         />
         <h1 className="mt-4 font-bold text-3xl">Welcome to SEEK!</h1>
-        <h2 className="mt-2 font-semibold text-lg">Check your facts in less than a minute.</h2>
-        <p className="mt-6 font-light text-sm">By clicking “Login”, you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookie Policy.</p>
+        <h2 className="mt-2 !font-semibold text-lg">Check your facts in less than a minute.</h2>
+        <p className="mt-6 !font-light text-sm">By clicking “Login”, you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookie Policy.</p>
         <Card className="mt-6 w-[50%] cursor-pointer">
           <form className="flex flex-row justify-center"
             action={async () => {

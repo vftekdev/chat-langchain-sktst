@@ -31,7 +31,7 @@ const QuestionCard = ({ question }: { question: Question }) => {
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <CardTitle className="text-sm font-light text-black-300 line-clamp-4 overflow-hidden">
+              <CardTitle className="text-sm !font-light text-black-300 line-clamp-4 overflow-hidden">
                 {question.question}
               </CardTitle>
             </TooltipTrigger>
