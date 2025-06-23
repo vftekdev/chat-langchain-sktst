@@ -45,7 +45,7 @@ export const ChatComposer: FC<ChatComposerProps> = (
         autoFocus
         placeholder="Ask a question"
         rows={1}
-        className="placeholder:text-[#8D8D8D] font-light text-black max-h-40 flex-1 resize-none border-none bg-transparent px-4 py-3 text-sm md:text-xl outline-none focus:ring-0 disabled:cursor-not-allowed"
+        className="placeholder:text-[#8D8D8D] !font-light text-black max-h-40 flex-1 resize-none border-none bg-transparent px-4 py-3 text-sm md:text-xl outline-none focus:ring-0 disabled:cursor-not-allowed"
       />
       <div className="flex-shrink-0">
         <ThreadPrimitive.If running={false} disabled={props.submitDisabled}>

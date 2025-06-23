@@ -26,7 +26,7 @@ const MarkdownTextImpl = () => {
         h1: ({ node: _node, className, ...props }) => (
           <h1
             className={cn(
-              "mb-8 scroll-m-20 text-4xl font-extrabold tracking-tight last:mb-0",
+              "mb-8 scroll-m-20 text-4xl !font-extrabold tracking-tight last:mb-0",
               className,
             )}
             {...props}
