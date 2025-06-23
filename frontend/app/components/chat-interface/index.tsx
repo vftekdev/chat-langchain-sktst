@@ -53,7 +53,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
       <ThreadChatScrollToBottom />
       {isEmpty ? (
         <div className="flex items-center justify-center flex-grow my-auto py-12">
-          <div className="flex flex-col items-center bg-white rounded-3xl dark:bg-black relative px-8 sm:px-16 lg:px-20 py-12">
+          <div className="flex flex-col items-center bg-white rounded-3xl dark:bg-black relative px-8 sm:px-16 lg:px-20 py-12 w-full">
             <div className="flex flex-col items-center justify-center">
               <p className="text-center text-[#F6911D] font-bold text-3xl sm:text-4xl m-1">What would you like to know?</p>
               <p className="text-center text-black font-medium text-sm sm:text-lg m-1">SEEK helps you check facts and look for misinformation trends</p>
