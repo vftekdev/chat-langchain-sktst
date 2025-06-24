@@ -50,7 +50,7 @@ export const useProgressToolUI = () =>
         <div className="flex flex-row md:max-w-[550px] w-full items-center justify-start gap-3 pb-4 ml-[-5px] mt-[16px]">
           <Progress
             value={progress}
-            indicatorClassName="bg-gray-700"
+            indicatorClassName="bg-[#F6911D]"
             className="w-full"
           />
           <p

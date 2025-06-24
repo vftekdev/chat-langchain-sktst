@@ -12,6 +12,7 @@ import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { TooltipIconButton } from "./ui/assistant-ui/tooltip-icon-button";
 import { DocumentCard, Document } from "./DocumentCard";
 import { useCallback } from "react";
+import NextImage from "next/image";
 
 type Question = {
   question: string;
@@ -114,7 +115,13 @@ export const useGeneratingQuestionsUI = () =>
       return (
         <div className="flex flex-col mb-4">
           <span className="flex flex-row gap-2 items-center justify-start pb-4 text-black-300">
-            <Globe className="w-5 h-5" />
+            <NextImage
+              src="/images/books.svg"
+              className=""
+              alt="Books Logo"
+              width={20}
+              height={20}
+            />
             <p className="text-xl">Research Plan & Sources</p>
           </span>
           <div className="mb-10">

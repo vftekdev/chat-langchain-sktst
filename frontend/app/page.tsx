@@ -22,7 +22,7 @@ export default async function SignIn() {
     <main className="flex mx-auto my-auto text-center justify-center items-center">
       <Card className="flex flex-col justify-center items-center w-[90%] lg:w-[60%] p-16">
         <NextImage
-          src="/images/verafiles_banner.png"
+          src="/images/verafiles-banner.png"
           className=""
           alt="Verafiles Logo"
           width={208}
@@ -39,7 +39,7 @@ export default async function SignIn() {
             }}
           >
             <NextImage
-              src="/images/Google Logo.svg"
+              src="/images/google-logo.svg"
               className=""
               alt="Google Logo"
               width={20}

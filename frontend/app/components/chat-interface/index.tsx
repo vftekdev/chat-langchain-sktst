@@ -68,13 +68,13 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
                 SEEK uses VERA Files articles to create answers using AI. 
                 AI answers may contain errors. 
                 Always check the sources cited to verify the facts.
-                <a className="text-blue" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank"> Report Issues.</a>
+                <a className="text-blue hover:border-0" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank"> Report Issues.</a>
               </p>
             </div>
             <div className="w-full mt-2 md:mt-4">
               <div className="flex">
                 <NextImage
-                  src="/images/IconSet.svg"
+                  src="/images/suggested-questions.svg"
                   className=""
                   alt="Suggested Questions Icon"
                   width={32}
@@ -99,7 +99,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
               SEEK uses VERA Files articles to create answers using AI. 
               AI answers may contain errors. 
               Always check the sources cited to verify the facts.
-              <a className="text-blue" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank"> Report Issues.</a>
+              <a className="text-blue hover:border-0" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank"> Report Issues.</a>
             </p>
           </div>
         </div>
