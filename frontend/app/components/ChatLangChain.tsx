@@ -193,7 +193,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
               width={20}
               height={20}
             />
-            <div className="text-black mt-1">Report Issues</div>
+            <div className="text-black">Report Issues</div>
           </a>
           <a className="flex items-center hover:border-0 bg-[#F7F9FB] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="/" target="_blank">
             <NextImage
@@ -203,7 +203,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
               width={20}
               height={20}
             />
-            <div className="text-black mt-1">Help</div>
+            <div className="text-black">Help</div>
           </a>
           </div>
         </div>
