@@ -8,7 +8,7 @@ export const useAnswerHeaderToolUI = () =>
       return (
         <div className="flex flex-row gap-2 items-center justify-start pb-4 text-black-300">
           <NextImage
-              src="/images/speech-bubble-icon.svg"
+              src="/images/chat-icon.svg"
               className=""
               alt="Answer Logo"
               width={20}
