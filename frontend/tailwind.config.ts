@@ -11,6 +11,7 @@ const config: Config = {
     extend: {
       fontFamily: {
 				helveticaneue: ['"Helvetica Neue"', 'sans-serif'],
+        helveticaneuelight: ['"Helventica Neue Light"', 'sans-serif'],
 				source: ['"Source Serif 4"', 'serif'],
 			},
       backgroundImage: {
