@@ -63,7 +63,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
                 submitDisabled={props.submitDisabled}
                 messages={props.messages}
               />
-              <p className="text-black text-center font-helveticaneuelight text-xs md:text-sm mt-3 px-4 sm:px-12">
+              <p className="text-black text-center font-helveticaneuethin text-xs md:text-sm mt-3 px-4 sm:px-12">
                 SEEK uses VERA Files articles to create answers using AI. 
                 AI answers may contain errors. 
                 Always check the sources cited to verify the facts.
@@ -94,7 +94,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
             messages={props.messages}
           />
           <div className="flex max-w-4xl">
-            <p className="text-justify w-full lg:ml-24 md:ml-6 mx-3 mb-8">
+            <p className="text-justify font-helveticaneuethin w-full lg:ml-24 md:ml-6 mx-3 mb-8">
               SEEK uses VERA Files articles to create answers using AI. 
               AI answers may contain errors. 
               Always check the sources cited to verify the facts.

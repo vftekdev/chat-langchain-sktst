@@ -16,7 +16,7 @@ export const DocumentCard = ({ document }: { document: Document }) => {
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col px-3 flex-grow justify-between">
-        <p className="text-xs !font-light text-black-400 line-clamp-4 overflow-hidden">
+        <p className="text-xs font-helveticaneuelight text-black-400 line-clamp-4 overflow-hidden">
           {description}
         </p>
       </CardContent>
