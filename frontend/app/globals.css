@@ -6,12 +6,21 @@
   font-family: "Helvetica Neue";
   src: url("./public/fonts/helveticaneuebold-webfont.woff2") format('woff2'),
        url("./public/fonts/helveticaneuebold-webfont.woff") format('woff');
+}
+
+@font-face {
   font-family: "Helvetica Neue Light";
   src: url("./public/fonts/HelveticaNeueLight.woff2") format('woff2'),
        url("./public/fonts/HelveticaNeueLight.woff") format('woff');
+}
+
+@font-face {
   font-family: "Helvetica Neue Medium";
   src: url("./public/fonts/HelveticaNeueMedium.woff2") format('woff2'),
        url("./public/fonts/HelveticaNeueMedium.woff") format('woff');
+}
+
+@font-face {
   font-family: "Helvetica Neue Thin";
   src: url("./public/fonts/HelveticaNeueThin.woff2") format('woff2'),
        url("./public/fonts/HelveticaNeueThin.woff") format('woff');
