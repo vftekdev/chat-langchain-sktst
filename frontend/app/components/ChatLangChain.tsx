@@ -140,7 +140,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
         <ThreadHistory />
       </div>
       <div className="px-6 lg:py-6 md:px-16 w-full overflow-hidden">
-        <div className="flex flex-row items-center bg-white rounded-3xl my-auto">
+        <div className="flex flex-row items-center bg-white font-helveticaneuemedium rounded-3xl my-auto">
           <div className="flex flex-row gap-4 m-4">
             <NextImage
                 src="/images/verafiles-banner.png"
@@ -153,8 +153,9 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
               Claude 3.7 Sonnet
             </div>
           </div>
-          <div className="flex bg-[#F7F9FB] relative rounded-md text-xs xl:text-sm ml-auto mr-2 my-4 px-2 py-1">
-            <div onClick={() => setExpanded(curr => !curr)} className="flex flex-row items-center justify-center hover:cursor-pointer hover:bg-[#E5E7EB] rounded-lg px-2 py-1">
+          <div className="flex ml-auto mr-2 my-4 mr-6 gap-2">
+          <div className="flex bg-[#F7F9FB] relative rounded-md text-xs xl:text-sm">
+            <div onClick={() => setExpanded(curr => !curr)} className="flex flex-row items-center justify-center hover:cursor-pointer hover:bg-[#E5E7EB] rounded-lg px-3 py-2">
               <NextImage
                 src="/images/solar-user-bold.svg"
                 className=""
@@ -184,7 +185,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
               </div>
             </div>
           </div>
-          <a className="flex items-center hover:border-0 bg-[#F7F9FB] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm ml-2 mr-6 my-4 px-3 py-2" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">
+          <a className="flex items-center hover:border-0 bg-[#F7F9FB] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">
             <NextImage
               src="/images/ic-baseline-report.svg"
               className=""
@@ -192,8 +193,19 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
               width={20}
               height={20}
             />
-            <div className="text-black mt-0.5 px-2">Report Issues</div>
+            <div className="text-black mt-1">Report Issues</div>
           </a>
+          <a className="flex items-center hover:border-0 bg-[#F7F9FB] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="/" target="_blank">
+            <NextImage
+              src="/images/help-icon.svg"
+              className=""
+              alt="Help Icon"
+              width={20}
+              height={20}
+            />
+            <div className="text-black mt-1">Help</div>
+          </a>
+          </div>
         </div>
         <AssistantRuntimeProvider runtime={runtime}>
           <ThreadChat submitDisabled={isSubmitDisabled} messages={messages} />
