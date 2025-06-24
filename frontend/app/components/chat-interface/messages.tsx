@@ -18,7 +18,7 @@ export const UserMessage: FC = () => {
   return (
     <MessagePrimitive.Root className="pt-2 sm:pt-4 flex flex-col w-full md:max-w-4xl md:mx-0 mx-auto max-w-[95%] md:py-4 py-2">
       <h1 className="uppercase">You Asked</h1>
-      <div className="bg-inherit text-[#0F5579] break-words rounded-2xl sm:rounded-3xl pt-4 md:pt-2.5 mb-[-15px] sm:mb-[-25px] text-2xl sm:text-3xl !font-light">
+      <div className="bg-inherit text-[#0F5579] break-words rounded-2xl sm:rounded-3xl pt-4 md:pt-2.5 mb-[-15px] sm:mb-[-25px] text-2xl sm:text-3xl font-helveticaneuelight">
         <MessagePrimitive.Content />
       </div>
     </MessagePrimitive.Root>
@@ -113,7 +113,7 @@ export const AssistantMessage: FC = () => {
 
   return (
     <MessagePrimitive.Root className="flex w-full md:max-w-4xl md:mx-0 mx-auto max-w-[95%] md:py-4 py-2">
-      <div className="bg-inherit text-black max-w-full sm:max-w-3xl break-words leading-6 sm:leading-7">
+      <div className="bg-inherit text-black font-helveticaneuemedium max-w-full sm:max-w-3xl break-words leading-6 sm:leading-7">
         <MessagePrimitive.Content components={{ Text: MarkdownText }} />
         {shouldRenderMessageBreak ? (
           <hr className="relative left-1/2 -translate-x-1/2 w-[90vw] sm:w-[45vw] mt-4 sm:mt-6 border-gray-600" />

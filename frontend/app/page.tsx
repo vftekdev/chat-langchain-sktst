@@ -28,26 +28,28 @@ export default async function SignIn() {
           width={208}
           height={208}
         />
-        <h1 className="mt-4 font-bold text-3xl">Welcome to SEEK!</h1>
-        <h2 className="mt-2 !font-semibold text-lg">Check your facts in less than a minute.</h2>
-        <p className="mt-6 !font-light text-sm">By clicking “Login”, you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookie Policy.</p>
-        <Card className="mt-6 w-[50%] cursor-pointer">
-          <form className="flex flex-row justify-center"
-            action={async () => {
-              "use server"
-              await signIn("google")
-            }}
-          >
-            <NextImage
-              src="/images/google-logo.svg"
-              className=""
-              alt="Google Logo"
-              width={20}
-              height={20}
-            />
-            <button className="p-2 text-gray-600 text-xs sm:text-sm md:text-base" type="submit">Log In with Google</button>
-          </form>
-        </Card>
+        <h1 className="mt-4 text-3xl">Welcome to SEEK!</h1>
+        <h2 className="mt-2 font-helveticaneuemedium text-lg">Check your facts in less than a minute.</h2>
+        <p className="mt-6 font-helveticaneuelight text-sm">By clicking “Login”, you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookie Policy.</p>
+        <form className="mt-6 cursor-pointer flex justify-center w-full"
+          action={async () => {
+            "use server"
+            await signIn("google")
+          }}
+        >
+          <button className="flex justify-center" type="submit">
+            <Card className="flex flex-row justify-center gap-2 p-2">
+              <NextImage
+                src="/images/google-logo.svg"
+                className=""
+                alt="Google Logo"
+                width={20}
+                height={20}
+              />
+              <div className="mt-1 text-gray-600 font-helveticaneuemedium text-xs sm:text-sm md:text-base">Log In with Google</div>
+            </Card>
+          </button>
+        </form>
       </Card>
     </main>
   )
