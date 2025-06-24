@@ -46,7 +46,7 @@ export default async function SignIn() {
                 width={20}
                 height={20}
               />
-              <div className="mt-1 text-gray-600 font-helveticaneuemedium text-xs sm:text-sm md:text-base">Log In with Google</div>
+              <div className="text-gray-600 font-helveticaneuemedium text-xs sm:text-sm md:text-base">Log In with Google</div>
             </Card>
           </button>
         </form>
