@@ -38,7 +38,7 @@ function ThreadHistoryComponent() {
     clearMessages();
   };
 
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <div className="overflow-y-auto lg:h-screen">

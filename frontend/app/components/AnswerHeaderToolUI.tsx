@@ -11,8 +11,8 @@ export const useAnswerHeaderToolUI = () =>
               src="/images/chat-icon.svg"
               className=""
               alt="Answer Logo"
-              width={20}
-              height={20}
+              width={28}
+              height={28}
           />
           <p className="text-2xl font-bold">Answer</p>
         </div>
