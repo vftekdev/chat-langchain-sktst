@@ -114,6 +114,7 @@ export const useGeneratingQuestionsUI = () =>
 
       return (
         <div className="flex flex-col mb-4">
+          <input type="checkbox" className="peer" id="collapse-research"/>
           <span className="flex flex-row gap-2 items-center justify-start pb-4 text-black-300">
             <NextImage
               src="/images/books.svg"
@@ -122,8 +123,7 @@ export const useGeneratingQuestionsUI = () =>
               width={28}
               height={28}
             />
-            <input type="checkbox" className="peer" id="researchtest"/>
-            <label htmlFor="researchtest" className="text-xl text-[#0F5579]">Research Plan & Sources</label>
+            <label htmlFor="collapse-research" className="text-xl text-[#0F5579]">Research Plan & Sources</label>
           </span>
           <div className="flex flex-wrap items-start justify-start gap-2 hidden peer-checked:block">
             {(input.args.questions as Question[]).map(
