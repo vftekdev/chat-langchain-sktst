@@ -112,7 +112,7 @@ export const AssistantMessage: FC = () => {
     !isLast;
 
   return (
-    <MessagePrimitive.Root className="flex w-full md:max-w-4xl md:mx-0 mx-auto max-w-[95%] md:py-4 py-2">
+    <MessagePrimitive.Root className="flex w-full md:mx-0 mx-auto max-w-[95%] md:py-4 py-2">
       <div className="bg-inherit text-black font-helveticaneuemedium max-w-full sm:max-w-3xl break-words leading-6 sm:leading-7">
         <MessagePrimitive.Content components={{ Text: MarkdownText }} />
         {shouldRenderMessageBreak ? (
