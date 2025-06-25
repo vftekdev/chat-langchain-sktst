@@ -11,10 +11,10 @@ export const useAnswerHeaderToolUI = () =>
               src="/images/chat-icon.svg"
               className=""
               alt="Answer Logo"
-              width={28}
-              height={28}
+              width={32}
+              height={32}
           />
-          <p className="text-2xl font-bold">Answer</p>
+          <p className="text-2xl font-bold text-[#0F5579]">Answer</p>
         </div>
       );
     },

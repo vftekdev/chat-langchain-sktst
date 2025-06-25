@@ -119,22 +119,20 @@ export const useGeneratingQuestionsUI = () =>
               src="/images/books.svg"
               className=""
               alt="Books Logo"
-              width={20}
-              height={20}
+              width={28}
+              height={28}
             />
-            <p className="text-xl">Research Plan & Sources</p>
+            <p className="text-xl text-[#0F5579] peer">Research Plan & Sources</p>
           </span>
-          <div className="mb-10">
-            <div className="flex flex-wrap items-start justify-start gap-2">
-              {(input.args.questions as Question[]).map(
-                (question, questionIndex) => (
-                  <QuestionCard
-                    key={`question-${questionIndex}`}
-                    question={question}
-                  />
-                ),
-              )}
-            </div>
+          <div className="flex flex-wrap items-start justify-start gap-2 hidden peer-checked:block">
+            {(input.args.questions as Question[]).map(
+              (question, questionIndex) => (
+                <QuestionCard
+                  key={`question-${questionIndex}`}
+                  question={question}
+                />
+              ),
+            )}
           </div>
         </div>
       );
