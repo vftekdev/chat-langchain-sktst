@@ -113,7 +113,7 @@ export const useGeneratingQuestionsUI = () =>
       }
 
       return (
-        <div className="flex flex-col bg-white rounded-lg shadow-lg px-3 w-full">
+        <div className="flex flex-col bg-white rounded-lg shadow-md px-3 w-full">
           <input type="checkbox" className="hidden peer" id="collapse-research"/>
           <label htmlFor="collapse-research" className="flex flex-row gap-2 items-center justify-start text-black-300">
             <NextImage
@@ -124,6 +124,9 @@ export const useGeneratingQuestionsUI = () =>
               height={28}
             />
             <p className="text-xl text-[#0F5579]">Research Plan & Sources</p>
+            <svg className="ml-auto mr-6 group-has-[:checked]:rotate-90 group-has-[:checked]:translate-x-1 group-hover:translate-x-1 duration-[240ms] w-[0.75rem] h-[0.75rem]" xmlns="http://www.w3.org/2000/svg" width="298" height="512" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 298 511.93">
+              <path fill-rule="nonzero" d="M70.77 499.85c-16.24 16.17-42.53 16.09-58.69-.15-16.17-16.25-16.09-42.54.15-58.7l185.5-185.03L12.23 70.93c-16.24-16.16-16.32-42.45-.15-58.7 16.16-16.24 42.45-16.32 58.69-.15l215.15 214.61c16.17 16.25 16.09 42.54-.15 58.7l-215 214.46z"/>
+            </svg>
           </label>
           <div className="hidden peer-checked:block">
             <div className="flex flex-wrap lg:flex-nowrap items-start justify-start gap-2 pb-3">
