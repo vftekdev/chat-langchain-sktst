@@ -140,7 +140,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
         <ThreadHistory />
       </div>
       <div className="px-6 lg:py-6 md:px-16 w-full overflow-hidden">
-        <div className="flex flex-row items-center bg-white font-helveticaneuemedium rounded-3xl my-auto">
+        <div className="flex flex-col lg:flex-row items-center bg-white font-helveticaneuemedium rounded-3xl my-auto">
           <div className="flex flex-row gap-4 m-4">
             <NextImage
                 src="/images/verafiles-banner.png"
@@ -153,58 +153,58 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
               Claude 3.7 Sonnet
             </div>
           </div>
-          <div className="flex ml-auto mr-2 my-4 mr-6 gap-2">
-          <div className="flex bg-[#F7F9FB] relative rounded-md text-xs xl:text-sm">
-            <div onClick={() => setExpanded(curr => !curr)} className="flex flex-row items-center justify-center hover:cursor-pointer hover:bg-[#E5E7EB] rounded-lg px-3 py-2">
-              <NextImage
-                src="/images/solar-user-bold.svg"
-                className=""
-                alt="User Icon"
-                width={18}
-                height={18}
-              />
-              <div className="mr-auto mt-0.5 ml-2">User</div>
-              <NextImage
-                src="/images/chevron-down.svg"
-                className="mt-0.5 ml-0.5"
-                alt="Chevron Down"
-                width={20}
-                height={20}
-              />
-            </div>
-            <div className={`absolute top-full right-0 mt-2 z-50 rounded shadow-lg bg-[#F7F9FB] w-max transition ease-in-out duration-200 ${expanded ? "transform opacity-100 scale-100" : "transform opacity-0 scale-95"}`}>
-              <div className={`flex flex-col px-3 py-2 ${expanded ? "block" : "invisible"}`}>
-                <div className="p-2">
-                  {test}
-                </div>
-                <div className="hover:bg-[#E5E7EB] w-full flex justify-end p-2 rounded-lg">
-                  <form action={SignOut}>
-                    <button>Sign Out</button>
-                  </form>
+          <div className="flex lg:ml-auto lg:mr-2 lg:mr-6 lg:my-4 mb-4 gap-2">
+            <div className="flex bg-[#F7F9FB] relative rounded-md text-xs xl:text-sm">
+              <div onClick={() => setExpanded(curr => !curr)} className="flex flex-row items-center justify-center hover:cursor-pointer hover:bg-[#E5E7EB] rounded-lg px-3 py-2">
+                <NextImage
+                  src="/images/solar-user-bold.svg"
+                  className=""
+                  alt="User Icon"
+                  width={18}
+                  height={18}
+                />
+                <div className="mr-auto mt-0.5 ml-2">User</div>
+                <NextImage
+                  src="/images/chevron-down.svg"
+                  className="mt-0.5 ml-0.5"
+                  alt="Chevron Down"
+                  width={20}
+                  height={20}
+                />
+              </div>
+              <div className={`absolute top-full right-0 mt-2 z-50 rounded shadow-lg bg-[#F7F9FB] w-max transition ease-in-out duration-200 ${expanded ? "transform opacity-100 scale-100" : "transform opacity-0 scale-95"}`}>
+                <div className={`flex flex-col px-3 py-2 ${expanded ? "block" : "invisible"}`}>
+                  <div className="p-2">
+                    {test}
+                  </div>
+                  <div className="hover:bg-[#E5E7EB] w-full flex justify-end p-2 rounded-lg">
+                    <form action={SignOut}>
+                      <button>Sign Out</button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <a className="flex items-center hover:border-0 bg-[#F7F9FB] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">
-            <NextImage
-              src="/images/ic-baseline-report.svg"
-              className=""
-              alt="Report Issue Icon"
-              width={20}
-              height={20}
-            />
-            <div className="text-black">Report Issues</div>
-          </a>
-          <a className="flex items-center hover:border-0 bg-[#F7F9FB] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="/" target="_blank">
-            <NextImage
-              src="/images/help-icon.svg"
-              className=""
-              alt="Help Icon"
-              width={20}
-              height={20}
-            />
-            <div className="text-black">Help</div>
-          </a>
+            <a className="flex items-center hover:border-0 bg-[#F7F9FB] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">
+              <NextImage
+                src="/images/ic-baseline-report.svg"
+                className=""
+                alt="Report Issue Icon"
+                width={20}
+                height={20}
+              />
+              <div className="text-black">Report Issues</div>
+            </a>
+            <a className="flex items-center hover:border-0 bg-[#F7F9FB] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="/" target="_blank">
+              <NextImage
+                src="/images/help-icon.svg"
+                className=""
+                alt="Help Icon"
+                width={20}
+                height={20}
+              />
+              <div className="text-black">Help</div>
+            </a>
           </div>
         </div>
         <AssistantRuntimeProvider runtime={runtime}>
