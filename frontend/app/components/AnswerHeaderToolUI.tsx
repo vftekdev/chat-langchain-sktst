@@ -6,7 +6,7 @@ export const useAnswerHeaderToolUI = () =>
     toolName: "answer_header",
     render: (_) => {
       return (
-        <div className="flex flex-row gap-2 items-center justify-start pb-4 text-black-300">
+        <div className="flex flex-row gap-2 items-center justify-start py-3 text-black-300">
           <NextImage
               src="/images/chat-icon.svg"
               className=""
