@@ -122,7 +122,8 @@ export const useGeneratingQuestionsUI = () =>
               width={28}
               height={28}
             />
-            <p className="text-xl text-[#0F5579] peer">Research Plan & Sources</p>
+            <input type="checkbox" className="peer" id="researchtest"/>
+            <label htmlFor="researchtest" className="text-xl text-[#0F5579]">Research Plan & Sources</label>
           </span>
           <div className="flex flex-wrap items-start justify-start gap-2 hidden peer-checked:block">
             {(input.args.questions as Question[]).map(
