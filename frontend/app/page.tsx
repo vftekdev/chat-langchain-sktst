@@ -28,7 +28,7 @@ export default async function SignIn() {
           width={208}
           height={208}
         />
-        <h1 className="mt-4 text-3xl">Welcome to SEEK!</h1>
+        <h1 className="mt-4 text-3xl text-[#F6911D]">Welcome to SEEK!</h1>
         <h2 className="mt-2 font-helveticaneuemedium text-lg">Check your facts in less than a minute.</h2>
         <p className="mt-6 font-helveticaneuelight text-sm">By clicking “Login”, you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookie Policy.</p>
         <form className="mt-6 cursor-pointer flex justify-center w-full"
