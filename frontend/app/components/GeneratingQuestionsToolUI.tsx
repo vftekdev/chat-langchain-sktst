@@ -111,11 +111,14 @@ export const useGeneratingQuestionsUI = () =>
       if (!input.args?.questions || input.args.questions.length === 0) {
         return null;
       }
+      if (input) {
+        input.args.questions.length++;
+      }
 
       return (
         <div className="flex flex-col bg-white rounded-lg shadow-md px-3 w-full group">
-          <input type="checkbox" className="hidden peer" id="collapse-research"/>
-          <label htmlFor="collapse-research" className="flex flex-row gap-2 items-center justify-start text-black-300">
+          <input type="checkbox" className="hidden peer" id={`collapse-research`+ input.args.questions.length}/>
+          <label htmlFor={`collapse-research`+ input.args.questions.length} className="flex flex-row gap-2 items-center justify-start text-black-300">
             <NextImage
               src="/images/books.svg"
               className=""
