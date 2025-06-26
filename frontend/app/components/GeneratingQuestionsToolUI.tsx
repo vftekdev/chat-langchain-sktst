@@ -102,6 +102,8 @@ const QuestionCard = ({ question }: { question: Question }) => {
   );
 };
 
+let counter = 0;
+
 export const useGeneratingQuestionsUI = () =>
   useAssistantToolUI({
     toolName: "generating_questions",
@@ -111,7 +113,6 @@ export const useGeneratingQuestionsUI = () =>
       if (!input.args?.questions || input.args.questions.length === 0) {
         return null;
       }
-      let counter = 0;
       if (input) {
         counter++;
       }
