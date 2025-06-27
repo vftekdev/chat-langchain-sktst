@@ -134,7 +134,7 @@ export const useGeneratingQuestionsUI = () =>
             </svg>
           </label>
           <div className="hidden peer-checked:block">
-            <div className="flex flex-wrap lg:flex-nowrap items-start justify-start gap-2 pb-3">
+            <div className="flex overflow-x-auto items-start justify-start gap-2 pb-3">
               {(input.args.questions as Question[]).map(
                 (question, questionIndex) => (
                   <QuestionCard
