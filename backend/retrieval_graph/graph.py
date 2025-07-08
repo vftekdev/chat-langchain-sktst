@@ -155,12 +155,17 @@ async def create_research_plan(
     match = re.search(pattern, user_query)
     if match:
         today = datetime.now().date()
-        last_month = (today.replace(day=1) - timedelta(days=1)).strftime("%B %Y")
-        current_month = today.strftime("%B %Y")
+        # last_month = (today.replace(day=1) - timedelta(days=1)).strftime("%B %Y")
+        # last_month = (today.replace(day=1) - timedelta(days=1)).strftime("%Y-%m")
+        last_month = (today.replace(month=today.month-1))
+        # current_month = today.strftime("%B %Y")
+        current_month = today.strftime("%Y-%m")
         current_year = today.strftime("%Y")
-        state.messages[-1].content = f"{state.messages[-1].content}. When possible, focus on articles published in {current_month}, or in {last_month}, or in {current_year}."
 
-    print("STATE MESSAGES: ", state.messages)
+        # state.messages[-1].content = f"{state.messages[-1].content} When possible, focus on articles published in {current_month}, or in {last_month}, or in {current_year}."
+        state.messages[-1].content = f"{state.messages[-1].content} When possible, focus on articles published between {today} and {last_month}."
+
+    # print("STATE MESSAGES: ", state.messages)
 
     messages = [
         {"role": "system", "content": configuration.research_plan_system_prompt}
