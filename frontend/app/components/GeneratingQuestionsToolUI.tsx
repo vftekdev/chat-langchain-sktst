@@ -118,7 +118,7 @@ export const useGeneratingQuestionsUI = () =>
       }
 
       return (
-        <div className="flex flex-col bg-white rounded-lg shadow-md px-3 w-full group">
+        <div className="flex flex-col bg-white rounded-lg shadow-md px-3 w-full group cursor-pointer">
           <input type="checkbox" className="hidden peer" id={`collapse-research`+ counter}/>
           <label htmlFor={`collapse-research`+ counter} className="flex flex-row gap-2 items-center justify-start text-black-300">
             <NextImage
