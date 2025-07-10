@@ -2,7 +2,11 @@ import os
 from contextlib import contextmanager
 from typing import Iterator
 
+from datetime import datetime, timezone
+from dateutil.relativedelta import relativedelta
+
 import weaviate
+from weaviate.classes.query import Filter
 from langchain_core.embeddings import Embeddings
 from langchain_core.retrievers import BaseRetriever
 from langchain_core.runnables import RunnableConfig
@@ -50,7 +54,11 @@ def make_weaviate_retriever(
             embedding=embedding_model,
             attributes=["source", "title"],
         )
-        search_kwargs = {**configuration.search_kwargs, "return_uuids": True}
+        now = datetime.now(timezone.utc).replace(microsecond=0)
+        last_month = now- relativedelta(months=1)
+        iso_last_month = last_month.strftime("%Y-%m-%dT%H:%M:%SZ")
+        date_filter = Filter.by_property("post_date").greater_than(iso_last_month)
+        search_kwargs = {**configuration.search_kwargs, "filters": date_filter, "return_uuids": True}
         yield store.as_retriever(
             # search_type="similarity_score_threshold",
             # search_kwargs={'k': 20, 'score_threshold': 0.60, 'return_uuids': True},
