@@ -7,4 +7,5 @@
 # WEAVIATE_DOCS_INDEX_NAME = "vfseek6k_openai_beta"
 
 # WEAVIATE_DOCS_INDEX_NAME = "vfseek4k_openai_beta"
-WEAVIATE_DOCS_INDEX_NAME = "chatvfsik"
+# WEAVIATE_DOCS_INDEX_NAME = "chatvfsik"
+WEAVIATE_DOCS_INDEX_NAME = "Vfseek_all_4k_openai_beta"

@@ -163,7 +163,7 @@ async def create_research_plan(
         current_year = today.strftime("%Y")
 
         # state.messages[-1].content = f"{state.messages[-1].content} When possible, focus on articles published in {current_month}, or in {last_month}, or in {current_year}."
-        state.messages[-1].content = f"{state.messages[-1].content} When possible, focus on articles published between {today} and {last_month}."
+        state.messages[-1].content = f"{state.messages[-1].content} When possible, focus on articles posted from {last_month} until {today}."
 
     # print("STATE MESSAGES: ", state.messages)
 
