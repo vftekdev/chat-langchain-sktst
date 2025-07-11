@@ -1,6 +1,9 @@
 import os
 from contextlib import contextmanager
 from typing import Iterator
+import re
+from datetime import datetime, timezone
+from dateutil.relativedelta import relativedelta
 
 import weaviate
 from langchain_core.embeddings import Embeddings
@@ -11,6 +14,7 @@ from langchain_weaviate import WeaviateVectorStore
 
 from backend.configuration import BaseConfiguration
 from backend.constants import WEAVIATE_DOCS_INDEX_NAME
+from backend.retrieval_graph.researcher_graph.state import QueryState
 
 DATABASE_HOST = os.environ["DATABASE_HOST"]
 # COLLECTION_NAME = os.environ["COLLECTION_NAME"]
@@ -34,7 +38,7 @@ def make_text_encoder(model: str) -> Embeddings:
 
 @contextmanager
 def make_weaviate_retriever(
-    configuration: BaseConfiguration, embedding_model: Embeddings
+    configuration: BaseConfiguration, embedding_model: Embeddings, state: QueryState
 ) -> Iterator[BaseRetriever]:
     with weaviate.connect_to_weaviate_cloud(
         cluster_url=os.environ["WEAVIATE_URL"],
@@ -50,7 +54,20 @@ def make_weaviate_retriever(
             embedding=embedding_model,
             attributes=["source", "title"],
         )
-        search_kwargs = {**configuration.search_kwargs, "return_uuids": True}
+        pattern = r"latest|recent|current"
+        user_query = (state.query).lower()
+        print('USER QUERY: ', user_query)
+        match = re.search(pattern, user_query)
+        if match:
+            now = datetime.now(timezone.utc).replace(microsecond=0)
+            last_month = now - relativedelta(months=1)
+            iso_today = now.strftime("%Y-%m-%dT%H:%M:%SZ")
+            iso_last_month = last_month.strftime("%Y-%m-%dT%H:%M:%SZ")
+            
+            date_filter = Filter.by_property("post_date").greater_than(iso_last_month)
+            search_kwargs = {**configuration.search_kwargs, "filters": date_filter, "return_uuids": True}
+        else:
+            search_kwargs = {**configuration.search_kwargs, "return_uuids": True}
         yield store.as_retriever(
             # search_type="similarity_score_threshold",
             # search_kwargs={'k': 20, 'score_threshold': 0.60, 'return_uuids': True},
@@ -73,13 +90,14 @@ def make_weaviate_retriever(
 @contextmanager
 def make_retriever(
     config: RunnableConfig,
+    state: QueryState,
 ) -> Iterator[BaseRetriever]:
     """Create a retriever for the agent, based on the current configuration."""
     configuration = BaseConfiguration.from_runnable_config(config)
     embedding_model = make_text_encoder(configuration.embedding_model)
     match configuration.retriever_provider:
         case "weaviate":
-            with make_weaviate_retriever(configuration, embedding_model) as retriever:
+            with make_weaviate_retriever(configuration, embedding_model, state) as retriever:
                 yield retriever
 
         case _:

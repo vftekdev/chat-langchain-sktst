@@ -62,7 +62,7 @@ async def retrieve_documents(
     Returns:
         dict[str, list[Document]]: A dictionary with a 'documents' key containing the list of retrieved documents.
     """
-    with retrieval.make_retriever(config) as retriever:
+    with retrieval.make_retriever(config, state) as retriever:
         response = await retriever.ainvoke(state.query, config)
         return {"documents": response}
 
