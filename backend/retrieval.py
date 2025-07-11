@@ -56,7 +56,7 @@ def make_weaviate_retriever(
         )
         pattern = r"latest|recent|current"
         user_query = (state.query).lower()
-        print('USER QUERY: ', user_query)
+        # print('USER QUERY: ', user_query)
         match = re.search(pattern, user_query)
         if match:
             now = datetime.now(timezone.utc).replace(microsecond=0)
