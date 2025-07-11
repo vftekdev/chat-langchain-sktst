@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from dateutil.relativedelta import relativedelta
 
 import weaviate
+from weaviate.classes.query import Filter
 from langchain_core.embeddings import Embeddings
 from langchain_core.retrievers import BaseRetriever
 from langchain_core.runnables import RunnableConfig
