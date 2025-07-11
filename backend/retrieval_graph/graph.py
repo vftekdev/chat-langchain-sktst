@@ -266,7 +266,7 @@ async def respond(
         model="rerank-2-lite", voyageai_api_key=os.environ["VOYAGE_API_KEY"], top_k=6
     )
     state.documents = compressor.compress_documents(state.documents, state.query)
-
+    
     # top_k = 20
     # context = format_docs(state.documents[:top_k])
     context = format_docs(state.documents)
