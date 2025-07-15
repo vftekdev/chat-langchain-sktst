@@ -127,6 +127,7 @@ def metadata_func(record: dict, metadata: dict) -> dict:
     metadata["article_author"] = "None" if record.get("article_author") == "" else record.get("article_author")
     metadata["category"] = "None" if record.get("category") == "" else record.get("category")
     metadata["title"] = "None" if record.get("article_title") == "" else record.get("article_title")
+    metadata["post_date"] = "None" if record.get("post_date") == "" else record.get("post_date")
     metadata["publish_date"] = "None" if record.get("publish_date") == "" else record.get("publish_date")
     metadata["claim_author"] = "None" if record.get("claim_author") == "" else record.get("claim_author")
     metadata["claim"] = "None" if record.get("claim") == "" else record.get("claim")
@@ -159,7 +160,7 @@ def ingest_docs():
     DATABASE_NAME = os.environ["DATABASE_NAME"]
     RECORD_MANAGER_DB_URL = f"postgresql://{DATABASE_USERNAME}:{DATABASE_PASSWORD}@{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_NAME}"
 
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=4000, chunk_overlap=200)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=3000, chunk_overlap=200)
     embedding = get_embeddings_model()
 
     with weaviate.connect_to_weaviate_cloud(
