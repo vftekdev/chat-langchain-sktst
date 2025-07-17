@@ -7,7 +7,9 @@ import { SendHorizontalIcon } from "lucide-react";
 import { BaseMessage } from "@langchain/core/messages";
 import { TooltipIconButton } from "../ui/assistant-ui/tooltip-icon-button";
 import { cn } from "@/app/utils/cn";
-import { useState } from "react";
+
+import { ResponseTypeRadio } from "../ResponseTypeRadio";
+import { useGraphContext } from "../../contexts/GraphContext";
 
 export interface ChatComposerProps {
   messages: BaseMessage[];
@@ -32,7 +34,11 @@ export const ChatComposer: FC<ChatComposerProps> = (
   props: ChatComposerProps,
 ) => {
   const isEmpty = props.messages.length === 0;
-  const [selectedValue, setSelectedValue] = useState('');
+
+  const {
+      graphData: { selectedResponseType, setSelectedResponseType },
+    } = useGraphContext();
+
   return (
     <ComposerPrimitive.Root
       className={cn(
@@ -75,16 +81,8 @@ export const ChatComposer: FC<ChatComposerProps> = (
           </ThreadPrimitive.If>
         </div>
       </div>
-      <div className="flex gap-2">
-        <div>
-          <input className="" type="radio" name="response_type_radio" value="simple" id="response_type_radio_1"  onChange={(e) => setSelectedValue(e.target.value)} checked />
-          <label htmlFor="response_type_radio_1">Simple</label>
-        </div>
-        <div>
-          <input className="" type="radio" name="response_type_radio" value="complex"  onChange={(e) => setSelectedValue(e.target.value)} id="response_type_radio_2" />
-          <label htmlFor="response_type_radio_2">Complex</label>
-        </div>
-      </div>
+      <ResponseTypeRadio />
+      <p>Selected Radio Value: {selectedResponseType}</p>
     </ComposerPrimitive.Root>
   );
 };
