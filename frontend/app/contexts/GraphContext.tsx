@@ -15,6 +15,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { useThreads } from "../hooks/useThreads";
 import { ModelOptions } from "../types";
+import { ResponseType } from "../types";
 import { useRuns } from "../hooks/useRuns";
 import { useUser } from "../hooks/useUser";
 import { addDocumentLinks, createClient, nodeToStep } from "./utils";
@@ -27,6 +28,8 @@ interface GraphData {
   messages: BaseMessage[];
   selectedModel: ModelOptions;
   setSelectedModel: Dispatch<SetStateAction<ModelOptions>>;
+  selectedResponseType: ResponseType;
+  setSelectedResponseType: Dispatch<SetStateAction<ResponseType>>;
   setMessages: Dispatch<SetStateAction<BaseMessage[]>>;
   streamMessage: (currentThreadId: string, params: GraphInput) => Promise<void>;
   switchSelectedThread: (thread: Thread) => void;
@@ -66,6 +69,9 @@ export function GraphProvider({ children }: { children: ReactNode }) {
   const [messages, setMessages] = useState<BaseMessage[]>([]);
   const [selectedModel, setSelectedModel] = useState<ModelOptions>(
     "anthropic/claude-3-7-sonnet-20250219",
+  );
+  const [selectedResponseType, setSelectedResponseType] = useState<ResponseType>(
+    "simple",
   );
   const [_threadId, setThreadId] = useQueryState("threadId");
 
@@ -108,7 +114,7 @@ export function GraphProvider({ children }: { children: ReactNode }) {
       config: {
         configurable: {
           model_name: selectedModel,
-          response_type: "simple",
+          response_type: selectedResponseType,
         },
       },
     });
@@ -698,6 +704,8 @@ export function GraphProvider({ children }: { children: ReactNode }) {
       messages,
       selectedModel,
       setSelectedModel,
+      selectedResponseType,
+      setSelectedResponseType,
       setMessages,
       streamMessage,
       switchSelectedThread,
