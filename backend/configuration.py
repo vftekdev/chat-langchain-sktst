@@ -25,6 +25,9 @@ def _update_configurable_for_backwards_compatibility(
             configurable["model_name"], configurable["model_name"]
         )
 
+    if "response_type" in configurable:
+        update["response_type"] = configurable["response_type"]
+
     if update:
         return {**configurable, **update}
 
@@ -71,6 +74,13 @@ class BaseConfiguration:
         default=6,
         metadata={
             "description": "The number of documents to retrieve. Use search_kwargs instead."
+        },
+    )
+
+    response_type: str = field(
+        default="simple",
+        metadata={
+            "description": "The response type of SEEK, either simple or complex."
         },
     )
 

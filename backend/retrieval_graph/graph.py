@@ -128,6 +128,14 @@ async def respond_to_general_query(
     return {"messages": [response]}
 
 
+# async def check_response_type(state: AgentState, *, config: RunnableConfig) -> Literal["create_research_plan", "conduct_research"]:
+#     configuration = AgentConfiguration.from_runnable_config(config)
+#     if configuration.response_type == "simple":
+#         return "conduct_research"
+#     else:
+#         return "create_research_plan"
+
+
 async def create_research_plan(
     state: AgentState, *, config: RunnableConfig
 ) -> dict[str, list[str]]:
@@ -147,37 +155,44 @@ async def create_research_plan(
         steps: list[str]
 
     configuration = AgentConfiguration.from_runnable_config(config)
-    model = load_chat_model(configuration.query_model).with_structured_output(Plan)
+    if configuration.response_type == "simple":
+        return {
+            "steps": [state.messages[-1].content],
+            "documents": "delete",
+            "query": state.messages[-1].content,
+        }
+    else:
+        model = load_chat_model(configuration.query_model).with_structured_output(Plan)
 
-    # pattern = r"latest|recent|current"
-    # user_query = (state.messages[-1].content).lower()
+        # pattern = r"latest|recent|current"
+        # user_query = (state.messages[-1].content).lower()
 
-    # match = re.search(pattern, user_query)
-    # if match:
-    #    today = datetime.now().date()
-        # last_month = (today.replace(day=1) - timedelta(days=1)).strftime("%B %Y")
-        # last_month = (today.replace(day=1) - timedelta(days=1)).strftime("%Y-%m")
-    #    last_month = (today.replace(month=today.month-1))
-        # current_month = today.strftime("%B %Y")
-    #    current_month = today.strftime("%Y-%m")
-    #    current_year = today.strftime("%Y")
+        # match = re.search(pattern, user_query)
+        # if match:
+        #     today = datetime.now().date()
+        #     # last_month = (today.replace(day=1) - timedelta(days=1)).strftime("%B %Y")
+        #     # last_month = (today.replace(day=1) - timedelta(days=1)).strftime("%Y-%m")
+        #     last_month = (today.replace(month=today.month-1))
+        #     # current_month = today.strftime("%B %Y")
+        #     current_month = today.strftime("%Y-%m")
+        #     current_year = today.strftime("%Y")
 
-        # state.messages[-1].content = f"{state.messages[-1].content} When possible, focus on articles published in {current_month}, or in {last_month}, or in {current_year}."
-    #    state.messages[-1].content = f"{state.messages[-1].content} When possible, focus on articles posted from {last_month} until {today}."
+        #     # state.messages[-1].content = f"{state.messages[-1].content} When possible, focus on articles published in {current_month}, or in {last_month}, or in {current_year}."
+        #     state.messages[-1].content = f"{state.messages[-1].content} When possible, focus on articles posted from {last_month} until {today}."
 
-    # print("STATE MESSAGES: ", state.messages)
+        # print("STATE MESSAGES: ", state.messages)
 
-    messages = [
-        {"role": "system", "content": configuration.research_plan_system_prompt}
-    ] + state.messages
-    response = cast(
-        Plan, await model.ainvoke(messages, {"tags": ["langsmith:nostream"]})
-    )
-    return {
-        "steps": response["steps"],
-        "documents": "delete",
-        "query": state.messages[-1].content,
-    }
+        messages = [
+            {"role": "system", "content": configuration.research_plan_system_prompt}
+        ] + state.messages
+        response = cast(
+            Plan, await model.ainvoke(messages, {"tags": ["langsmith:nostream"]})
+        )
+        return {
+            "steps": response["steps"],
+            "documents": "delete",
+            "query": state.messages[-1].content,
+        }
 
 
 async def conduct_research(state: AgentState) -> dict[str, Any]:
@@ -267,6 +282,7 @@ builder.add_node(create_research_plan)
 builder.add_node(conduct_research)
 builder.add_node(respond)
 
+# builder.add_conditional_edges(START, "check_response_type")
 builder.add_edge(START, "create_research_plan")
 builder.add_edge("create_research_plan", "conduct_research")
 builder.add_conditional_edges("conduct_research", check_finished)

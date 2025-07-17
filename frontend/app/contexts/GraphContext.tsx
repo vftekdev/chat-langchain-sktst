@@ -108,6 +108,7 @@ export function GraphProvider({ children }: { children: ReactNode }) {
       config: {
         configurable: {
           model_name: selectedModel,
+          response_type: "simple",
         },
       },
     });
