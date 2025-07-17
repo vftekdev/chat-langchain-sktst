@@ -145,6 +145,7 @@ export const useGeneratingQuestionsUI = () =>
               )}
             </div>
           </div>
+          <div>Warning: this is a search assistant AI powered app under development.</div>
         </div>
       );
     }, []),
