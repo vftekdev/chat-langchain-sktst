@@ -6,7 +6,7 @@ import {
   useIsMarkdownCodeBlock,
 } from "@assistant-ui/react-markdown";
 import remarkGfm from "remark-gfm";
-import rehypeKatex from "rehype-katex";
+// import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import { FC, memo, useState } from "react";
 import { CheckIcon, CopyIcon, ExternalLink } from "lucide-react";
@@ -21,7 +21,7 @@ const MarkdownTextImpl = () => {
   return (
     <MarkdownTextPrimitive
       remarkPlugins={[remarkGfm, remarkMath]}
-      rehypePlugins={[rehypeKatex]}
+      // rehypePlugins={[rehypeKatex]}
       components={{
         h1: ({ node: _node, className, ...props }) => (
           <h1
