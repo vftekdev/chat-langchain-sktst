@@ -109,6 +109,10 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
               <a className="text-blue hover:border-0" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank"> Report Issues.</a>
             </p>
           </div>
+          <ChatComposer
+            submitDisabled={props.submitDisabled}
+            messages={props.messages}
+          />
         </div>
       )}
     </ThreadPrimitive.Root>
