@@ -113,7 +113,6 @@ export const AssistantMessage: FC = () => {
 
   return (
     <MessagePrimitive.Root className="w-full md:mx-0 mx-auto max-w-[95%] md:py-4 py-2">
-      
       <div className="bg-inherit text-black font-helveticaneuemedium max-w-full sm:max-w-3xl break-words leading-6 sm:leading-7">
         <div>
           Warning: this is a search assistant AI powered app under development.
