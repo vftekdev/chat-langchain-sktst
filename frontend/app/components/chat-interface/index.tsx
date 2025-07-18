@@ -89,10 +89,6 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
         </div>
       ) : (
         <div className="max-w-full">
-          <ChatComposer
-            submitDisabled={props.submitDisabled}
-            messages={props.messages}
-          />
           <div className="flex max-w-4xl">
             <p className="tracking-wider text-justify font-helveticaneuethin w-full lg:ml-24 md:ml-6 mx-3 mb-8">
               SEEK uses VERA Files articles to create answers using AI. 
@@ -101,6 +97,10 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
               <a className="text-blue hover:border-0" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank"> Report Issues.</a>
             </p>
           </div>
+          <ChatComposer
+            submitDisabled={props.submitDisabled}
+            messages={props.messages}
+          />
         </div>
       )}
     </ThreadPrimitive.Root>
