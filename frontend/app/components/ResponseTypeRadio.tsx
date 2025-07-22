@@ -25,7 +25,7 @@ export function ResponseTypeComponent() {
       value={selectedResponseType}
       defaultValue="anthropic/claude-3-7-sonnet-20250219"
     >
-      <SelectTrigger className="w-[240px] text-teal-600">
+      <SelectTrigger className="w-[240px] text-teal-600 mx-2">
         <SelectValue placeholder="Quick Response" />
       </SelectTrigger>
       <SelectContent className="text-teal-600">
