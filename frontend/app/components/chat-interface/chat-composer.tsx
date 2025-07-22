@@ -62,7 +62,7 @@ export const ChatComposer: FC<ChatComposerProps> = (
               <TooltipIconButton
                 tooltip="Send"
                 variant="default"
-                className="mr-2 my-1 size-8 p-2 bg-transparent text-black shadow-none transition-opacity ease-in"
+                className="mr-2 size-8 p-2 bg-transparent text-black shadow-none transition-opacity ease-in"
               >
                 <SendHorizontalIcon />
               </TooltipIconButton>
