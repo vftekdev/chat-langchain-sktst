@@ -114,8 +114,10 @@ export const AssistantMessage: FC = () => {
   return (
     <MessagePrimitive.Root className="w-full md:mx-0 mx-auto max-w-[95%] md:py-4 py-2">
       <div className="bg-inherit text-black font-helveticaneuemedium max-w-full sm:max-w-3xl break-words leading-6 sm:leading-7">
-        <div>
-          Warning: this is a search assistant AI powered app under development.
+        <div className="border bg-[#FDF3E7] text-[#5F5038] p-4">
+          Warning: this is an experimental tool under development. It may still have bugs or errors. 
+          Use with caution. Always check if a previous fact check exists. 
+          In case of doubt, try to use other third-party tools to confirm the result.
         </div>
         <MessagePrimitive.Content components={{ Text: MarkdownText }} />
         {shouldRenderMessageBreak ? (
