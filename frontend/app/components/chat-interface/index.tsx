@@ -36,7 +36,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
         <ThreadPrimitive.Viewport
           className={cn(
             "flex-1 overflow-y-auto scroll-smooth bg-inherit transition-all duration-300 ease-in-out w-full px-6",
-            isEmpty ? "pb-[30vh] sm:pb-[50vh]" : "pb-24 sm:pb-12",
+            isEmpty ? "pb-[30vh] sm:pb-[50vh]" : "pb-6 sm:pb-12",
             "scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent",
           )}
         >
@@ -88,7 +88,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
           </div>
         </div>
       ) : (
-        <div className="max-w-full mb-2">
+        <div className="max-w-full mb-4">
           <div className="flex max-w-4xl">
             <p className="tracking-wider text-justify font-helveticaneuethin w-full lg:ml-24 md:ml-6 mb-4 px-6">
               SEEK uses VERA Files articles to create answers using AI. 
