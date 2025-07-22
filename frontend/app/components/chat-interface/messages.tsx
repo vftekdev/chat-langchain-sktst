@@ -112,7 +112,7 @@ export const AssistantMessage: FC = () => {
     !isLast;
 
   return (
-    <MessagePrimitive.Root className="w-full md:mx-0 mx-auto max-w-[95%] md:py-4 py-2">
+    <MessagePrimitive.Root className="w-full md:mx-0 mx-auto max-w-[95%]">
       <div className="bg-inherit text-black font-helveticaneuemedium max-w-full sm:max-w-3xl break-words leading-6 sm:leading-7">
         <div className="border bg-[#FDF3E7] text-[#5F5038] p-4">
           Warning: this is an experimental tool under development. It may still have bugs or errors. 
