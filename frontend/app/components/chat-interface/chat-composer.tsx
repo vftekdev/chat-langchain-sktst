@@ -82,7 +82,6 @@ export const ChatComposer: FC<ChatComposerProps> = (
         </div>
       </div>
       <ResponseTypeRadio />
-      <p>Selected Radio Value: {selectedResponseType}</p>
     </ComposerPrimitive.Root>
   );
 };
