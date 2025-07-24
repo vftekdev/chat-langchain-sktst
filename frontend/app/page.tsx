@@ -22,9 +22,9 @@ export default async function SignIn() {
     <main className="flex mx-auto my-auto text-center justify-center items-center">
       <Card className="flex flex-col justify-center items-center w-[90%] lg:w-[60%] p-16">
         <NextImage
-          src="/images/verafiles-banner.png"
+          src="/images/seek-logo.svg"
           className=""
-          alt="Verafiles Logo"
+          alt="S-E-E-K Logo"
           width={208}
           height={208}
         />
