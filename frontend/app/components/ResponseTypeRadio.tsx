@@ -35,10 +35,10 @@ export function ResponseTypeComponent() {
       <SelectContent className="text-teal-600">
         {Object.entries(responseTypesAndLabels).map(([responseType, label]) => (
           <SelectItem className="" key={responseType} value={responseType}>
-            <p className="m-0 tracking-wide">
+            <p className="m-0 font-helveticaneue tracking-wide">
             {label}
             </p>
-            <p className="text-xs font-extralight text-gray-900 m-0 tracking-widest">
+            <p className="text-xs font-helveticaneuelight text-gray-900 m-0 tracking-widest">
               {responseTypesAndLabels1[responseType]}
             </p>
           </SelectItem>
