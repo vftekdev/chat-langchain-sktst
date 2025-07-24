@@ -143,11 +143,11 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
         <div className="flex flex-col lg:flex-row items-center bg-white font-helveticaneuemedium rounded-3xl my-auto">
           <div className="flex flex-row gap-4 m-4">
             <NextImage
-                src="/images/seek-logo.svg"
+                src="/images/seek-icon.svg"
                 className=""
                 alt="S-E-E-K Logo"
-                width={192}
-                height={192}
+                width={80}
+                height={80}
             />
             <div className="flex items-center text-[10px] md:text-xs text-black font-helveticaneuelight border border-[#D7D7D7] rounded-lg px-2">
               Claude 3.7 Sonnet

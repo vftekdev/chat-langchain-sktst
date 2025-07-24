@@ -22,11 +22,11 @@ export default async function SignIn() {
     <main className="flex mx-auto my-auto text-center justify-center items-center">
       <Card className="flex flex-col justify-center items-center w-[90%] lg:w-[60%] p-16">
         <NextImage
-          src="/images/seek-logo.svg"
+          src="/images/seek-icon.svg"
           className=""
           alt="S-E-E-K Logo"
-          width={208}
-          height={208}
+          width={144}
+          height={144}
         />
         <h1 className="mt-4 text-3xl text-[#F6911D]">Welcome to SEEK!</h1>
         <h2 className="mt-2 font-helveticaneuemedium text-lg">Check your facts in less than a minute.</h2>
