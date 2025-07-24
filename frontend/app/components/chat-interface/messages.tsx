@@ -91,13 +91,13 @@ function FeedbackButtons() {
 function CopyToClipboard () {
   return (
     <div>
-      <ActionBarPrimitive.Copy className="flex gap-2">
+      <ActionBarPrimitive.Copy className="flex gap-2 items-center">
         <MessagePrimitive.If copied={false}>
-          <p>Copy</p>
+          <p className="text-md">Copy</p>
           <CopyIcon className="w-5 h-5"/>
         </MessagePrimitive.If>
         <MessagePrimitive.If copied>
-          <p>Copied</p>
+          <p className="text-md">Copied</p>
           <CheckIcon className="w-5 h-5"/>
         </MessagePrimitive.If>
       </ActionBarPrimitive.Copy>
