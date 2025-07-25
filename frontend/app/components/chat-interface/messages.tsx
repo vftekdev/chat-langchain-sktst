@@ -120,7 +120,7 @@ export const AssistantMessage: FC = () => {
         <div className="flex flex-row gap-2 items-start border bg-[#FDF3E7] text-[#5F5038] mt-4 p-4">
                     <NextImage
                         src="/images/warning-sign.svg"
-                        className="pt-2"
+                        className="pt-3"
                         alt="Warning"
                         width={16}
                         height={16}
