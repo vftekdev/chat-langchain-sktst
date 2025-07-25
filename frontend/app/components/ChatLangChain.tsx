@@ -146,10 +146,10 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
                 src="/images/seek-logo.svg"
                 className=""
                 alt="S-E-E-K Logo"
-                width={80}
+                width={120}
                 height={80}
             />
-            <div className="flex items-center text-[10px] md:text-xs text-black font-helveticaneuelight border border-[#D7D7D7] rounded-lg px-2">
+            <div className="flex items-center text-[10px] md:text-xs text-black font-helveticaneuelight border border-[#D7D7D7] rounded-lg px-2 m-12">
               Claude 3.7 Sonnet
             </div>
           </div>
