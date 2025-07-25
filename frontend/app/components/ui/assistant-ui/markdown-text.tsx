@@ -167,7 +167,7 @@ const MarkdownTextImpl = () => {
             )}
             {...props}
           />
-        )
+        ),
         //code: function Code({ node: _node, className, ...props }) {
         //  const isCodeBlock = useIsMarkdownCodeBlock();
         //  return (
@@ -178,8 +178,8 @@ const MarkdownTextImpl = () => {
         //      )}
         //      {...props}
         //    />
-          );
-        },
+        //  );
+        //},
         CodeHeader,
         SyntaxHighlighter,
       }}
