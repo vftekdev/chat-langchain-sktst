@@ -13,6 +13,7 @@ import { useGraphContext } from "@/app/contexts/GraphContext";
 import { useRuns } from "@/app/hooks/useRuns";
 import { TooltipIconButton } from "../ui/assistant-ui/tooltip-icon-button";
 import { CheckIcon, CopyIcon, ThumbsDownIcon, ThumbsUpIcon } from "lucide-react";
+import NextImage from "next/image";
 
 export const UserMessage: FC = () => {
   return (
