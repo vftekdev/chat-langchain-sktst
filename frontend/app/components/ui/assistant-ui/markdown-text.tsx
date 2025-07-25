@@ -167,17 +167,17 @@ const MarkdownTextImpl = () => {
             )}
             {...props}
           />
-        ),
-        code: function Code({ node: _node, className, ...props }) {
-          const isCodeBlock = useIsMarkdownCodeBlock();
-          return (
-            <code
-              className={cn(
-                !isCodeBlock && "bg-aui-muted rounded border font-semibold",
-                className,
-              )}
-              {...props}
-            />
+        )
+        //code: function Code({ node: _node, className, ...props }) {
+        //  const isCodeBlock = useIsMarkdownCodeBlock();
+        //  return (
+        //    <code
+        //      className={cn(
+        //        !isCodeBlock && "bg-aui-muted rounded border font-semibold",
+        //        className,
+        //      )}
+        //      {...props}
+        //    />
           );
         },
         CodeHeader,
