@@ -149,7 +149,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
                 width={120}
                 height={80}
             />
-            <div className="flex items-center text-[10px] md:text-xs text-black font-helveticaneuelight border border-[#D7D7D7] rounded-lg px-2 m-4">
+            <div className="flex items-center text-[10px] md:text-xs text-black font-helveticaneuelight border border-[#D7D7D7] rounded-lg p-2 m-4">
               Claude 3.7 Sonnet
             </div>
           </div>
