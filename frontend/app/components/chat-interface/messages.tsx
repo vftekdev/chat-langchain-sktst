@@ -117,7 +117,13 @@ export const AssistantMessage: FC = () => {
     <MessagePrimitive.Root className="w-full md:mx-0 mx-auto max-w-[95%]">
       <div className="bg-inherit text-black font-helveticaneuemedium max-w-full sm:max-w-3xl break-words leading-6 sm:leading-7">
         <div className="border bg-[#FDF3E7] text-[#5F5038] mt-4 p-4">
-        Warning: This is an experimental tool under development. It may still have bugs or errors. 
+                    <NextImage
+                        src="/images/warning-sign.svg"
+                        className=""
+                        alt="Warning"
+                        width={16}
+                        height={16}
+                    /> Warning: This is an experimental tool under development. It may still have bugs or errors. 
         Use with caution. Always check the sources cited. In case of doubt, try to use other third-party tools to confirm the answer.
         </div>
         <MessagePrimitive.Content components={{ Text: MarkdownText }} />
