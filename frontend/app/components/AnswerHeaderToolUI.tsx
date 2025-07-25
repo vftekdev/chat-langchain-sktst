@@ -14,7 +14,7 @@ export const useAnswerHeaderToolUI = () =>
               width={32}
               height={32}
           />
-          <p className="text-2xl font-bold text-[#0F5579]">Answer</p>
+          <p className="text-2xl font-bold text-[#006c68]">Answer</p>
         </div>
       );
     },
