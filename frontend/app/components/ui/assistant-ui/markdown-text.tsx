@@ -3,7 +3,7 @@
 import {
   CodeHeaderProps,
   MarkdownTextPrimitive,
-  useIsMarkdownCodeBlock,
+//  useIsMarkdownCodeBlock,
 } from "@assistant-ui/react-markdown";
 import remarkGfm from "remark-gfm";
 // import rehypeKatex from "rehype-katex";
@@ -87,7 +87,7 @@ const MarkdownTextImpl = () => {
           <a
             target="_blank"
             className={cn(
-              "text-primary text-blue-400 font-medium underline underline-offset-4 inline-flex items-baseline relative pr-[1.1em]",
+              "text-primary font-medium underline underline-offset-4 inline-flex items-baseline relative pr-[1.1em]",
               className,
             )}
             {...props}
