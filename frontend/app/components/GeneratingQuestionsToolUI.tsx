@@ -67,10 +67,10 @@ const QuestionCard = ({ question }: { question: Question }) => {
                     </SheetTrigger>
                     <SheetContent
                       side="right"
-                      className="bg-[#282828] border-none overflow-y-auto flex-grow scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent md:min-w-[50vw] min-w-[70vw]"
+                      className="bg-white border-none overflow-y-auto flex-grow scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent md:min-w-[50vw] min-w-[70vw]"
                     >
                       <div className="flex flex-col gap-4">
-                        <h2 className="text-xl font-semibold text-gray-300">
+                        <h2 className="text-xl font-semibold text-gray-900">
                           All Documents for Question
                         </h2>
                         <div className="flex flex-wrap gap-2">
