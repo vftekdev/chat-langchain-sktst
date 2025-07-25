@@ -7,7 +7,7 @@ import {
 } from "@assistant-ui/react-markdown";
 import remarkGfm from "remark-gfm";
 // import rehypeKatex from "rehype-katex";
-import remarkMath from "remark-math";
+//import remarkMath from "remark-math";
 import { FC, memo, useState } from "react";
 import { CheckIcon, CopyIcon, ExternalLink } from "lucide-react";
 
@@ -20,7 +20,7 @@ import "katex/dist/katex.min.css";
 const MarkdownTextImpl = () => {
   return (
     <MarkdownTextPrimitive
-      remarkPlugins={[remarkGfm, remarkMath]}
+      //remarkPlugins={[remarkGfm, remarkMath]}
       // rehypePlugins={[rehypeKatex]}
       components={{
         h1: ({ node: _node, className, ...props }) => (
@@ -87,7 +87,7 @@ const MarkdownTextImpl = () => {
           <a
             target="_blank"
             className={cn(
-              "text-primary font-medium underline underline-offset-4 inline-flex items-baseline relative pr-[1.1em]",
+              "font-medium underline underline-offset-4 inline-flex items-baseline relative pr-[1.1em]",
               className,
             )}
             {...props}
