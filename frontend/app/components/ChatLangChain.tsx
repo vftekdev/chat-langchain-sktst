@@ -143,7 +143,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
         <div className="flex flex-col lg:flex-row items-center bg-white font-helveticaneuemedium rounded-3xl my-auto">
           <div className="flex flex-row gap-4 m-4">
             <NextImage
-                src="/images/seek-icon.svg"
+                src="/images/seek-logo.svg"
                 className=""
                 alt="S-E-E-K Logo"
                 width={120}
