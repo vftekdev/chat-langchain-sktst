@@ -101,7 +101,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
             submitDisabled={props.submitDisabled}
             messages={props.messages}
           />
-          <p className="w-full md:ml-24 ml-3">
+          <p className="flex w-full items-center md:justify-left justify-center">
             SEEK uses VERA Files articles to create answers using AI. 
             AI answers may contain errors. 
             Always check the sources cited to verify the facts.
