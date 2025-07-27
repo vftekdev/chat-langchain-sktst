@@ -12,6 +12,7 @@ from typing import Any, Literal, Optional, Union
 from langchain.chat_models import init_chat_model
 from langchain_core.documents import Document
 from langchain_core.language_models import BaseChatModel
+from langchain_voyageai import VoyageAIRerank
 
 
 def _format_doc(doc: Document) -> str:
@@ -31,7 +32,7 @@ def _format_doc(doc: Document) -> str:
     return f"<document{meta}>\n{doc.page_content}\n</document>"
 
 
-def format_docs(docs: Optional[list[Document]]) -> str:
+def format_docs(docs: Optional[list[Document]], query) -> str:
     """Format a list of documents as XML.
 
     This function takes a list of Document objects and formats them into a single XML string.
