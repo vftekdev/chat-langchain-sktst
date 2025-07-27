@@ -37,7 +37,7 @@ function FeedbackButtons() {
   const goodScore = 1;
   const badScore = 0;
 
-  if (!runId || isStreaming) return null;
+  if (!runId && isStreaming) return null;
 
   if (feedback) {
     return (
