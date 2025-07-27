@@ -1,6 +1,7 @@
 import { useThreadRuntime } from "@assistant-ui/react";
 import NextImage from "next/image";
 import { MoveRight } from "lucide-react";
+import { MoveRight } from "lucide-react";
 
 const suggestedQuestions = [
   "What does verafiles do?",
