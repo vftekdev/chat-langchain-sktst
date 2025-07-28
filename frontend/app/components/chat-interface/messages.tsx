@@ -95,7 +95,7 @@ function CopyToClipboard () {
       <ActionBarPrimitive.Copy className="flex gap-2 items-center">
         <MessagePrimitive.If copied={false}>
           <p className="text-sm">Copy</p>
-          <CopyIcon className="w-5 h-5"/>
+          <CopyIcon className="w-5 h-5 hover:text-[#006C68]"/>
         </MessagePrimitive.If>
         <MessagePrimitive.If copied>
           <p className="text-sm">Copied</p>
