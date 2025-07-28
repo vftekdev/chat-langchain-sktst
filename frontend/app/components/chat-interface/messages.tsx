@@ -69,7 +69,7 @@ function FeedbackButtons() {
               setFeedback("good");
             }}
           >
-            <ThumbsUpIcon className="w-4 h-4" />
+            <ThumbsUpIcon className="w-4 h-4 hover:text-green-500" />
           </TooltipIconButton>
           <TooltipIconButton
             delayDuration={200}
@@ -80,7 +80,7 @@ function FeedbackButtons() {
               setFeedback("bad");
             }}
           >
-            <ThumbsDownIcon className="w-4 h-4" />
+            <ThumbsDownIcon className="w-4 h-4 hover:text-red-500" />
           </TooltipIconButton>
         </div>
         <CopyToClipboard />
