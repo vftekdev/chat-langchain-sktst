@@ -1,4 +1,5 @@
 import { FaqAccordion } from "../components/FaqAccordion";
+import NextImage from "next/image";
 
 export default function faq() {
     const accordionData = [
@@ -101,15 +102,27 @@ export default function faq() {
         },
     ];
     return (
-        <div className="flex flex-col font-helveticaneuemedium items-center bg-white pt-8 w-full h-full">
-            <h1 className="text-[60px] pb-3">
-                FAQ
-            </h1>
-            <div className="pb-16">
+        <div className="flex flex-col font-helveticaneuemedium items-center bg-[#F9F9F9] pt-8 mx-16">
+            <div className="flex items-center justify-between bg-white font-helveticaneuemedium rounded-lg w-full text-6xl px-12 py-4 mb-12">
+                <p className="font-helveticaneue text-[#006C68] tracking-wider self-center m-0 p-0">
+                    FAQ
+                </p>
+                <a className="hover:border-0 cursor-pointer" href="/">
+                    <NextImage
+                    src="/images/seek-logo.svg"
+                    className=""
+                    alt="S-E-E-K Logo"
+                    width={128}
+                    height={80}
+                    />
+                </a>
+            </div>
+            <div className="pb-8">
             {accordionData.map((data, index) => {
                 return <FaqAccordion key={index} title={data.title} desc={data.desc}/>
             })}
             </div>
+            <a className="self-end pr-4 pb-8"href="/">Back to Home</a>
         </div>
     );
 }
