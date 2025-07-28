@@ -121,6 +121,15 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
   // const truncatetext = userlength > 10 ? test.substring(0,10) + "..." : test;
   const [expanded, setExpanded] = useState(false);
 
+  const clearMessages = () => {
+    setMessages([]);
+  };
+
+  const createNewSession = async () => {
+    setThreadId(null);
+    clearMessages();
+  };
+
   return (
     <div className="overflow-hidden w-full flex lg:flex-row flex-col bg-[#F9F9F9] dark:bg-black">
       {/* <div className="absolute bottom-2 right-2 lg:bottom-5 lg:right-5 z-10">
@@ -148,6 +157,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
                 alt="S-E-E-K Logo"
                 width={120}
                 height={80}
+                onClick={createNewSession}
             />
             <div className="flex items-center text-[10px] md:text-xs text-black font-helveticaneuelight border border-[#D7D7D7] rounded-lg p-2 m-4">
               Claude 3.7 Sonnet
