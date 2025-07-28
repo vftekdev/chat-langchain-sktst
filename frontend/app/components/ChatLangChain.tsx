@@ -150,16 +150,17 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
       </div>
       <div className="px-6 lg:py-6 md:px-16 w-full overflow-hidden">
         <div className="flex flex-col lg:flex-row items-center bg-white font-helveticaneuemedium rounded-3xl my-auto">
-          <div className="flex flex-row gap-4 m-4">
-            <NextImage
-                src="/images/seek-logo.svg"
-                className=""
-                alt="S-E-E-K Logo"
-                width={120}
-                height={80}
-                onClick={createNewSession}
-            />
-            <div className="flex items-center text-[10px] md:text-xs text-black font-helveticaneuelight border border-[#D7D7D7] rounded-lg p-2 m-4">
+          <div className="flex flex-row gap-2 mx-6 my-4">
+            <button onClick={createNewSession}>
+              <NextImage
+                  src="/images/seek-logo.svg"
+                  className=""
+                  alt="S-E-E-K Logo"
+                  width={120}
+                  height={80}
+              />
+            </button>
+            <div className="flex items-center text-[10px] md:text-xs text-black font-helveticaneuelight border border-[#D7D7D7] rounded-lg p-2 m-3">
               Claude 3.7 Sonnet
             </div>
           </div>
