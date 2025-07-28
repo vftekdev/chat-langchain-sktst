@@ -10,8 +10,8 @@ import {
 } from "./ui/select";
 
 const responseTypesAndLabels: Partial<Record<ResponseType, string>> = {
-  "simple": "Quick Response (3-10 secs)",
-  "complex": "Think Deeper (20-30 secs)",
+  "simple": "Quick Response (3-10 seconds)",
+  "complex": "Think Deeper (20-30 seconds)",
 };
 
 const responseTypesAndLabels1: Partial<Record<string, string>> = {
@@ -29,18 +29,19 @@ export function ResponseTypeComponent() {
       value={selectedResponseType}
       defaultValue="anthropic/claude-3-7-sonnet-20250219"
     >
-      <SelectTrigger className="w-[250px] text-[#1A7B77] mx-2">
+      <SelectTrigger className="w-fit text-[#1A7B77] mx-2">
         <SelectValue placeholder="Quick Response" />
       </SelectTrigger>
       <SelectContent className="text-[#1A7B77]">
         {Object.entries(responseTypesAndLabels).map(([responseType, label]) => (
           <SelectItem className="" key={responseType} value={responseType}>
-            <p className="m-0 font-helveticaneue tracking-wide">
-            {label}
-            </p>
-            <p className="text-xs font-helveticaneuelight text-gray-900 m-0 tracking-widest">
+            <span className="m-0 font-helveticaneue tracking-wide">
+              {label}
+            </span>
+            <div className="mt-0.5"></div>
+            <span className="text-xs font-helveticaneuelight text-gray-900 m-0 tracking-widest">
               {responseTypesAndLabels1[responseType]}
-            </p>
+            </span>
           </SelectItem>
         ))}
       </SelectContent>
