@@ -1,7 +1,22 @@
+import NextImage from "next/image";
+
 export default function privacypolicy() {
     return(
-        <main className="flex flex-col font-helveticaneuelight bg-white pt-8 px-16 w-full h-full">
-            <h1 className="self-center text-4xl font-helveticaneue">Privacy Policy</h1>
+        <main className="flex flex-col font-helveticaneuelight bg-[#F9F9F9] pt-8 px-16 w-full h-full">
+            <div className="flex items-center justify-between bg-white font-helveticaneuemedium rounded-lg w-full text-6xl px-8 py-4 mb-8">
+                <p className="self-center text-4xl font-helveticaneue">
+                    Privacy Policy
+                </p>
+                <a className="hover:border-0 cursor-pointer" href="/">
+                    <NextImage
+                    src="/images/seek-logo.svg"
+                    className=""
+                    alt="S-E-E-K Logo"
+                    width={128}
+                    height={80}
+                    />
+                </a>
+            </div>
             <div className="text-md font-helveticaneue pt-4">Privacy Policy for SEEK by VERA Files</div>
             <div className="text-md font-helveticaneue pt-4">Effective Date: August 1, 2025</div>
             <p className="text-md font-helveticaneue pt-4">
@@ -91,6 +106,7 @@ export default function privacypolicy() {
                     If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at editorial@verafiles.org. 
                 </p>
             </div>
+            <a className="self-end hover:border-0 pr-4 pb-8" href="/">Back to Home</a>
         </main>
     )
 }
