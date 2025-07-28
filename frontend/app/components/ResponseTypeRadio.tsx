@@ -29,10 +29,10 @@ export function ResponseTypeComponent() {
       value={selectedResponseType}
       defaultValue="anthropic/claude-3-7-sonnet-20250219"
     >
-      <SelectTrigger className="w-[250px] text-teal-600 mx-2">
+      <SelectTrigger className="w-[250px] text-[#1A7B77] mx-2">
         <SelectValue placeholder="Quick Response" />
       </SelectTrigger>
-      <SelectContent className="text-teal-600">
+      <SelectContent className="text-[#1A7B77]">
         {Object.entries(responseTypesAndLabels).map(([responseType, label]) => (
           <SelectItem className="" key={responseType} value={responseType}>
             <p className="m-0 font-helveticaneue tracking-wide">
