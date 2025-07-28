@@ -34,7 +34,7 @@
 
 body {
   color: #f8f8f8;
-  background: #FFFFFF;
+  background: #F9F9F9;
   overflow-x: hidden;
 }
 
@@ -49,6 +49,7 @@ a {
 
 a:hover {
   border-bottom: 1px solid;
+  text-decoration: none;
 }
 
 p {
