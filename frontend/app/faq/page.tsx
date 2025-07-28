@@ -122,7 +122,7 @@ export default function faq() {
                 return <FaqAccordion key={index} title={data.title} desc={data.desc}/>
             })}
             </div>
-            <a className="self-end pr-4 pb-8"href="/">Back to Home</a>
+            <a className="self-end hover:border-0 pr-4 pb-8"href="/">Back to Home</a>
         </div>
     );
 }
