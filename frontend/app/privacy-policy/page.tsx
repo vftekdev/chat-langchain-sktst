@@ -4,7 +4,7 @@ export default function privacypolicy() {
     return(
         <main className="flex flex-col font-helveticaneuelight bg-[#F9F9F9] pt-8 px-6 md:px-16 w-full h-full">
             <div className="flex items-center justify-between bg-white font-helveticaneuemedium rounded-lg w-full text-6xl px-8 py-4 mb-8">
-                <p className="self-center text-2xl sm:text-4xl font-helveticaneue">
+                <p className="self-center text-3xl sm:text-4xl text-[#006C68] font-helveticaneue">
                     Privacy Policy
                 </p>
                 <a className="hover:border-0 cursor-pointer" href="/">
