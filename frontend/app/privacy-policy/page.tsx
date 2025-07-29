@@ -96,7 +96,7 @@ export default function privacypolicy() {
                 <h2 className="text-2xl font-helveticaneue">7. Changes to This Privacy Policy</h2>
                 <p className="pt-2">
                 We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. 
-                We will notify you of any material changes by posting the new Privacy Policy on [where you will post updates, e.g., the VERA Files website, within the SEEK interface] and updating the "Effective Date" at the top. Your continued use of SEEK after such modifications constitutes your acceptance of the revised Privacy Policy. 
+                We will notify you of any material changes by posting the new Privacy Policy on this page and updating the "Effective Date" at the top. Your continued use of SEEK after such modifications constitutes your acceptance of the revised Privacy Policy. 
                 </p>
             </div>
 
@@ -106,7 +106,8 @@ export default function privacypolicy() {
                     If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at editorial@verafiles.org. 
                 </p>
             </div>
-            <a className="self-end hover:border-0 pr-4 pb-8" href="/">Back to Home</a>
+            <a className="hover:border-0 hover:bg-[#E5E7EB] rounded-2xl self-center px-3 py-2" href="/">Back to Home</a>
+            <div className="pb-8"></div>
         </main>
     )
 }
