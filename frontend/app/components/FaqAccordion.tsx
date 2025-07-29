@@ -6,10 +6,10 @@ const AccordionComponent = ({title, desc} : {title:any, desc:any}) => {
         <div className="flex flex-col bg-white rounded-lg shadow-lg mt-4">
             <Accordion.Root type="multiple">
                 <Accordion.Item value="item-1">
-                    <Accordion.Trigger className="w-full flex justify-left px-12 py-6 md:min-w-[700px] hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
-                        <div className="font-helveticaneue">
+                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 md:min-w-[700px] hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
+                        <p className="font-helveticaneue text-start">
                         {title}
-                        </div>
+                        </p>
                     </Accordion.Trigger>
                     <Accordion.Content className="px-12 pb-6 max-w-[700px]">
                         <p style={{whiteSpace:'pre-line'}}>
