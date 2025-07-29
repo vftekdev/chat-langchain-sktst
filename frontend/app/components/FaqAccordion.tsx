@@ -12,7 +12,7 @@ export function AccordionComponent() {
                             Why did you create seek?
                         </p>
                     </Accordion.Trigger>
-                    <Accordion.Content className="px-12 pb-6 max-w-[700px]">
+                    <Accordion.Content className="px-6 md:px-12 pb-6 max-w-[700px]">
                         <p>
                         SEEK is an exploratory project for VERA Files. Our team has been learning about AI and its applications in journalism since 2022, and winning a grant under the JournalismAI Innovation Challenge in 2024 gave us the seed money to put our newfound knowledge to the test.
 
@@ -30,7 +30,7 @@ export function AccordionComponent() {
                             How does it work?
                         </p>
                     </Accordion.Trigger>
-                    <Accordion.Content className="px-12 pb-6 max-w-[700px]">
+                    <Accordion.Content className="px-6 md:px-12 pb-6 max-w-[700px]">
                         <p>
                             SEEK is an AI-powered search assistant that uses over 5,400 VERA Files articles (and counting) as its knowledge base and a Large Language Model (i.e. Claude 3.7 Sonnet, specifically for SEEK) to craft an answer.
 
@@ -48,7 +48,7 @@ export function AccordionComponent() {
                             How up-to-date is SEEK? From where does it draw answers?
                         </p>
                     </Accordion.Trigger>
-                    <Accordion.Content className="px-12 pb-6 max-w-[700px]">
+                    <Accordion.Content className="px-6 md:px-12 pb-6 max-w-[700px]">
                         <p>
                             The Team updates SEEK's knowledge base every Monday at 10 a.m. with the most recent stories published on the VERA Files website.
 
@@ -67,7 +67,7 @@ export function AccordionComponent() {
                             What do I do if there are errors?
                         </p>
                     </Accordion.Trigger>
-                    <Accordion.Content className="px-12 pb-6 max-w-[700px]">
+                    <Accordion.Content className="px-6 md:px-12 pb-6 max-w-[700px]">
                         <p>
                             As we have stated, LLMs are by nature non-deterministic and may hallucinate or misunderstand supplied context (such as the retrieved sections of VERA Files articles).  The SEEK Team has, however, done several tests and evaluations to improve the chatbot and, as much as possible, prevent misunderstanding or hallucinations.
 
@@ -130,7 +130,7 @@ export function AccordionComponent() {
                             When will it be available to the general public?
                         </p>
                     </Accordion.Trigger>
-                    <Accordion.Content className="px-12 pb-6 max-w-[700px]">
+                    <Accordion.Content className="px-6 md:px-12 pb-6 max-w-[700px]">
                         <p>
                             At the moment, you are among the select few chosen to test out SEEK in its early stages of development. 
                             This Beta testing phase is crucial in determining the next steps we take. We want to ensure that we develop a product that's valuable for our audiences.
@@ -146,7 +146,7 @@ export function AccordionComponent() {
                             What is SEEK's accuracy level?
                         </p>
                     </Accordion.Trigger>
-                    <Accordion.Content className="px-12 pb-6 max-w-[700px]">
+                    <Accordion.Content className="px-6 md:px-12 pb-6 max-w-[700px]">
                         <p>
                             To ensure the quality of responses from SEEK, the Team employed a combination of human annotators and LLM-as-a-judge in evaluating the tool.
 
@@ -155,8 +155,8 @@ export function AccordionComponent() {
 
                             <br/><br/>After this process, we used gpt-4o-mini to judge the responses based on RAGAS metrics, an open-source framework for testing and evaluating LLM applications. It has four metrics related to Retrieval and Answer Generation:
                             <br/><br/>
-                            <div className="flex justify-center font-helveticaneue">
-                                <div className="basis-1/2">
+                            <div className="flex flex-col md:flex-row justify-center font-helveticaneue">
+                                <div className="md:basis-1/2">
                                     Retrieval
                                     <br/>
                                     <ul className="list-disc">
@@ -168,7 +168,8 @@ export function AccordionComponent() {
                                         </li>
                                     </ul>
                                 </div>
-                                <div className="basis-1/2">
+                                <br/>
+                                <div className="md:basis-1/2">
                                     Answer Generation
                                     <br/>
                                     <ul className="list-disc">
@@ -188,47 +189,46 @@ export function AccordionComponent() {
                             <table className="w-full justify-between table-auto">
                                 <thead>
                                     <tr>
-                                        <th>Score Range</th>
-                                        <th>Qualitative Interpetation</th>
-                                        <th>What it means</th>
+                                        <th className="px-6">Score Range</th>
+                                        <th className="px-6">Qualitative Interpetation</th>
+                                        <th className="px-6">What it means</th>
                                     </tr>
                                 </thead>
-                                <br/>
                                 <tbody>
-                                    <tr>
-                                        <td>&lt;0.5</td>
-                                        <td>Very Poor</td>
-                                        <td>System requires significant redesign</td>
+                                    <tr className="odd:bg-gray-300 even:bg-white">
+                                        <td className="whitespace-nowrap pl-6 py-3">&lt;0.5</td>
+                                        <td className="pl-6 py-3">Very Poor</td>
+                                        <td className="pl-6 py-3">System requires significant redesign</td>
                                     </tr>
 
-                                    <tr>
-                                        <td>0.5-0.59</td>
-                                        <td>Poor</td>
-                                        <td>Significant issues; often misleading, incomplete, or highly irrelevant. Requires immediate attention.</td>
+                                    <tr className="odd:bg-gray-300 even:bg-white">
+                                        <td className="whitespace-nowrap pl-6 py-3">0.5-0.59</td>
+                                        <td className="pl-6 py-3">Poor</td>
+                                        <td className="pl-6 py-3">Significant issues; often misleading, incomplete, or highly irrelevant. Requires immediate attention.</td>
                                     </tr>
 
-                                    <tr>
-                                        <td>0.6 - 0.69</td>
-                                        <td>Fair</td>
-                                        <td>Acceptable but needs improvement</td>
+                                    <tr className="odd:bg-gray-300 even:bg-white">
+                                        <td className="whitespace-nowrap pl-6 py-3">0.6 - 0.69</td>
+                                        <td className="pl-6 py-3">Fair</td>
+                                        <td className="pl-6 py-3">Acceptable but needs improvement</td>
                                     </tr>
 
-                                    <tr>
-                                        <td>0.7 - 0.79</td>
-                                        <td>Good</td>
-                                        <td>Solid performance, some optimization opportunities</td>
+                                    <tr className="odd:bg-gray-300 even:bg-white">
+                                        <td className="whitespace-nowrap pl-6 py-3">0.7 - 0.79</td>
+                                        <td className="pl-6 py-3">Good</td>
+                                        <td className="pl-6 py-3">Solid performance, some optimization opportunities</td>
                                     </tr>
 
-                                    <tr>
-                                        <td>0.8 - 0.89</td>
-                                        <td>Very Good</td>
-                                        <td>Strong performance, minor improvements needed</td>
+                                    <tr className="odd:bg-gray-300 even:bg-white">
+                                        <td className="whitespace-nowrap pl-6 py-3">0.8 - 0.89</td>
+                                        <td className="pl-6 py-3">Very Good</td>
+                                        <td className="pl-6 py-3">Strong performance, minor improvements needed</td>
                                     </tr>
 
-                                    <tr>
-                                        <td>0.9 - 1.0</td>
-                                        <td>Excellent</td>
-                                        <td>Near-perfect RAG performance</td>
+                                    <tr className="odd:bg-gray-300 even:bg-white">
+                                        <td className="whitespace-nowrap pl-6 py-3">0.9 - 1.0</td>
+                                        <td className="pl-6 py-3">Excellent</td>
+                                        <td className="pl-6 py-3">Near-perfect RAG performance</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -250,7 +250,7 @@ export function AccordionComponent() {
                             SEEK's common issues
                         </p>
                     </Accordion.Trigger>
-                    <Accordion.Content className="px-12 pb-6 max-w-[700px]">
+                    <Accordion.Content className="px-6 md:px-12 pb-6 max-w-[700px]">
                         <ul className="list-disc font-helveticaneue">
                             <li>
                                 SEEK did not give me an answer, it just showed the feedback button.
@@ -292,7 +292,7 @@ export function AccordionComponent() {
                             Best practices when using SEEK
                         </p>
                     </Accordion.Trigger>
-                    <Accordion.Content className="px-12 pb-6 max-w-[700px]">
+                    <Accordion.Content className="px-6 md:px-12 pb-6 max-w-[700px]">
                         <p>
                             In order to get the best from SEEK, watch these videos!
                         </p>
