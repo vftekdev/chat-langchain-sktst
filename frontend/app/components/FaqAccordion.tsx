@@ -189,51 +189,51 @@ export function AccordionComponent() {
                             <table className="w-full justify-between table-auto">
                                 <thead>
                                     <tr>
-                                        <th className="px-6">Score Range</th>
-                                        <th className="px-6">Qualitative Interpetation</th>
-                                        <th className="px-6">What it means</th>
+                                        <th className="px-6 text-center">Score Range</th>
+                                        <th className="px-6 text-center">Qualitative Interpetation</th>
+                                        <th className="px-6 text-center whitespace-nowrap">What it means</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr className="odd:bg-gray-300 even:bg-white">
-                                        <td className="whitespace-nowrap pl-6 py-3">&lt;0.5</td>
-                                        <td className="pl-6 py-3">Very Poor</td>
-                                        <td className="pl-6 py-3">System requires significant redesign</td>
+                                        <td className="whitespace-nowrap py-3 text-center">&lt;0.5</td>
+                                        <td className="py-3 text-center">Very Poor</td>
+                                        <td className="py-3 text-center">System requires significant redesign</td>
                                     </tr>
 
                                     <tr className="odd:bg-gray-300 even:bg-white">
-                                        <td className="whitespace-nowrap pl-6 py-3">0.5-0.59</td>
-                                        <td className="pl-6 py-3">Poor</td>
-                                        <td className="pl-6 py-3">Significant issues; often misleading, incomplete, or highly irrelevant. Requires immediate attention.</td>
+                                        <td className="whitespace-nowrap py-3 text-center">0.5-0.59</td>
+                                        <td className="py-3 text-center">Poor</td>
+                                        <td className="py-3 text-center">Significant issues; often misleading, incomplete, or highly irrelevant. Requires immediate attention.</td>
                                     </tr>
 
                                     <tr className="odd:bg-gray-300 even:bg-white">
-                                        <td className="whitespace-nowrap pl-6 py-3">0.6 - 0.69</td>
-                                        <td className="pl-6 py-3">Fair</td>
-                                        <td className="pl-6 py-3">Acceptable but needs improvement</td>
+                                        <td className="whitespace-nowrap py-3 text-center">0.6 - 0.69</td>
+                                        <td className="py-3 text-center">Fair</td>
+                                        <td className="py-3 text-center">Acceptable but needs improvement</td>
                                     </tr>
 
                                     <tr className="odd:bg-gray-300 even:bg-white">
-                                        <td className="whitespace-nowrap pl-6 py-3">0.7 - 0.79</td>
-                                        <td className="pl-6 py-3">Good</td>
-                                        <td className="pl-6 py-3">Solid performance, some optimization opportunities</td>
+                                        <td className="whitespace-nowrap py-3 text-center">0.7 - 0.79</td>
+                                        <td className="py-3 text-center">Good</td>
+                                        <td className="py-3 text-center">Solid performance, some optimization opportunities</td>
                                     </tr>
 
                                     <tr className="odd:bg-gray-300 even:bg-white">
-                                        <td className="whitespace-nowrap pl-6 py-3">0.8 - 0.89</td>
-                                        <td className="pl-6 py-3">Very Good</td>
-                                        <td className="pl-6 py-3">Strong performance, minor improvements needed</td>
+                                        <td className="whitespace-nowrap py-3 text-center">0.8 - 0.89</td>
+                                        <td className="py-3 text-center">Very Good</td>
+                                        <td className="py-3 text-center">Strong performance, minor improvements needed</td>
                                     </tr>
 
                                     <tr className="odd:bg-gray-300 even:bg-white">
-                                        <td className="whitespace-nowrap pl-6 py-3">0.9 - 1.0</td>
-                                        <td className="pl-6 py-3">Excellent</td>
-                                        <td className="pl-6 py-3">Near-perfect RAG performance</td>
+                                        <td className="whitespace-nowrap py-3 text-center">0.9 - 1.0</td>
+                                        <td className="py-3 text-center">Excellent</td>
+                                        <td className="py-3 text-center">Near-perfect RAG performance</td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <br/>As of July 28, 2025, the SEEK team has conducted three runs of 50 QA pairs. The overall mean RAGAS score is <span className="font-helveticaneue">0.71</span>, indicating good performance.
+                            <br/>As of July 28, 2025, the SEEK team has conducted four runs of 50 QA pairs. The overall mean RAGAS score is <span className="font-helveticaneue">0.71</span>, indicating good performance.
 
                             <br/><br/><span className="font-helveticaneue">What does it mean if SEEK has a good score?</span>
 
