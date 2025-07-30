@@ -68,6 +68,20 @@ const config: Config = {
           "5": "hsl(var(--chart-5))",
         },
       },
+      keyframes: {
+				slideDown: {
+					from: { height: "0px" },
+					to: { height: "var(--radix-accordion-content-height)" },
+				},
+				slideUp: {
+					from: { height: "var(--radix-accordion-content-height)" },
+					to: { height: "0px" },
+				},
+			},
+			animation: {
+				slideDown: "slideDown 400ms cubic-bezier(0.87, 0, 0.13, 1)",
+				slideUp: "slideUp 400ms cubic-bezier(0.87, 0, 0.13, 1)",
+			},
     },
   },
   plugins: [require("tailwind-scrollbar"), require("tailwindcss-animate")],

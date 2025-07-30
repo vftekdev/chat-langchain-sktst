@@ -5,15 +5,15 @@ import NextImage from "next/image";
 export function AccordionComponent() {
     return (
         <div className="flex pb-8">
-            <Accordion.Root type="multiple">
+            <Accordion.Root type="multiple" className="w-[400px] md:w-[500px] lg:w-[700px]">
                 <Accordion.Item className="bg-white rounded-lg shadow-lg mt-4" value="item-1">
-                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 md:min-w-[700px] hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
+                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
                         <p className="font-helveticaneue text-start">
                             Why did you create seek?
                         </p>
                     </Accordion.Trigger>
-                    <Accordion.Content className="px-6 md:px-12 pb-6 max-w-[700px]">
-                        <p>
+                    <Accordion.Content className="px-6 md:px-12 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown overflow-hidden">
+                        <p className="pb-6">
                         SEEK is an exploratory project for VERA Files. Our team has been learning about AI and its applications in journalism since 2022, and winning a grant under the JournalismAI Innovation Challenge in 2024 gave us the seed money to put our newfound knowledge to the test.
 
                         <br/><br/>We wanted to address a challenge we have with distribution: “How do we make it easy for our audiences to search for facts?”
@@ -25,13 +25,13 @@ export function AccordionComponent() {
                 </Accordion.Item>
 
                 <Accordion.Item className="bg-white rounded-lg shadow-lg mt-4" value="item-2">
-                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 md:min-w-[700px] hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
+                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
                         <p className="font-helveticaneue text-start">
                             How does it work?
                         </p>
                     </Accordion.Trigger>
-                    <Accordion.Content className="px-6 md:px-12 pb-6 max-w-[700px]">
-                        <p>
+                    <Accordion.Content className="px-6 md:px-12 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown overflow-hidden">
+                        <p className="pb-6">
                             SEEK is an AI-powered search assistant that uses over 5,400 VERA Files articles (and counting) as its knowledge base and a Large Language Model (i.e. Claude 3.7 Sonnet, specifically for SEEK) to craft an answer.
 
                             <br/><br/>When you ask a question, it will search its knowledge base according to how it understands your question (i.e. meaning-based search or semantic search). The retrieved parts of articles are then sent together with SEEK's instructions to the LLM to give you an answer. 
@@ -43,13 +43,13 @@ export function AccordionComponent() {
                 </Accordion.Item>
 
                 <Accordion.Item className="bg-white rounded-lg shadow-lg mt-4" value="item-3">
-                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 md:min-w-[700px] hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
+                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
                         <p className="font-helveticaneue text-start">
                             How up-to-date is SEEK? From where does it draw answers?
                         </p>
                     </Accordion.Trigger>
-                    <Accordion.Content className="px-6 md:px-12 pb-6 max-w-[700px]">
-                        <p>
+                    <Accordion.Content className="px-6 md:px-12 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown overflow-hidden">
+                        <p className="pb-6">
                             The Team updates SEEK's knowledge base every Monday at 10 a.m. with the most recent stories published on the VERA Files website.
 
                             <br/><br/>SEEK's knowledge base is built on fact checks, fact sheets, news articles, and in-depth reports published on <a className="hover:border-0" href="https://verafiles.org" target="_blank">verafiles.org</a> since 2008. 
@@ -62,13 +62,13 @@ export function AccordionComponent() {
                 </Accordion.Item>
 
                 <Accordion.Item className="bg-white rounded-lg shadow-lg mt-4" value="item-4">
-                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 md:min-w-[700px] hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
+                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
                         <p className="font-helveticaneue text-start">
                             What do I do if there are errors?
                         </p>
                     </Accordion.Trigger>
-                    <Accordion.Content className="px-6 md:px-12 pb-6 max-w-[700px]">
-                        <p>
+                    <Accordion.Content className="px-6 md:px-12 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown overflow-hidden">
+                        <p className="pb-6">
                             As we have stated, LLMs are by nature non-deterministic and may hallucinate or misunderstand supplied context (such as the retrieved sections of VERA Files articles).  The SEEK Team has, however, done several tests and evaluations to improve the chatbot and, as much as possible, prevent misunderstanding or hallucinations.
 
                             <br/><br/>During this Beta testing phase, we encourage you to report errors as they happen. Click on the “Report Issue” button on the top right corner of the screen and file a ticket.
@@ -125,13 +125,13 @@ export function AccordionComponent() {
                 </Accordion.Item>
 
                 <Accordion.Item className="bg-white rounded-lg shadow-lg mt-4" value="item-5">
-                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 md:min-w-[700px] hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
+                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
                         <p className="font-helveticaneue text-start">
                             When will it be available to the general public?
                         </p>
                     </Accordion.Trigger>
-                    <Accordion.Content className="px-6 md:px-12 pb-6 max-w-[700px]">
-                        <p>
+                    <Accordion.Content className="px-6 md:px-12 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown overflow-hidden">
+                        <p className="pb-6">
                             At the moment, you are among the select few chosen to test out SEEK in its early stages of development. 
                             This Beta testing phase is crucial in determining the next steps we take. We want to ensure that we develop a product that's valuable for our audiences.
 
@@ -141,13 +141,13 @@ export function AccordionComponent() {
                 </Accordion.Item>
 
                 <Accordion.Item className="bg-white rounded-lg shadow-lg mt-4" value="item-6">
-                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 md:min-w-[700px] hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
+                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
                         <p className="font-helveticaneue text-start">
                             What is SEEK's accuracy level?
                         </p>
                     </Accordion.Trigger>
-                    <Accordion.Content className="px-6 md:px-12 pb-6 max-w-[700px]">
-                        <p>
+                    <Accordion.Content className="px-6 md:px-12 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown overflow-hidden">
+                        <p className="pb-6">
                             To ensure the quality of responses from SEEK, the Team employed a combination of human annotators and LLM-as-a-judge in evaluating the tool.
 
                             <br/><br/>The Team has developed a “Golden Dataset” of 100 question-and-answer (QA) pairs. This dataset is a well-defined, human-labeled, and trusted subset of data based on fact checks, fact sheets and reports from 2008 to the present. 
@@ -159,7 +159,7 @@ export function AccordionComponent() {
                                 <div className="md:basis-1/2">
                                     Retrieval
                                     <br/>
-                                    <ul className="list-disc">
+                                    <ul className="pl-6 list-disc">
                                         <li>
                                             context relevancy (a.k.a. context precision): <span className="font-helveticaneuemedium">measures the signal-to-noise ratio in the retrieved contexts</span>
                                         </li>
@@ -172,7 +172,7 @@ export function AccordionComponent() {
                                 <div className="md:basis-1/2">
                                     Answer Generation
                                     <br/>
-                                    <ul className="list-disc">
+                                    <ul className="pl-6 list-disc">
                                         <li>
                                             faithfulness: <span className="font-helveticaneuemedium">measures the factual accuracy of the generated answer with the context provided</span>
                                         </li>
@@ -245,13 +245,13 @@ export function AccordionComponent() {
                 </Accordion.Item>
 
                 <Accordion.Item className="bg-white rounded-lg shadow-lg mt-4" value="item-7">
-                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 md:min-w-[700px] hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
+                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
                         <p className="font-helveticaneue text-start">
                             SEEK's common issues
                         </p>
                     </Accordion.Trigger>
-                    <Accordion.Content className="px-6 md:px-12 pb-6 max-w-[700px]">
-                        <ul className="list-disc font-helveticaneue">
+                    <Accordion.Content className="pl-12 pr-6 md:px-12 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown overflow-hidden">
+                        <ul className="list-disc font-helveticaneue pb-6">
                             <li>
                                 SEEK did not give me an answer, it just showed the feedback button.
                                 <p className="font-helveticaneuemedium p-0 m-0">
@@ -287,13 +287,13 @@ export function AccordionComponent() {
                 </Accordion.Item>
 
                 <Accordion.Item className="bg-white rounded-lg shadow-lg mt-4" value="item-8">
-                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 md:min-w-[700px] hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
+                    <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
                         <p className="font-helveticaneue text-start">
                             Best practices when using SEEK
                         </p>
                     </Accordion.Trigger>
-                    <Accordion.Content className="px-6 md:px-12 pb-6 max-w-[700px]">
-                        <p>
+                    <Accordion.Content className="px-6 md:px-12 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown overflow-hidden">
+                        <p className="pb-6">
                             In order to get the best from SEEK, watch these videos!
                         </p>
                     </Accordion.Content>
