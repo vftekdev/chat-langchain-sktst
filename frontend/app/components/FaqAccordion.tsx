@@ -191,7 +191,7 @@ export function AccordionComponent() {
                                     <tr>
                                         <th className="px-6 text-center">Score Range</th>
                                         <th className="px-6 text-center">Qualitative Interpetation</th>
-                                        <th className="px-6 text-center whitespace-nowrap">What it means</th>
+                                        <th className="px-6 text-center">What it means</th>
                                     </tr>
                                 </thead>
                                 <tbody>
