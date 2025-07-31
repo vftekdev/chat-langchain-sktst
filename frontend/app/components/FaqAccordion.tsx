@@ -297,10 +297,10 @@ export function AccordionComponent() {
                             In order to get the best from SEEK, watch these videos!
 
                             <br/><br/>If you are a student, watch this: 
-                            <br/><br/><iframe title="vimeo-player" src="https://player.vimeo.com/video/1105667684?h=a5c5c2b493" className="border-solid border-4" referrerPolicy="strict-origin-when-cross-origin" width="600" height="360" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowFullScreen></iframe>
+                            <br/><br/><div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1105667684?app_id=58479" className="border-solid border-4" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="[SEEK-demo] For Students"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
                             <br/>If you are a teacher, watch this: 
-                            <br/><br/><iframe title="vimeo-player" src="https://player.vimeo.com/video/1105668909?h=2b370509f1" className="border-solid border-4" referrerPolicy="strict-origin-when-cross-origin" width="600" height="360"  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowFullScreen></iframe>
+                            <br/><br/><iframe src="https://player.vimeo.com/video/1105668909?app_id=58479" className="border-solid border-4" width="600" height="338" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="[SEEK-demo] For Teachers"></iframe>
                         </p>
                     </Accordion.Content>
                 </Accordion.Item>
