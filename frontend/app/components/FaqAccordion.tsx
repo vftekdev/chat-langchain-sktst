@@ -297,16 +297,16 @@ export function AccordionComponent() {
                             In order to get the best from SEEK, watch these videos!
 
                             <br/><br/><span className="text-[#006C68]">If you are a student, watch this: </span>
-                            <br/><br/><iframe src="https://player.vimeo.com/video/1105667684?app_id=58479" width="600" height="360" className="border-solid border-4" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" title="[SEEK-demo] For Students"></iframe>
+                            <br/><br/><iframe src="https://player.vimeo.com/video/1105667684?app_id=58479" width="100%" height="360" className="border-solid border-4" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" title="[SEEK-demo] For Students"></iframe>
 
                             <br/><br/><span className="text-[#006C68]">If you are a teacher, watch this: </span>
-                            <br/><br/><iframe src="https://player.vimeo.com/video/1105668909?app_id=58479" className="border-solid border-4" width="600" height="360" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" title="[SEEK-demo] For Teachers"></iframe>
+                            <br/><br/><iframe src="https://player.vimeo.com/video/1105668909?app_id=58479" className="border-solid border-4" width="100%" height="360" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" title="[SEEK-demo] For Teachers"></iframe>
 
                             <br/><br/><span className="text-[#006C68]">If you are a disinformation researcher, watch this: </span>
-                            <br/><br/><iframe src="https://player.vimeo.com/video/1106014592?app_id=58479" width="600" height="360" className="border-solid border-4" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" title="[SEEK-demo] Disinformation researcher"></iframe>
+                            <br/><br/><iframe src="https://player.vimeo.com/video/1106014592?app_id=58479" width="100%" height="360" className="border-solid border-4" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" title="[SEEK-demo] Disinformation researcher"></iframe>
 
                             <br/><br/><span className="text-[#006C68]">If you are a citizen fact-checker, watch this: </span>
-                            <br/><br/><iframe src="https://player.vimeo.com/video/1106015872?app_id=58479" width="600" height="360" className="border-solid border-4"  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" title="[SEEK-demo] For Citizen fact-checkers"></iframe>
+                            <br/><br/><iframe src="https://player.vimeo.com/video/1106015872?app_id=58479" width="100%" height="360" className="border-solid border-4"  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" title="[SEEK-demo] For Citizen fact-checkers"></iframe>
                         </p>
                     </Accordion.Content>
                 </Accordion.Item>
