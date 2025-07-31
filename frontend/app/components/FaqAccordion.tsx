@@ -297,10 +297,16 @@ export function AccordionComponent() {
                             In order to get the best from SEEK, watch these videos!
 
                             <br/><br/>If you are a student, watch this: 
-                            <br/><br/><div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1105667684?app_id=58479" className="border-solid border-4" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="[SEEK-demo] For Students"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+                            <br/><br/><iframe src="https://player.vimeo.com/video/1105667684?app_id=58479" width="600" height="338" className="border-solid border-4" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="[SEEK-demo] For Students"></iframe>
 
                             <br/>If you are a teacher, watch this: 
                             <br/><br/><iframe src="https://player.vimeo.com/video/1105668909?app_id=58479" className="border-solid border-4" width="600" height="338" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="[SEEK-demo] For Teachers"></iframe>
+
+                            <br/>If you are a disinformation researcher, watch this: 
+                            <br/><br/><iframe src="https://player.vimeo.com/video/1106014592?app_id=58479" width="600" height="338" className="border-solid border-4" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="[SEEK-demo] Disinformation researcher"></iframe>
+
+                            <br/>If you are a citizen fact-checker, watch this: 
+                            <br/><br/><iframe src="https://player.vimeo.com/video/1106015872?app_id=58479" width="600" height="338" className="border-solid border-4"  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="[SEEK-demo] For Citizen fact-checkers"></iframe>
                         </p>
                     </Accordion.Content>
                 </Accordion.Item>
