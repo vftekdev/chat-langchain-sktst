@@ -45,7 +45,7 @@ export function AccordionComponent() {
                 <Accordion.Item className="bg-white rounded-lg shadow-lg mt-4" value="item-3">
                     <Accordion.Trigger className="w-full flex px-6 md:px-12 py-6 hover:bg-[#006C68] hover:rounded-lg hover:text-white data-[state=open]:text-[#006C68]">
                         <p className="font-helveticaneue text-start">
-                            How up-to-date is SEEK? From where does it draw answers?
+                            How up-to-date is SEEK's data? From where does it draw answers?
                         </p>
                     </Accordion.Trigger>
                     <Accordion.Content className="px-6 md:px-12 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown overflow-hidden">
