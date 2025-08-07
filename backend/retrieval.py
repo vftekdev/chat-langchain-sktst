@@ -55,20 +55,31 @@ def make_weaviate_retriever(
             embedding=embedding_model,
             attributes=["source", "title"],
         )
-        pattern = r"latest|recent|current"
+
         user_query = (state.query).lower()
         # print('USER QUERY: ', user_query)
-        match = re.search(pattern, user_query)
-        if match:
+
+        pattern_date = r"latest|recent|current"
+        match_date = re.search(pattern_date, user_query)
+
+        pattern_author = r"(article by|articles by|authored by|written by)\s+(\w+\s+\w+)"
+        match_author = re.search(pattern_author, user_query)
+
+        if match_date:
             now = datetime.now(timezone.utc).replace(microsecond=0)
             last_month = now - relativedelta(months=1)
             iso_today = now.strftime("%Y-%m-%dT%H:%M:%SZ")
             iso_last_month = last_month.strftime("%Y-%m-%dT%H:%M:%SZ")
-            
+
             date_filter = Filter.by_property("post_date").greater_than(iso_last_month)
             search_kwargs = {**configuration.search_kwargs, "filters": date_filter, "return_uuids": True}
+        elif match_author:
+            author_after_match = match_author.group(2)
+            author_filter = Filter.by_property("article_author").equal(author_after_match)
+            search_kwargs = {**configuration.search_kwargs, "filters": author_filter, "return_uuids": True}
         else:
             search_kwargs = {**configuration.search_kwargs, "return_uuids": True}
+
         yield store.as_retriever(
             # search_type="similarity_score_threshold",
             # search_kwargs={'k': 20, 'score_threshold': 0.60, 'return_uuids': True},
