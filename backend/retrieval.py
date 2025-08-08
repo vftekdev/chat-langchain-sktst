@@ -65,18 +65,19 @@ def make_weaviate_retriever(
         pattern_author = r"(article by|articles by|authored by|written by)\s+(\w+\s+\w+)"
         match_author = re.search(pattern_author, user_query)
 
-        if match_date:
-            now = datetime.now(timezone.utc).replace(microsecond=0)
-            last_month = now - relativedelta(months=1)
-            iso_today = now.strftime("%Y-%m-%dT%H:%M:%SZ")
-            iso_last_month = last_month.strftime("%Y-%m-%dT%H:%M:%SZ")
+        now = datetime.now(timezone.utc).replace(microsecond=0)
+        last_month = now - relativedelta(months=1)
+        # iso_today = now.strftime("%Y-%m-%dT%H:%M:%SZ")
+        iso_last_month = last_month.strftime("%Y-%m-%dT%H:%M:%SZ")
 
-            date_filter = Filter.by_property("post_date").greater_than(iso_last_month)
-            search_kwargs = {**configuration.search_kwargs, "filters": date_filter, "return_uuids": True}
-        elif match_author:
+        if match_author:
             author_after_match = match_author.group(2)
+            # author_filter = Filter.all_of([Filter.by_property("article_author").equal(author_after_match), Filter.by_property("post_date").greater_than(iso_last_month)])
             author_filter = Filter.by_property("article_author").equal(author_after_match)
             search_kwargs = {**configuration.search_kwargs, "filters": author_filter, "return_uuids": True}
+        elif match_date:
+            date_filter = Filter.by_property("post_date").greater_than(iso_last_month)
+            search_kwargs = {**configuration.search_kwargs, "filters": date_filter, "return_uuids": True}
         else:
             search_kwargs = {**configuration.search_kwargs, "return_uuids": True}
 
