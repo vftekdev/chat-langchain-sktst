@@ -3,9 +3,9 @@ import NextImage from "next/image";
 import { MoveRight } from "lucide-react";
 
 const suggestedQuestions = [
-  "What does verafiles do?",
-  "How does verafiles conduct their fact checks?",
-  "Is fact checking hard?",
+  "Give me the latest fact checks.",
+  "What's the latest misinformation trend?",
+  "Why the name VERA Files?",
 ];
 
 export function SuggestedQuestions() {
