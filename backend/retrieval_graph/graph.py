@@ -23,6 +23,7 @@ from langchain_voyageai import VoyageAIRerank
 
 import re
 from datetime import datetime, timedelta
+from backend.retrieval_graph import test_weaviate_query
 
 
 async def analyze_and_route_query(
@@ -211,6 +212,21 @@ async def conduct_research(state: AgentState) -> dict[str, Any]:
         - Invokes the researcher_graph with the first step of the research plan.
         - Updates the state with the retrieved documents and removes the completed step.
     """
+
+    user_query = (state.query).lower()
+
+    pattern_date = r"latest|recent|current"
+    match_date = re.search(pattern_date, user_query)
+    pattern_author = r"(article by|articles by|authored by|written by)\s+(\w+\s+\w+)"
+    match_author = re.search(pattern_author, user_query)
+    author_after_match = None
+
+    # if match_date or match_author:
+    if match_author:
+        author_after_match = match_author.group(2)
+        result = test_weaviate_query.make_weaviate_query(user_query, author_after_match)
+        return {"documents": result, "steps": state.steps[1:]}
+
     result = await researcher_graph.ainvoke({"question": state.steps[0]})
     return {"documents": result["documents"], "steps": state.steps[1:]}
 
