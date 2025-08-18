@@ -18,7 +18,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   ],
   callbacks:{
     async signIn ({ profile }){
-      if(profile?.email?.endsWith('@verafiles.org') || profile?.email? === 'furbyte88@gmail.com'){
+      if(profile?.email?.endsWith('@verafiles.org') || profile?.email === 'furbyte88@gmail.com'){
         return true;
       } else {
         return false;
