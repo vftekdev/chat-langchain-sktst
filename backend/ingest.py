@@ -128,6 +128,7 @@ def metadata_func(record: dict, metadata: dict) -> dict:
     metadata["category"] = "None" if record.get("category") == "" else record.get("category")
     metadata["title"] = "None" if record.get("article_title") == "" else record.get("article_title")
     metadata["post_date"] = "None" if record.get("post_date") == "" else record.get("post_date")
+    metadata["last_accessed_at"] = "None" if record.get("post_date") == "" else record.get("post_date")
     metadata["publish_date"] = "None" if record.get("publish_date") == "" else record.get("publish_date")
     metadata["claim_author"] = "None" if record.get("claim_author") == "" else record.get("claim_author")
     metadata["claim"] = "None" if record.get("claim") == "" else record.get("claim")

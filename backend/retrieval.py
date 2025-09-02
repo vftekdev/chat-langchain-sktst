@@ -11,6 +11,7 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.retrievers import BaseRetriever
 from langchain_core.runnables import RunnableConfig
 from langchain_weaviate import WeaviateVectorStore
+from langchain.retrievers import TimeWeightedVectorStoreRetriever
 # from langchain_community.vectorstores import Chroma
 
 from backend.configuration import BaseConfiguration
@@ -82,10 +83,13 @@ def make_weaviate_retriever(
         else:
             search_kwargs = {**configuration.search_kwargs, "return_uuids": True}
 
-        yield store.as_retriever(
-            # search_type="similarity_score_threshold",
-            # search_kwargs={'k': 20, 'score_threshold': 0.60, 'return_uuids': True},
-            search_kwargs=search_kwargs
+        # yield store.as_retriever(
+        #     # search_type="similarity_score_threshold",
+        #     # search_kwargs={'k': 20, 'score_threshold': 0.60, 'return_uuids': True},
+        #     search_kwargs=search_kwargs
+        # )
+        yield TimeWeightedVectorStoreRetriever(
+            vectorstore=store, k=6, search_kwargs=search_kwargs
         )
 
     # chroma_client = chromadb.HttpClient(
