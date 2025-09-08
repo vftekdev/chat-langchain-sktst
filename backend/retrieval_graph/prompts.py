@@ -14,6 +14,11 @@ GENERATE_QUERIES_SYSTEM_PROMPT = (
     .messages[0]
     .prompt.template
 )
+GENERATE_QUERY_SYSTEM_PROMPT = (
+    client.pull_prompt("verafiles/seek_search_assistant-generate_query_prompt")
+    .messages[0]
+    .prompt.template
+)
 MORE_INFO_SYSTEM_PROMPT = (
     client.pull_prompt("verafiles/seek-search-assistant_more_info_prompt")
     .messages[0]
@@ -21,6 +26,11 @@ MORE_INFO_SYSTEM_PROMPT = (
 )
 RESEARCH_PLAN_SYSTEM_PROMPT = (
     client.pull_prompt("verafiles/seek-search-assistant_research_plan_prompt")
+    .messages[0]
+    .prompt.template
+)
+QUICK_RESEARCH_PLAN_SYSTEM_PROMPT = (
+    client.pull_prompt("verafiles/seek-search-assistant_quick_research_plan_prompt")
     .messages[0]
     .prompt.template
 )
