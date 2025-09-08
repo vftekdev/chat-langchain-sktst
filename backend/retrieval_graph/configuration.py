@@ -66,10 +66,24 @@ class AgentConfiguration(BaseConfiguration):
         },
     )
 
+    quick_research_plan_system_prompt: str = field(
+        default=prompts.QUICK_RESEARCH_PLAN_SYSTEM_PROMPT,
+        metadata={
+            "description": "The system prompt used for generating a quick research plan based on the user's question."
+        },
+    )
+
     generate_queries_system_prompt: str = field(
         default=prompts.GENERATE_QUERIES_SYSTEM_PROMPT,
         metadata={
             "description": "The system prompt used by the researcher to generate queries based on a step in the research plan."
+        },
+    )
+
+    generate_query_system_prompt: str = field(
+        default=prompts.GENERATE_QUERY_SYSTEM_PROMPT,
+        metadata={
+            "description": "The system prompt used by the researcher to generate a query based on a step in the research plan."
         },
     )
 
