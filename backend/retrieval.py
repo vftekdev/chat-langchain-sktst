@@ -18,7 +18,7 @@ from backend.configuration import BaseConfiguration
 from backend.constants import WEAVIATE_DOCS_INDEX_NAME
 from backend.retrieval_graph.researcher_graph.state import QueryState
 
-DATABASE_HOST = os.environ["DATABASE_HOST"]
+# DATABASE_HOST = os.environ["DATABASE_HOST"]
 # COLLECTION_NAME = os.environ["COLLECTION_NAME"]
 
 
