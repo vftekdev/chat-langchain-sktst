@@ -208,17 +208,32 @@ async def conduct_research(state: AgentState) -> dict[str, Any]:
 
     user_query = (state.query).lower()
 
-    pattern_date = r"latest|recent|current"
-    match_date = re.search(pattern_date, user_query)
+    pattern_date = r"(latest|recent|current)\s+(fact\s+check|fact\s+sheet|report|article)"
+    match_date = re.search(pattern_date, user_query, re.IGNORECASE)
+    category_after_match = None
     pattern_author = r"(article by|articles by|authored by|written by)\s+(\w+\s+\w+)"
-    match_author = re.search(pattern_author, user_query)
+    match_author = re.search(pattern_author, user_query, re.IGNORECASE)
     author_after_match = None
+    pattern_topic = r"about|on"
+    match_topic = re.search(pattern_topic, user_query, re.IGNORECASE)
 
-    # if match_date or match_author:
-    if match_author:
+    if match_author and not match_topic:
         author_after_match = match_author.group(2)
-        result = test_weaviate_query.make_weaviate_query(user_query, author_after_match)
+    if match_date and not match_topic:
+        category_after_match = match_date.group(2)
+
+    if author_after_match or category_after_match:
+        result = test_weaviate_query.make_weaviate_query(user_query=user_query, match_author_name=author_after_match, match_category=category_after_match)
         return {"documents": result, "steps": state.steps[1:]}
+
+    # if match_author and not match_topic:
+    #     author_after_match = match_author.group(2)
+    #     result = test_weaviate_query.make_weaviate_query(user_query=user_query, match_author_name=author_after_match)
+    #     return {"documents": result, "steps": state.steps[1:]}
+    # if match_date and not match_topic:
+    #     category_after_match = match_date.group(2)
+    #     result = test_weaviate_query.make_weaviate_query(user_query=user_query, match_category=category_after_match)
+    #     return {"documents": result, "steps": state.steps[1:]}
 
     result = await researcher_graph.ainvoke({"question": state.steps[0]})
     return {"documents": result["documents"], "steps": state.steps[1:]}
