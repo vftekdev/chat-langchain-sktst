@@ -56,37 +56,42 @@ def make_weaviate_retriever(
             attributes=["source", "title"],
         )
 
-        user_query = (state.query).lower()
-        # print('USER QUERY: ', user_query)
+        # user_query = (state.query).lower()
+        # # print('USER QUERY: ', user_query)
 
-        pattern_date = r"latest|recent|current"
-        match_date = re.search(pattern_date, user_query)
+        # pattern_date = r"latest|recent|current"
+        # match_date = re.search(pattern_date, user_query)
 
-        pattern_author = r"(article by|articles by|authored by|written by)\s+(\w+\s+\w+)"
-        match_author = re.search(pattern_author, user_query)
+        # pattern_author = r"(article by|articles by|authored by|written by)\s+(\w+\s+\w+)"
+        # match_author = re.search(pattern_author, user_query)
 
-        now = datetime.now(timezone.utc).replace(microsecond=0)
-        #last_month = now - relativedelta(months=1)
-        last_period = now - relativedelta(days=8)
-        # iso_today = now.strftime("%Y-%m-%dT%H:%M:%SZ")
-        iso_last_period = last_period.strftime("%Y-%m-%dT%H:%M:%SZ")
+        # now = datetime.now(timezone.utc).replace(microsecond=0)
+        # #last_month = now - relativedelta(months=1)
+        # last_period = now - relativedelta(days=8)
+        # # iso_today = now.strftime("%Y-%m-%dT%H:%M:%SZ")
+        # iso_last_period = last_period.strftime("%Y-%m-%dT%H:%M:%SZ")
 
-        if match_author:
-            author_after_match = match_author.group(2)
-            # author_filter = Filter.all_of([Filter.by_property("article_author").equal(author_after_match), Filter.by_property("post_date").greater_than(iso_last_month)])
-            author_filter = Filter.by_property("article_author").equal(author_after_match)
-            search_kwargs = {**configuration.search_kwargs, "filters": author_filter, "return_uuids": True}
-        elif match_date:
-            date_filter = Filter.by_property("post_date").greater_than(iso_last_period)
-            search_kwargs = {**configuration.search_kwargs, "filters": date_filter, "return_uuids": True}
-        else:
-            search_kwargs = {**configuration.search_kwargs, "return_uuids": True}
+        # if match_author:
+        #     author_after_match = match_author.group(2)
+        #     # author_filter = Filter.all_of([Filter.by_property("article_author").equal(author_after_match), Filter.by_property("post_date").greater_than(iso_last_month)])
+        #     author_filter = Filter.by_property("article_author").equal(author_after_match)
+        #     search_kwargs = {**configuration.search_kwargs, "filters": author_filter, "return_uuids": True}
+        # elif match_date:
+        #     date_filter = Filter.by_property("post_date").greater_than(iso_last_period)
+        #     search_kwargs = {**configuration.search_kwargs, "filters": date_filter, "return_uuids": True}
+        # else:
+        #     search_kwargs = {**configuration.search_kwargs, "return_uuids": True}
+
+        search_kwargs = {**configuration.search_kwargs, "return_uuids": True}
 
         yield store.as_retriever(
             # search_type="similarity_score_threshold",
             # search_kwargs={'k': 20, 'score_threshold': 0.60, 'return_uuids': True},
             search_kwargs=search_kwargs
         )
+        # yield TimeWeightedVectorStoreRetriever(
+        #     vectorstore=store, decay_rate=0.01, k=6, search_kwargs=search_kwargs
+        # )
 
     # chroma_client = chromadb.HttpClient(
     #    host=DATABASE_HOST,
