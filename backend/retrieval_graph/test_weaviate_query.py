@@ -7,7 +7,7 @@ from pprint import pprint
 from langchain_core.documents import Document
 import uuid
 
-from constants import WEAVIATE_DOCS_INDEX_NAME
+from backend.constants import WEAVIATE_DOCS_INDEX_NAME
 
 
 print("\n\n\n\n\n\n\n")
