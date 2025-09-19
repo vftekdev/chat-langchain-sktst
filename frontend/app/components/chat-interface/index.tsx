@@ -90,7 +90,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
       ) : (
         <div className="max-w-full fixed left-4 bottom-0 w-full mb-4">
           <div className="flex max-w-4xl">
-            <p className="tracking-wider text-justify font-helveticaneuethin w-full lg:ml-24 md:ml-6 mb-4 px-6">
+            <p className="tracking-wider text-justify font-helveticaneuethin w-full mb-4">
               SEEK uses VERA Files articles to create answers using AI. 
               AI answers may contain errors.<br/> 
               Always check the sources cited to verify the facts.
