@@ -1,8 +1,8 @@
 # WEAVIATE_DOCS_INDEX_NAME = "wy_test_OpenAI_text_embedding_3_small"
 # WEAVIATE_DOCS_INDEX_NAME = "wy_test_OpenAI_text_embedding_3_small_4000"
 #WEAVIATE_DOCS_INDEX_NAME = "test_voyage_35_lite_3k"
-WEAVIATE_DOCS_INDEX_NAME = "vfseek_voyage_35_lite_3k200"
-#WEAVIATE_DOCS_INDEX_NAME = "vfseek_voyage_35_lite_3k400"
+#WEAVIATE_DOCS_INDEX_NAME = "vfseek_voyage_35_lite_3k200"
+WEAVIATE_DOCS_INDEX_NAME = "vfseek_voyage_35_lite_3k400"
 #WEAVIATE_DOCS_INDEX_NAME = "vfseek_voyage_35_lite_3k600"
 # WEAVIATE_DOCS_INDEX_NAME = "wy_test_VoyageAI_voyage_law_2"
 
