@@ -88,7 +88,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
           </div>
         </div>
       ) : (
-        <div className="max-w-full fixed bottom-0 mb-4">
+        <div className="max-w-full fixed left-4 bottom-0 w-full mb-4">
           <div className="flex max-w-4xl">
             <p className="tracking-wider text-justify font-helveticaneuethin w-full lg:ml-24 md:ml-6 mb-4 px-6">
               SEEK uses VERA Files articles to create answers using AI. 
