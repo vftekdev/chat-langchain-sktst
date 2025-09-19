@@ -43,7 +43,7 @@ function ThreadHistoryComponent() {
   return (
     <div className="overflow-y-auto lg:h-screen">
       {/* Tablet & up */}
-      <div className={`hidden lg:flex flex-col overflow-hidden ${expanded ? "w-[260px] bg-white": "bg-[#F9F9F9]"}`}>
+      {/* <div className={`hidden lg:flex flex-col overflow-hidden ${expanded ? "w-[260px] bg-white": "bg-[#F9F9F9]"}`}>
         <div className="flex-grow my-6 flex flex-col overflow-hidden">
           <div className={`flex flex-row items-center border-b-[1px] pt-3 px-2 mx-4 -mt-4 text-gray-200 ${expanded ? "" : "p-0 m-0 border-none"}`}>
             <p className={`text-lg text-black font-bold ${expanded ? "block" : "hidden"}`}>Chat History</p>
@@ -87,9 +87,9 @@ function ThreadHistoryComponent() {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
       {/* Mobile */}
-      <span className="lg:hidden flex flex-row m-4">
+      <span className="flex flex-row m-4">
         <Sheet>
           <SheetTrigger asChild>
             <TooltipIconButton
