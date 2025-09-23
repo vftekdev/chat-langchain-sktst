@@ -154,7 +154,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
       </div>
     )} */}
 
-    <div className="overflow-hidden w-full flex lg:flex-row flex-col bg-[#F9F9F9] dark:bg-black">
+    <div className="overflow-hidden w-full flex lg:flex-row flex-col bg-[#F9F9F9] dark:bg-black h-full">
       {/* <div className="absolute bottom-2 right-2 lg:bottom-5 lg:right-5 z-10">
         <button onClick={() => document.body.classList.toggle('dark')}
           className="h-12 w-12 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -172,7 +172,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
         <ThreadHistory />
       </div>
       <div className="px-6 lg:py-6 md:px-16 w-full overflow-hidden">
-        <div className="flex flex-col lg:flex-row items-center bg-white font-helveticaneuemedium rounded-3xl h-full">
+        <div className="flex flex-col lg:flex-row items-center bg-white font-helveticaneuemedium rounded-3xl my-auto">
           <div className="flex flex-row gap-2 mx-6 my-4">
             <button onClick={createNewSession}>
               <NextImage
