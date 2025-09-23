@@ -19,8 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full overflow-hidden">
       <Hotjar_GoogleAnalytics_Snippet />
-      <body className="font-helveticaneue h-full">
-        <div className="flex flex-col w-full text-black bg-[#F9F9F9] dark:bg-black h-dvh">
+      <body className="font-helveticaneue h-screen">
+        <div className="flex flex-col w-full text-black bg-[#F9F9F9] dark:bg-black flex-grow">
           <NuqsAdapter>{children}</NuqsAdapter>
         </div>
       </body>
