@@ -22,7 +22,7 @@ from langchain_core.runnables import RunnableLambda
 from langchain_voyageai import VoyageAIRerank
 
 import re
-from datetime import datetime, timedelta
+from datetime import date
 from backend.retrieval_graph import test_weaviate_query
 
 
@@ -155,17 +155,19 @@ async def create_research_plan(
 
         steps: list[str]
 
+    date_today = date.today().strftime("%B %d, %Y")
     configuration = AgentConfiguration.from_runnable_config(config)
     if configuration.response_type == "simple":
         model = load_chat_model(configuration.query_model).with_structured_output(Plan)
         messages = [
-            {"role": "system", "content": configuration.quick_research_plan_system_prompt}
+            {"role": "system", "content": configuration.quick_research_plan_system_prompt.format(date_today=date_today)}
         ] + state.messages
         response = cast(
             Plan, await model.ainvoke(messages, {"tags": ["langsmith:nostream"]})
         )
         return {
-            "steps": response["steps"],
+            # limit to one query only, limiting it using the prompt doesnt work
+            "steps": [response["steps"][0]],
             "documents": "delete",
             "query": state.messages[-1].content,
         }
@@ -177,7 +179,7 @@ async def create_research_plan(
     else:
         model = load_chat_model(configuration.query_model).with_structured_output(Plan)
         messages = [
-            {"role": "system", "content": configuration.research_plan_system_prompt}
+            {"role": "system", "content": configuration.research_plan_system_prompt.format(date_today=date_today)}
         ] + state.messages
         response = cast(
             Plan, await model.ainvoke(messages, {"tags": ["langsmith:nostream"]})
@@ -215,6 +217,7 @@ async def conduct_research(state: AgentState) -> dict[str, Any]:
     match_author = re.search(pattern_author, user_query, re.IGNORECASE)
     author_after_match = None
     pattern_topic = r"about|on"
+    pattern_topic = r"(fact\s+check|fact\s+sheet|report|article)(.*)(about|on)"
     match_topic = re.search(pattern_topic, user_query, re.IGNORECASE)
 
     if match_author and not match_topic:
@@ -280,10 +283,10 @@ async def respond(
     model = load_chat_model(configuration.response_model)
 
     # re-rank documents
-    #if ( re.search(r"latest|recent|current", state.query.lower())):
+    # if (re.search(r"latest|recent|current", state.query.lower())):
     #    top_k = 6
     #    state.documents = state.documents[:top_k]
-    #else:
+    # else:
     compressor = VoyageAIRerank(
         model="rerank-2-lite", voyageai_api_key=os.environ["VOYAGE_API_KEY"], top_k=6
     )
@@ -292,7 +295,8 @@ async def respond(
     # top_k = 20
     # context = format_docs(state.documents[:top_k])
     context = format_docs(state.documents)
-    prompt = configuration.response_system_prompt.format(context=context)
+    date_today = date.today().strftime("%B %d, %Y")
+    prompt = configuration.response_system_prompt.format(context=context, date_today=date_today)
     messages = [{"role": "system", "content": prompt}] + state.messages
     response = await model.with_fallbacks([RunnableLambda(vf_when_all_is_lost)]).ainvoke(messages)
     return {"messages": [response], "answer": response.content}
