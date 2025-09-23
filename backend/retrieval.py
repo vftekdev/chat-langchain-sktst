@@ -83,7 +83,8 @@ def make_weaviate_retriever(
         # else:
         #     search_kwargs = {**configuration.search_kwargs, "return_uuids": True}
 
-        search_kwargs = {**configuration.search_kwargs, "return_uuids": True}
+        # search_kwargs = {**configuration.search_kwargs, "return_uuids": True}
+        search_kwargs = {**configuration.search_kwargs, "k": 8, "return_uuids": True}
 
         yield store.as_retriever(
             # search_type="similarity_score_threshold",
@@ -91,7 +92,7 @@ def make_weaviate_retriever(
             search_kwargs=search_kwargs
         )
         # yield TimeWeightedVectorStoreRetriever(
-        #     vectorstore=store, decay_rate=0.01, k=6, search_kwargs=search_kwargs
+        #     vectorstore=store, decay_rate=0.4, k=6, search_kwargs=search_kwargs
         # )
 
     # chroma_client = chromadb.HttpClient(

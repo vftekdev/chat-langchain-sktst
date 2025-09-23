@@ -17,6 +17,8 @@ from backend.retrieval_graph.configuration import AgentConfiguration
 from backend.retrieval_graph.researcher_graph.state import QueryState, ResearcherState
 from backend.utils import load_chat_model
 
+from datetime import date
+
 
 async def generate_queries(
     state: ResearcherState, *, config: RunnableConfig
@@ -36,13 +38,16 @@ async def generate_queries(
     class Response(TypedDict):
         queries: list[str]
 
+    # date_today = date.today().strftime("%B %d, %Y")
+    date_today = date.today().strftime("%Y")
     configuration = AgentConfiguration.from_runnable_config(config)
     if configuration.response_type == "simple":
-        return {"queries": [state.question]}
+        return {"queries": ["The current year is " + date_today + ". " + state.question + " Consider the current year when searching for documents. Prioritize more recent documents."]}
+        # return {"queries": [state.question]}
     else:
         model = load_chat_model(configuration.query_model).with_structured_output(Response)
         messages = [
-            {"role": "system", "content": configuration.generate_queries_system_prompt},
+            {"role": "system", "content": configuration.generate_query_system_prompt.format(date_today=date_today)},
             {"role": "human", "content": state.question},
         ]
         response = cast(
