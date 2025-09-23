@@ -47,7 +47,7 @@ export const ChatComposer: FC<ChatComposerProps> = (
         // isEmpty ? "" : "lg:ml-24 md:ml-6 ml-3",
         isEmpty ? "" : "",
         // isEmpty ? "w-full" : "md:w-[85%] w-[95%] md:max-w-[832px]",
-        isEmpty ? "w-full" : "w-[95%]",
+        isEmpty ? "w-full" : "w-full",
       )}
     >
       <div className="flex w-full">
