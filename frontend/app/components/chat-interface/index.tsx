@@ -88,7 +88,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
           </div>
         </div>
       ) : (
-        <div className="fixed left-32 right-16 bottom-0 w-full mb-4 bg-blue-500">
+        <div className="fixed pl-32 pr-16 left-0 right-0 bottom-0 w-full mb-4 bg-blue-500">
           <ChatComposer
             submitDisabled={props.submitDisabled}
             messages={props.messages}
