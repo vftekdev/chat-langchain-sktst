@@ -131,7 +131,17 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
   };
 
   return (
-    <div className="overflow-hidden w-full flex lg:flex-row flex-col bg-[#F9F9F9] dark:bg-black">
+    <>
+    {/* {showPopup && (
+      <div onClick={() => setShowPopup(false)} className="fixed left-0 top-0 bg-black bg-opacity-50 z-[9999] h-screen w-full">
+        <div className="flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg z-[999] px-6 py-4">
+          <p className="text-center">Have you completed our Beta testing evaluation form? 🤔 ✍ <br/> If not, please click <a href="https://forms.gle/PmkDMYbeapQczYDaA" target="_blank" className="cursor-pointer hover:border-0">this</a> to answer it! It only takes a few minutes.</p>
+          <button onClick={() => setShowPopup(false)} className="hover:bg-[#E5E7EB] rounded-md p-2">Close</button>
+        </div>
+      </div>
+    )} */}
+
+    <div className="overflow-hidden w-full flex lg:flex-row flex-col bg-[#F9F9F9] dark:bg-black h-full">
       {/* <div className="absolute bottom-2 right-2 lg:bottom-5 lg:right-5 z-10">
         <button onClick={() => document.body.classList.toggle('dark')}
           className="h-12 w-12 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -149,7 +159,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
         <ThreadHistory />
       </div>
       <div className="px-6 lg:py-6 md:px-16 w-full overflow-hidden">
-        <div className="flex flex-col lg:flex-row items-center bg-white font-helveticaneuemedium rounded-3xl h-full">
+        <div className="flex flex-col lg:flex-row items-center bg-white font-helveticaneuemedium rounded-3xl my-auto">
           <div className="flex flex-row gap-2 mx-6 my-4">
             <button onClick={createNewSession}>
               <NextImage
