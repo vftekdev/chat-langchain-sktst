@@ -141,7 +141,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
       </div>
     )} */}
 
-    <div className="overflow-hidden w-full flex lg:flex-row flex-col bg-[#F9F9F9] dark:bg-black h-dvh">
+    <div className="overflow-hidden w-full flex lg:flex-row flex-col bg-[#F9F9F9] dark:bg-black">
       {/* <div className="absolute bottom-2 right-2 lg:bottom-5 lg:right-5 z-10">
         <button onClick={() => document.body.classList.toggle('dark')}
           className="h-12 w-12 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-gray-700">
