@@ -9,7 +9,6 @@ import { TooltipIconButton } from "../ui/assistant-ui/tooltip-icon-button";
 import { cn } from "@/app/utils/cn";
 
 import { ResponseTypeRadio } from "../ResponseTypeRadio";
-import { useGraphContext } from "../../contexts/GraphContext";
 
 export interface ChatComposerProps {
   messages: BaseMessage[];
@@ -34,10 +33,6 @@ export const ChatComposer: FC<ChatComposerProps> = (
   props: ChatComposerProps,
 ) => {
   const isEmpty = props.messages.length === 0;
-
-  const {
-      graphData: { selectedResponseType, setSelectedResponseType },
-    } = useGraphContext();
 
   return (
     <ComposerPrimitive.Root
