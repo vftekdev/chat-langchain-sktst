@@ -16,29 +16,17 @@ import { TooltipIconButton } from "../ui/assistant-ui/tooltip-icon-button";
 import { AssistantMessage, UserMessage } from "./messages";
 import { ChatComposer, ChatComposerProps } from "./chat-composer";
 import { cn } from "@/app/utils/cn";
-import { useGraphContext } from "../../contexts/GraphContext";
-import { SelectContent } from "@radix-ui/react-select";
 
 export interface ThreadChatProps extends ChatComposerProps {}
 
 export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
   const isEmpty = props.messages.length === 0;
 
-  const {
-    graphData: { selectedResponseType, setSelectedResponseType },
-  } = useGraphContext();
-
-  if (selectedResponseType === "simple") {
-    useGeneratingQuestionsUI();
-    useAnswerHeaderToolUI();
-    useProgressToolUI();
-    useRouterLogicUI();
-  } else {
-    useAnswerHeaderToolUI();
-    useProgressToolUI();
-    useRouterLogicUI();
-  }
+  useGeneratingQuestionsUI();
+  useAnswerHeaderToolUI();
+  useProgressToolUI();
   // useSelectedDocumentsUI();
+  useRouterLogicUI();
 
 
   return (
