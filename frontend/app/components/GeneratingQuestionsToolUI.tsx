@@ -13,7 +13,6 @@ import { TooltipIconButton } from "./ui/assistant-ui/tooltip-icon-button";
 import { DocumentCard, Document } from "./DocumentCard";
 import { useCallback } from "react";
 import NextImage from "next/image";
-import { useGraphContext } from "../contexts/GraphContext";
 
 type Question = {
   question: string;
@@ -105,10 +104,6 @@ const QuestionCard = ({ question }: { question: Question }) => {
 
 let counter = 0;
 
-const {
-  graphData: { selectedResponseType, setSelectedResponseType },
-} = useGraphContext();
-
 export const useGeneratingQuestionsUI = () =>
   useAssistantToolUI({
     toolName: "generating_questions",
@@ -116,7 +111,7 @@ export const useGeneratingQuestionsUI = () =>
     // Allows the component to be interactable and not be re-rendered on every state change.
     render: useCallback((input) => {
   
-      if (!input.args?.questions || input.args.questions.length === 0 || selectedResponseType === "simple") {
+      if (!input.args?.questions || input.args.questions.length === 0) {
         return null;
       }
       if (input) {
