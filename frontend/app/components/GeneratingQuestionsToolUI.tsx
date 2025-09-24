@@ -153,7 +153,7 @@ export const useGeneratingQuestionsUI = () => {
           </div>
         </div>
       );
-    }, [selectedResponseType]),
+    }, []),
   });
 }
   
