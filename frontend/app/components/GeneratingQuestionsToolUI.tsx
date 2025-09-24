@@ -105,16 +105,17 @@ const QuestionCard = ({ question }: { question: Question }) => {
 
 let counter = 0;
 
+const {
+  graphData: { selectedResponseType, setSelectedResponseType },
+} = useGraphContext();
+
 export const useGeneratingQuestionsUI = () =>
   useAssistantToolUI({
     toolName: "generating_questions",
     // Wrap the component in a useCallback to keep the identity stable.
     // Allows the component to be interactable and not be re-rendered on every state change.
     render: useCallback((input) => {
-      const {
-        graphData: { selectedResponseType, setSelectedResponseType },
-      } = useGraphContext();
-
+  
       if (!input.args?.questions || input.args.questions.length === 0 || selectedResponseType === "simple") {
         return null;
       }
