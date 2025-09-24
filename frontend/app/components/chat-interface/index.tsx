@@ -30,11 +30,15 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
 
   if (selectedResponseType === "simple") {
     useGeneratingQuestionsUI();
+    useAnswerHeaderToolUI();
+    useProgressToolUI();
+    useRouterLogicUI();
+  } else {
+    useAnswerHeaderToolUI();
+    useProgressToolUI();
+    useRouterLogicUI();
   }
-  useAnswerHeaderToolUI();
-  useProgressToolUI();
   // useSelectedDocumentsUI();
-  useRouterLogicUI();
 
 
   return (
