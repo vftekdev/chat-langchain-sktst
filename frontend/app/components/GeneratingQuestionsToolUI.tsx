@@ -11,7 +11,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { TooltipIconButton } from "./ui/assistant-ui/tooltip-icon-button";
 import { DocumentCard, Document } from "./DocumentCard";
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import NextImage from "next/image";
 import { useGraphContext } from "../contexts/GraphContext";
 import { cn } from "@/app/utils/cn";
@@ -110,6 +110,10 @@ export const useGeneratingQuestionsUI = () => {
   const {
     graphData: { selectedResponseType, setSelectedResponseType },
   } = useGraphContext();
+  const testSelectedResponse = useRef(selectedResponseType);
+  useEffect(() => {
+    testSelectedResponse.current = selectedResponseType;
+  }, [selectedResponseType]);
 
   useAssistantToolUI({
     toolName: "generating_questions",
@@ -124,7 +128,7 @@ export const useGeneratingQuestionsUI = () => {
       }
 
       return (
-        <div className={cn("flex-col bg-white rounded-lg shadow-md px-3 w-full group cursor-pointer", selectedResponseType === "simple" ? "hidden": "flex")}>
+        <div className={cn("flex-col bg-white rounded-lg shadow-md px-3 w-full group cursor-pointer", testSelectedResponse.current === "simple" ? "hidden": "flex")}>
           <input type="checkbox" className="hidden peer" id={`collapse-research`+ counter}/>
           <label htmlFor={`collapse-research`+ counter} className="flex flex-row gap-2 items-center justify-start text-black-300">
             <NextImage
