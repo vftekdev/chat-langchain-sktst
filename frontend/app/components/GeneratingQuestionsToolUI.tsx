@@ -14,6 +14,7 @@ import { DocumentCard, Document } from "./DocumentCard";
 import { useCallback } from "react";
 import NextImage from "next/image";
 import { useGraphContext } from "../contexts/GraphContext";
+import { cn } from "@/app/utils/cn";
 
 type Question = {
   question: string;
@@ -115,7 +116,7 @@ export const useGeneratingQuestionsUI = () => {
     // Wrap the component in a useCallback to keep the identity stable.
     // Allows the component to be interactable and not be re-rendered on every state change.
     render: useCallback((input) => {
-      if (!input.args?.questions || input.args.questions.length === 0 || selectedResponseType === "simple") {
+      if (!input.args?.questions || input.args.questions.length === 0) {
         return null;
       }
       if (input) {
@@ -123,7 +124,7 @@ export const useGeneratingQuestionsUI = () => {
       }
 
       return (
-        <div className="flex flex-col bg-white rounded-lg shadow-md px-3 w-full group cursor-pointer">
+        <div className={cn("flex-col bg-white rounded-lg shadow-md px-3 w-full group cursor-pointer", selectedResponseType === "simple" ? "hidden": "flex")}>
           <input type="checkbox" className="hidden peer" id={`collapse-research`+ counter}/>
           <label htmlFor={`collapse-research`+ counter} className="flex flex-row gap-2 items-center justify-start text-black-300">
             <NextImage
