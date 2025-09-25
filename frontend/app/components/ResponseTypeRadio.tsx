@@ -10,7 +10,7 @@ import {
 } from "./ui/select";
 
 const responseTypesAndLabels: Partial<Record<ResponseType, string>> = {
-  "simple": "Quick Response (3-10 seconds)",
+  "simple": "Quick Response (10-20 seconds)",
   "complex": "Think Deeper (20-30 seconds)",
 };
 
