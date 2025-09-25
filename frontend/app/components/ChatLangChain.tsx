@@ -130,6 +130,19 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
     clearMessages();
   };
 
+  const [showPopup, setShowPopup] = useState(false);
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (e.clientY < 10) {
+        setShowPopup(true);
+      }
+    };
+    document.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
     <>
     {/* {showPopup && (
@@ -155,7 +168,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
           </svg>
         </button>
       </div> */}
-      <div className="">
+      <div>
         <ThreadHistory />
       </div>
       <div className="px-6 lg:py-6 md:px-16 w-full overflow-hidden">
@@ -232,6 +245,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
       </div>
       <Toaster />
     </div>
+    </>
   );
 }
 
