@@ -31,7 +31,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
 
   return (
     // <ThreadPrimitive.Root className={cn("flex flex-col w-full bg-white overflow-hidden", isEmpty ? "h-full" : "h-screen",)}>
-    <ThreadPrimitive.Root className={cn("flex flex-col overflow-hidden w-full bg-[#F9F9F9] dark:bg-black bg-red-500", isEmpty ? "" : "h-screen")}>
+    <ThreadPrimitive.Root className={cn("flex flex-col overflow-hidden w-full bg-[#F9F9F9] dark:bg-black", isEmpty ? "" : "h-screen")}>
       {!isEmpty ? (
         <ThreadPrimitive.Viewport
           className={cn(
@@ -88,7 +88,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
           </div>
         </div>
       ) : (
-        <div className="fixed pl-6 md:pl-16 lg:pl-44 pr-6 md:pr-16 left-0 right-0 bottom-0 w-full pb-4 bg-blue-500">
+        <div className="fixed pl-6 md:pl-16 lg:pl-44 pr-6 md:pr-16 left-0 right-0 bottom-0 w-full pb-4">
           <ChatComposer
             submitDisabled={props.submitDisabled}
             messages={props.messages}
