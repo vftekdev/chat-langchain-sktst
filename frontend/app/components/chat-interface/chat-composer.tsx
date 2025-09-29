@@ -38,11 +38,9 @@ export const ChatComposer: FC<ChatComposerProps> = (
     <ComposerPrimitive.Root
       className={cn(
         // "bg-[#282828] focus-within:border-aui-ring/20 flex w-full items-center md:justify-left justify-center rounded-lg border px-2.5 py-2.5 shadow-sm transition-all duration-300 ease-in-out border-gray-600"
-        "focus-within:border-aui-ring/20 flex flex-col w-full md:justify-left justify-center rounded-2xl px-2 py-3 shadow-lg transition-all duration-300 ease-in-out border-[#A5A5A5] bg-[#F7F9FB]",
+        "focus-within:border-aui-ring/20 flex flex-col w-full md:justify-left justify-center rounded-2xl px-2 py-3 shadow-lg transition-all duration-300 ease-in-out border-[#A5A5A5] bg-[#F7F9FB]"
         // isEmpty ? "" : "lg:ml-24 md:ml-6 ml-3",
-        isEmpty ? "" : "",
         // isEmpty ? "w-full" : "md:w-[85%] w-[95%] md:max-w-[832px]",
-        isEmpty ? "w-full" : "w-full",
       )}
     >
       <div className="flex w-full">
