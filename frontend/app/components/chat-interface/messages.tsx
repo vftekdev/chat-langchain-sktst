@@ -56,7 +56,7 @@ function FeedbackButtons() {
   }
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 mb-4 md:mb-0 ">
       <div className="flex items-center">
         <div className="flex gap-2 items-center grow">
           <p>Did this answer your question?</p>
