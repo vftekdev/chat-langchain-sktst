@@ -68,7 +68,7 @@ export function GraphProvider({ children }: { children: ReactNode }) {
   const { shareRun } = useRuns();
   const [messages, setMessages] = useState<BaseMessage[]>([]);
   const [selectedModel, setSelectedModel] = useState<ModelOptions>(
-    "anthropic/claude-3-7-sonnet-20250219",
+    "anthropic/claude-haiku-4-5-20251001",
   );
   const [selectedResponseType, setSelectedResponseType] = useState<ResponseType>(
     "simple",

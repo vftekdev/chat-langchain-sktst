@@ -21,7 +21,7 @@ export type Feedback = {
 
 export type ModelOptions =
   | "openai/gpt-4o-mini"
-  | "anthropic/claude-3-7-sonnet-20250219"
+  | "anthropic/claude-haiku-4-5-20251001"
   | "groq/llama3-70b-8192"
   | "google_genai/gemini-2.0-flash";
 

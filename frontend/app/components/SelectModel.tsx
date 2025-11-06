@@ -10,7 +10,7 @@ import {
 } from "./ui/select";
 
 const modelOptionsAndLabels: Partial<Record<ModelOptions, string>> = {
-  "anthropic/claude-3-7-sonnet-20250219": "Claude 3.7 Sonnet",
+  "anthropic/claude-haiku-4-5-20251001": "Claude 4.5 Haiku",
   "openai/gpt-4o-mini": "GPT 4o Mini",
   // "groq/llama3-70b-8192": "Llama3 70b (Groq)",
   "google_genai/gemini-2.0-flash": "Gemini 2.0 Flash",
