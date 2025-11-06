@@ -27,7 +27,7 @@ export function ResponseTypeComponent() {
     <Select
       onValueChange={(v) => setSelectedResponseType(v as ResponseType)}
       value={selectedResponseType}
-      defaultValue="anthropic/claude-3-7-sonnet-20250219"
+      defaultValue="simple"
     >
       <SelectTrigger className="w-fit text-[#1A7B77] mx-2">
         <SelectValue placeholder="Quick Response" />
