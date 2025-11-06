@@ -93,7 +93,7 @@ function ThreadHistoryComponent() {
         <Sheet>
           <SheetTrigger asChild>
             <TooltipIconButton
-              tooltip="New chat"
+              tooltip="Chat History"
               variant="ghost"
               className="w-fit h-fit p-2"
             >
