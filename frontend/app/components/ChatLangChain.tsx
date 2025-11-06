@@ -154,8 +154,8 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
       </div>
     )} */}
 
-    <div className="overflow-hidden w-full flex lg:flex-row flex-col bg-[#F9F9F9] dark:bg-black">
-      {/* <div className="absolute bottom-2 right-2 lg:bottom-5 lg:right-5 z-10">
+    <div className="overflow-hidden w-full flex lg:flex-row flex-col bg-[#F9F9F9] dark:bg-[#292929]">
+      <div className="absolute bottom-2 right-2 lg:bottom-5 lg:right-5 z-10">
         <button onClick={() => document.body.classList.toggle('dark')}
           className="h-12 w-12 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-gray-700">
           <svg className="fill-violet-700 block dark:hidden" fill="currentColor" viewBox="0 0 20 20">
@@ -167,12 +167,12 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
                   fill-rule="evenodd" clip-rule="evenodd"></path>
           </svg>
         </button>
-      </div> */}
+      </div>
       <div>
         <ThreadHistory />
       </div>
       <div className="px-6 lg:py-6 md:px-16 w-full overflow-hidden">
-        <div className="flex flex-col lg:flex-row items-center bg-white font-helveticaneuemedium rounded-3xl my-auto">
+        <div className="flex flex-col lg:flex-row items-center bg-white dark:bg-[#121212] font-helveticaneuemedium rounded-3xl my-auto">
           <div className="flex flex-row gap-2 mx-6 my-4">
             <button onClick={createNewSession}>
               <NextImage
@@ -183,8 +183,8 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
                   height={80}
               />
             </button>
-            <div className="flex items-center text-[10px] md:text-xs text-black font-helveticaneuelight border border-[#D7D7D7] rounded-lg p-2 m-3">
-              Claude 3.7 Sonnet
+            <div className="flex items-center text-[10px] md:text-xs dark:bg-[#1E1E1E] dark:text-white text-black font-helveticaneuelight border border-[#D7D7D7] rounded-lg p-2 m-3">
+              Claude 4.5 Haiku
             </div>
           </div>
           <div className="flex lg:ml-auto lg:mr-2 lg:mr-6 lg:my-4 mb-4 gap-2">
@@ -230,11 +230,12 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
             <a className="flex items-center hover:border-0 bg-[#F7F9FB] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="/faq">
               <NextImage
                 src="/images/help-icon.svg"
-                className=""
+                className="fill-white"
                 alt="Help Icon"
                 width={20}
                 height={20}
               />
+              <object id="testsvg" data="/images/help-icon.svg" type="image/svg+xml" className="fill-white"></object>
               <div className="text-black">Help</div>
             </a>
           </div>
