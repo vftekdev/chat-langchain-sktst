@@ -9,7 +9,8 @@ from langchain_core.runnables import RunnableConfig, ensure_config
 
 MODEL_NAME_TO_RESPONSE_MODEL = {
     # "anthropic_claude_3_5_sonnet": "anthropic/claude-3-5-sonnet-20240620",
-    "anthropic_claude_3_7_sonnet": "anthropic/claude-3-7-sonnet-20250219",
+    # "anthropic_claude_3_7_sonnet": "anthropic/claude-3-7-sonnet-20250219",
+    "anthropic_claude-haiku-4-5": "anthropic/claude-haiku-4-5-20251001",
 }
 
 
