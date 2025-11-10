@@ -38,8 +38,11 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
       content: [{ type: "text", text }],
     });
   }
+  const myDiv = document.getElementById('myDivId') as HTMLDivElement;
 
-  useEffect(() => {handleSend("What is rodrigos last name?")});
+  if (myDiv) {
+    myDiv.click();
+  }
 
   return (
     // <ThreadPrimitive.Root className={cn("flex flex-col w-full bg-white overflow-hidden", isEmpty ? "h-full" : "h-screen",)}>
@@ -97,7 +100,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
               </div>
               <SuggestedQuestions />
               
-              <div
+              <div id="myDivId"
               onClick={() => handleSend("What is dutertes first name?")}
               className="flex w-full bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] rounded-lg shadow-lg cursor-pointer col-span-12 xl:col-span-4"
               >
