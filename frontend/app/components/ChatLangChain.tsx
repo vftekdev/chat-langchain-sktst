@@ -153,10 +153,10 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
 
   const myDiv = document.getElementById('myDivId') as HTMLDivElement;
   let flag = false;
-  if (myDiv && !flag) {
-    myDiv.click();
-    flag = true;
-  }
+  // if (myDiv && !flag) {
+  //   myDiv.click();
+  //   flag = true;
+  // }
 
   return (
     <>
