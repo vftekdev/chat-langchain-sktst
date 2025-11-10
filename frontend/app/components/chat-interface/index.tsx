@@ -17,7 +17,6 @@ import { AssistantMessage, UserMessage } from "./messages";
 import { ChatComposer, ChatComposerProps } from "./chat-composer";
 import { cn } from "@/app/utils/cn";
 import { useThreadRuntime } from "@assistant-ui/react";
-import { useEffect } from "react";
 
 export interface ThreadChatProps extends ChatComposerProps {}
 
@@ -29,21 +28,6 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
   useProgressToolUI();
   // useSelectedDocumentsUI();
   useRouterLogicUI();
-
-  const threadRuntime = useThreadRuntime();
-
-  const handleSend = (text: string) => {
-    threadRuntime.append({
-      role: "user",
-      content: [{ type: "text", text }],
-    });
-  }
-  const myDiv = document.getElementById('myDivId') as HTMLDivElement;
-  let flag = false;
-  if (myDiv && !flag) {
-    myDiv.click();
-    flag = true;
-  }
 
   return (
     // <ThreadPrimitive.Root className={cn("flex flex-col w-full bg-white overflow-hidden", isEmpty ? "h-full" : "h-screen",)}>
@@ -100,13 +84,6 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
                 </h1>
               </div>
               <SuggestedQuestions />
-              
-              <div id="myDivId"
-              onClick={() => handleSend("What is dutertes first name?")}
-              className="flex w-full bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] rounded-lg shadow-lg cursor-pointer col-span-12 xl:col-span-4"
-              >
-                asdasd
-              </div>
             </div>
           </div>
         </div>
