@@ -95,9 +95,9 @@ function ThreadHistoryComponent() {
             <TooltipIconButton
               tooltip="Chat History"
               variant="ghost"
-              className="w-fit h-fit p-2"
+              className="w-fit h-fit p-2 "
             >
-              <History className="w-6 h-6" />
+              <History className="w-6 h-6 dark:stroke-[#F9F9F9]" />
             </TooltipIconButton>
           </SheetTrigger>
           <SheetContent side="left" className="bg-white border-none text-black">
@@ -119,7 +119,7 @@ function ThreadHistoryComponent() {
             className="w-fit h-fit p-2"
             onClick={createNewSession}
           >
-            <SquarePen className="w-6 h-6" />
+            <SquarePen className="w-6 h-6 dark:stroke-[#F9F9F9]" />
           </TooltipIconButton>
         ) : null}
       </span>
