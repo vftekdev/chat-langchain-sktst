@@ -152,7 +152,11 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
       content: [{ type: "text", text }],
     });
   }
-  handleSend("What is Duterte's first name?");
+  const text = "What is duterte's first name?";
+  threadRuntime.append({
+    role: "user",
+    content: [{ type: "text", text }],
+  });
 
   return (
     <>
