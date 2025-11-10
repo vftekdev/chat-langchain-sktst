@@ -20,7 +20,6 @@ import { useGraphContext } from "../contexts/GraphContext";
 import { useQueryState } from "nuqs";
 import NextImage from "next/image";
 import SignOut from "../signout/SignOut";
-import { useThreadRuntime } from "@assistant-ui/react";
 
 function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
   const { toast } = useToast();
@@ -144,18 +143,8 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
     };
   }, []);
 
-  const threadRuntime = useThreadRuntime();
-
-  const handleSend = (text: string) => {
-    threadRuntime.append({
-      role: "user",
-      content: [{ type: "text", text }],
-    });
-  }
-
   return (
     <>
-    {handleSend("What is duterte's first name?")}
     {/* {showPopup && (
       <div onClick={() => setShowPopup(false)} className="fixed left-0 top-0 bg-black bg-opacity-50 z-[9999] h-screen w-full">
         <div className="flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg z-[999] px-6 py-4">
