@@ -17,6 +17,7 @@ import { AssistantMessage, UserMessage } from "./messages";
 import { ChatComposer, ChatComposerProps } from "./chat-composer";
 import { cn } from "@/app/utils/cn";
 import { useThreadRuntime } from "@assistant-ui/react";
+import { useEffect } from "react";
 
 export interface ThreadChatProps extends ChatComposerProps {}
 
@@ -37,6 +38,8 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
       content: [{ type: "text", text }],
     });
   }
+
+  useEffect(() => {handleSend("What is rodrigos last name?")});
 
   return (
     // <ThreadPrimitive.Root className={cn("flex flex-col w-full bg-white overflow-hidden", isEmpty ? "h-full" : "h-screen",)}>
