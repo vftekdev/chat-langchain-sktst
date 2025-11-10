@@ -39,9 +39,10 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
     });
   }
   const myDiv = document.getElementById('myDivId') as HTMLDivElement;
-
-  if (myDiv) {
+  let flag = false;
+  if (myDiv && !flag) {
     myDiv.click();
+    flag = true;
   }
 
   return (
