@@ -20,7 +20,6 @@ import { useGraphContext } from "../contexts/GraphContext";
 import { useQueryState } from "nuqs";
 import NextImage from "next/image";
 import SignOut from "../signout/SignOut";
-import { useThreadRuntime } from "@assistant-ui/react";
 
 function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
   const { toast } = useToast();
@@ -142,22 +141,6 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
     };
   }, []);
 
-  const threadRuntime = useThreadRuntime();
-
-  const handleSend = (text: string) => {
-    threadRuntime.append({
-      role: "user",
-      content: [{ type: "text", text }],
-    });
-  }
-
-  const myDiv = document.getElementById('myDivId') as HTMLDivElement;
-  let flag = false;
-  // if (myDiv && !flag) {
-  //   myDiv.click();
-  //   flag = true;
-  // }
-
   return (
     <>
     {/* {showPopup && (
@@ -170,12 +153,6 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
     )} */}
 
     <div className="overflow-hidden w-full flex lg:flex-row flex-col bg-[#F9F9F9] dark:bg-[#292929]">
-      <div id="myDivId"
-        onClick={() => handleSend("What is dutertes first name?")}
-        className="flex w-full bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] rounded-lg shadow-lg cursor-pointer col-span-12 xl:col-span-4"
-        >
-          asdasd
-      </div>
       <div className="absolute bottom-2 right-2 lg:bottom-5 lg:right-5 z-10">
         <button onClick={() => document.body.classList.toggle('dark')}
           className="h-12 w-12 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-gray-700">
