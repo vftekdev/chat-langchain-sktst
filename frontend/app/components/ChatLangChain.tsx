@@ -152,14 +152,10 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
       content: [{ type: "text", text }],
     });
   }
-  const text = "What is duterte's first name?";
-  threadRuntime.append({
-    role: "user",
-    content: [{ type: "text", text }],
-  });
 
   return (
     <>
+    {handleSend("What is duterte's first name?")}
     {/* {showPopup && (
       <div onClick={() => setShowPopup(false)} className="fixed left-0 top-0 bg-black bg-opacity-50 z-[9999] h-screen w-full">
         <div className="flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg z-[999] px-6 py-4">
