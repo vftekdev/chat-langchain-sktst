@@ -31,7 +31,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
 
   return (
     // <ThreadPrimitive.Root className={cn("flex flex-col w-full bg-white overflow-hidden", isEmpty ? "h-full" : "h-screen",)}>
-    <ThreadPrimitive.Root className={cn("flex flex-col overflow-hidden w-full bg-[#F9F9F9] dark:bg-black", isEmpty ? "" : "h-screen")}>
+    <ThreadPrimitive.Root className={cn("flex flex-col overflow-hidden w-full bg-[#F9F9F9] dark:bg-[#292929]", isEmpty ? "" : "h-screen")}>
       {!isEmpty ? (
         <ThreadPrimitive.Viewport
           className={cn(
@@ -53,17 +53,17 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
       <ThreadChatScrollToBottom />
       {isEmpty ? (
         <div className="flex items-center justify-center flex-grow my-auto py-12">
-          <div className="flex flex-col items-center bg-white rounded-3xl dark:bg-black relative px-8 sm:px-16 lg:px-20 py-12 w-full">
+          <div className="flex flex-col items-center bg-white rounded-3xl dark:bg-[#121212] relative px-8 sm:px-16 lg:px-20 py-12 w-full">
             <div className="flex flex-col items-center justify-center">
               <p className="text-center text-[#006c68] font-bold text-3xl sm:text-4xl m-1">What would you like to know?</p>
-              <p className="text-center text-black font-medium text-sm sm:text-lg m-1">SEEK helps you check facts and look for misinformation trends</p>
+              <p className="text-center text-black dark:text-white font-medium text-sm sm:text-lg m-1">SEEK helps you check facts and look for misinformation trends</p>
             </div>
             <div className="my-4 sm:mt-8">
               <ChatComposer
                 submitDisabled={props.submitDisabled}
                 messages={props.messages}
               />
-              <p className="tracking-wider text-black text-center font-helveticaneuethin text-xs md:text-sm mt-3 px-4 sm:px-12">
+              <p className="tracking-wider text-black dark:text-white text-center font-helveticaneuethin text-xs md:text-sm mt-3 px-4 sm:px-12">
                 SEEK uses VERA Files articles to create answers using AI. 
                 AI answers may contain errors.<br/> 
                 Always check the sources cited to verify the facts.

@@ -20,6 +20,7 @@ import { useGraphContext } from "../contexts/GraphContext";
 import { useQueryState } from "nuqs";
 import NextImage from "next/image";
 import SignOut from "../signout/SignOut";
+import { useThreadRuntime } from "@assistant-ui/react";
 
 function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
   const { toast } = useToast();
@@ -143,6 +144,16 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
     };
   }, []);
 
+  const threadRuntime = useThreadRuntime();
+
+  const handleSend = (text: string) => {
+    threadRuntime.append({
+      role: "user",
+      content: [{ type: "text", text }],
+    });
+  }
+  handleSend("What is Duterte's first name?");
+
   return (
     <>
     {/* {showPopup && (
@@ -188,11 +199,18 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
             </div>
           </div>
           <div className="flex lg:ml-auto lg:mr-2 lg:mr-6 lg:my-4 mb-4 gap-2">
-            <div className="flex bg-[#F7F9FB] relative rounded-md text-xs xl:text-sm">
+            <div className="flex bg-[#F7F9FB] dark:bg-[#1E1E1E] dark:text-[#F9F9F9] relative rounded-md text-xs xl:text-sm">
               <div onClick={() => setExpanded(curr => !curr)} className="flex flex-row items-center justify-center hover:cursor-pointer hover:bg-[#E5E7EB] rounded-lg px-3 py-2">
                 <NextImage
                   src="/images/solar-user-bold.svg"
-                  className=""
+                  className="block dark:hidden"
+                  alt="User Icon"
+                  width={18}
+                  height={18}
+                />
+                <NextImage
+                  src="/images/solar-user-bold-dark.svg"
+                  className="hidden dark:block"
                   alt="User Icon"
                   width={18}
                   height={18}
@@ -200,7 +218,15 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
                 <div className="mr-auto mt-0.5 ml-2">User</div>
                 <NextImage
                   src="/images/chevron-down.svg"
-                  className="mt-0.5 ml-0.5"
+                  className="mt-0.5 ml-0.5 block dark:hidden"
+                  alt="Chevron Down"
+                  width={20}
+                  height
+                  ={20}
+                />
+                <NextImage
+                  src="/images/chevron-down-dark.svg"
+                  className="mt-0.5 ml-0.5 hidden dark:block"
                   alt="Chevron Down"
                   width={20}
                   height={20}
@@ -217,26 +243,40 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
                 </div>
               </div>
             </div>
-            <a className="flex items-center hover:border-0 bg-[#F7F9FB] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">
+            <a className="flex items-center hover:border-0 bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">
               <NextImage
                 src="/images/ic-baseline-report.svg"
-                className=""
+                className="block dark:hidden"
                 alt="Report Issue Icon"
                 width={20}
                 height={20}
               />
-              <div className="text-black">Report Issues</div>
+              <NextImage
+                src="/images/ic-baseline-report-dark.svg"
+                className="hidden dark:block"
+                alt="Report Issue Icon"
+                width={20}
+                height={20}
+              />
+              <div className="text-black dark:text-[#F9F9F9]">Report Issues</div>
             </a>
-            <a className="flex items-center hover:border-0 bg-[#F7F9FB] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="/faq">
+            <a className="flex items-center hover:border-0 bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="/faq">
               <NextImage
                 src="/images/help-icon.svg"
-                className="fill-white"
+                className="black dark:hidden"
                 alt="Help Icon"
                 width={20}
                 height={20}
               />
-              <object id="testsvg" data="/images/help-icon.svg" type="image/svg+xml" className="fill-white"></object>
-              <div className="text-black">Help</div>
+              <NextImage
+                src="/images/help-icon-dark.svg"
+                className="hidden dark:block"
+                alt="Help Icon"
+                width={20}
+                height={20}
+              />
+              {/* <object id="testsvg" data="/images/help-icon.svg" type="image/svg+xml" className="fill-white"></object> */}
+              <div className="text-black dark:text-[#F9F9F9]">Help</div>
             </a>
           </div>
         </div>

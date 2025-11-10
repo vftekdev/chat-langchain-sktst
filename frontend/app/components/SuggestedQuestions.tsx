@@ -1,6 +1,5 @@
 import { useThreadRuntime } from "@assistant-ui/react";
 import NextImage from "next/image";
-import { MoveRight } from "lucide-react";
 
 const suggestedQuestions = [
   "Give me the latest fact checks.",
@@ -24,14 +23,21 @@ export function SuggestedQuestions() {
         <div
           onClick={() => handleSend(question)}
           key={`suggested-question-${idx}`}
-          className="flex w-full bg-[#F7F9FB] hover:bg-[#E5E7EB] rounded-lg shadow-lg cursor-pointer col-span-12 xl:col-span-4"
+          className="flex w-full bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] rounded-lg shadow-lg cursor-pointer col-span-12 xl:col-span-4"
         >
-          <p className="flex transition-colors ease-in items-center tracking-wide leading-6 font-helveticaneuelight text-[#4B4B4B] text-nowrap text-md hover:text-black gap-2 px-4 py-1">
+          <p className="flex transition-colors ease-in items-center tracking-wide leading-6 font-helveticaneuelight text-[#4B4B4B] dark:text-[#F9F9F9] text-nowrap text-md hover:text-black gap-2 px-4 py-1">
             {question}
           </p>
           <NextImage
             src="/images/arrow-right.svg"
-            className="text-black ml-auto mr-4"
+            className="ml-auto mr-4 block dark:hidden"
+            alt="Right Arrow Icon"
+            width={24}
+            height={24}
+          />
+          <NextImage
+            src="/images/arrow-right-dark.svg"
+            className="ml-auto mr-4 hidden dark:block"
             alt="Right Arrow Icon"
             width={24}
             height={24}
