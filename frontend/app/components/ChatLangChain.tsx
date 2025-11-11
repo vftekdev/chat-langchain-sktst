@@ -247,7 +247,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
               />
               <div className="text-black dark:text-[#F9F9F9]">Report Issues</div>
             </a>
-            <a className="flex items-center hover:border-0 bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="/faq">
+            <a className="flex items-center hover:border-0 bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] dark:hover:bg-black rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="/faq">
               <NextImage
                 src="/images/help-icon.svg"
                 className="black dark:hidden"
