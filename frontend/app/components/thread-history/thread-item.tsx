@@ -21,7 +21,7 @@ export function Thread(props: ThreadProps) {
       onMouseLeave={() => setIsHovering(false)}
     >
       <Button
-        className="px-2 text-[#4B4B4B] hover:bg-[#F9F9F9] hover:text-black justify-start items-center flex-grow min-w-[191px] pr-0"
+        className="px-2 text-[#4B4B4B] hover:text-black hover:bg-[#F9F9F9] dark:text-[#F9F9F9] dark:hover:text-white dark:hover:bg-black justify-start items-center flex-grow min-w-[191px] pr-0"
         size="sm"
         variant="ghost"
         onClick={props.onClick}
@@ -34,10 +34,10 @@ export function Thread(props: ThreadProps) {
         <TooltipIconButton
           tooltip="Delete thread"
           variant="ghost"
-          className="hover:bg-[#F9F9F9] flex-shrink-0 p-2"
+          className="hover:bg-[#F9F9F9] dark:text-[#F9F9F9] dark:hover:bg-black flex-shrink-0 p-2"
           onClick={props.onDelete}
         >
-          <Trash2 className="w-4 h-4 text-[#575757] hover:text-red-500 transition-colors ease-in" />
+          <Trash2 className="w-4 h-4 text-[#575757] dark:text-[#F9F9F9] hover:text-red-500 transition-colors ease-in" />
         </TooltipIconButton>
       )}
     </div>
