@@ -230,7 +230,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
                 </div>
               </div>
             </div>
-            <a className="flex items-center hover:border-0 bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">
+            <a className="flex items-center hover:border-0 bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] dark:hover:bg-black rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">
               <NextImage
                 src="/images/ic-baseline-report.svg"
                 className="block dark:hidden"
