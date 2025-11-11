@@ -49,7 +49,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
       {!isEmpty ? (
         <ThreadPrimitive.Viewport
           className={cn(
-            "bg-yellow-500 flex-1 overflow-y-auto scroll-smooth bg-inherit transition-all duration-300 ease-in-out w-full px-6",
+            "bg-yellow-500 flex-1 overflow-y-auto scroll-smooth bg-inherit w-full px-6",
             isEmpty ? "pb-[30vh] sm:pb-[50vh]" : "pb-12",
             "scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent mb-48",
           )}
