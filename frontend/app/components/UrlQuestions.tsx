@@ -1,10 +1,12 @@
 import { useThreadRuntime } from "@assistant-ui/react";
 import { useGraphContext } from "../contexts/GraphContext";
+import React, { useEffect, useRef, useState } from "react";
 
 export function UrlQuestions() {
     const { userData } = useGraphContext();
     const { userId } = userData;
     const threadRuntime = useThreadRuntime();
+    const [isRunning, setIsRunning] = useState(false);
 
     const handleSend = (text: string) => {
         threadRuntime.append({
@@ -15,9 +17,10 @@ export function UrlQuestions() {
 
     const myDiv = document.getElementById('myDivId') as HTMLDivElement;
     let flag = false;
-    if (myDiv && !flag && userId) {
+    if (myDiv && !flag && userId && !isRunning) {
         myDiv.click();
         flag = true;
+        setIsRunning(true);
     }
 
     return (
