@@ -17,8 +17,8 @@ import NextImage from "next/image";
 
 export const UserMessage: FC = () => {
   return (
-    <MessagePrimitive.Root className="pt-2 sm:pt-4 flex flex-col w-full md:max-w-4xl md:mx-0 mx-auto max-w-[95%] md:py-4 py-2 dark:text-[#F9F9F9]">
-      <h1 className="uppercase">You Asked</h1>
+    <MessagePrimitive.Root className="pt-2 sm:pt-4 flex flex-col w-full md:max-w-4xl md:mx-0 mx-auto max-w-[95%] md:py-4 py-2">
+      <h1 className="uppercase dark:text-[#F9F9F9]">You Asked</h1>
       <div className="bg-inherit text-[#006c68] break-words rounded-2xl sm:rounded-3xl pt-4 md:pt-2.5 mb-[-15px] sm:mb-[-25px] text-2xl sm:text-3xl font-helveticaneuelight">
         <MessagePrimitive.Content />
       </div>
@@ -116,7 +116,7 @@ export const AssistantMessage: FC = () => {
 
   return (
     <MessagePrimitive.Root className="w-full md:mx-0 mx-auto max-w-[95%]">
-      <div className="bg-inherit text-black font-helveticaneuemedium max-w-full sm:max-w-3xl break-words leading-6 sm:leading-7">
+      <div className="bg-inherit text-black dark:text-[#F9F9F9] font-helveticaneuemedium max-w-full sm:max-w-3xl break-words leading-6 sm:leading-7">
         <div className="flex flex-row gap-2 items-start border bg-[#FDF3E7] text-[#5F5038] mt-4 p-4">
                     <NextImage
                         src="/images/warning-sign.svg"
