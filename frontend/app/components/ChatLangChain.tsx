@@ -187,7 +187,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
           </div>
           <div className="flex lg:ml-auto lg:mr-2 lg:mr-6 lg:my-4 mb-4 gap-2">
             <div className="flex bg-[#F7F9FB] dark:bg-[#1E1E1E] dark:text-[#F9F9F9] relative rounded-md text-xs xl:text-sm">
-              <div onClick={() => setExpanded(curr => !curr)} className="flex flex-row items-center justify-center hover:cursor-pointer hover:bg-[#E5E7EB] rounded-lg px-3 py-2">
+              <div onClick={() => setExpanded(curr => !curr)} className="flex flex-row items-center justify-center hover:cursor-pointer hover:bg-[#E5E7EB] dark:hover:bg-black rounded-lg px-3 py-2">
                 <NextImage
                   src="/images/solar-user-bold.svg"
                   className="block dark:hidden"
@@ -219,13 +219,13 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
                   height={20}
                 />
               </div>
-              <div className={`absolute top-full right-0 mt-2 z-50 rounded shadow-lg bg-[#F7F9FB] w-max transition ease-in-out duration-200 ${expanded ? "transform opacity-100 scale-100" : "transform opacity-0 scale-95"}`}>
+              <div className={`absolute top-full right-0 mt-2 z-50 rounded shadow-lg bg-[#F7F9FB] dark:bg-[1E1E1E] dark:text-white w-max transition ease-in-out duration-200 ${expanded ? "transform opacity-100 scale-100" : "transform opacity-0 scale-95"}`}>
                 <div className={`flex flex-col px-3 py-2 ${expanded ? "block" : "invisible"}`}>
                   <div className="p-2">
                     {test}
                   </div>
                   <form action={SignOut}>
-                    <button className="hover:bg-[#E5E7EB] w-full flex justify-end p-2 rounded-lg">Sign Out</button>
+                    <button className="hover:bg-[#E5E7EB] dark:hover:bg-black w-full flex justify-end p-2 rounded-lg">Sign Out</button>
                   </form>
                 </div>
               </div>
