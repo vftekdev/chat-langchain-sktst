@@ -7,10 +7,8 @@ export function UrlQuestions() {
     const sendQuestionRef = useRef<HTMLDivElement>(null);
     const [uPrompt, setUPrompt] = useQueryState("uPrompt");
 
-    console.log(uPrompt);
-
     const handleSend = (text: string|null) => {
-        if (text && text === uPrompt) {
+        if (text) {
             threadRuntime.append({
                 role: "user",
                 content: [{ type: "text", text }],
@@ -25,8 +23,6 @@ export function UrlQuestions() {
             }, 400);
         }
     }, [uPrompt]);
-
-    console.log(uPrompt);
 
     return (
         <div

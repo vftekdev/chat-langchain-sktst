@@ -16,13 +16,11 @@ import { ChatComposer, ChatComposerProps } from "./chat-composer";
 import { cn } from "@/app/utils/cn";
 import { useThreadRuntime } from "@assistant-ui/react";
 import { UrlQuestions } from "../UrlQuestions";
-import { useQueryState } from "nuqs";
 
 export interface ThreadChatProps extends ChatComposerProps {}
 
 export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
   const isEmpty = props.messages.length === 0;
-  const [uPrompt, setUPrompt] = useQueryState("uPrompt");
 
   useGeneratingQuestionsUI();
   useAnswerHeaderToolUI();
@@ -100,7 +98,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
                 </h1>
               </div>
               <SuggestedQuestions />
-              {uPrompt ? (<UrlQuestions />) : null}
+              <UrlQuestions />
               {/* <div id="myDivId"
               onClick={() => handleSend("What is dutertes first name?")}
               className="flex w-full bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] rounded-lg shadow-lg cursor-pointer col-span-12 xl:col-span-4"
