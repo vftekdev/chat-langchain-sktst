@@ -16,8 +16,11 @@ export function UrlQuestions() {
     }
 
     const sendQuestionRef = useRef<HTMLDivElement>(null);
-    useEffect(() => {sendQuestionRef.current?.click()}, []);
-
+    useEffect(() => {
+        setTimeout(() => {
+            sendQuestionRef.current?.click()
+        }, 2000)
+    }, []);
 
     // const myDiv = document.getElementById('myDivId') as HTMLDivElement;
     // let flag = false;
