@@ -7,12 +7,8 @@ export function UrlQuestions() {
     const sendQuestionRef = useRef<HTMLDivElement>(null);
     const [uPrompt, setUPrompt] = useQueryState("uPrompt");
 
-    console.log("1")
-
     const handleSend = (text: string|null) => {
-        console.log("4")
-        if (text) {
-            console.log("5")
+        if (text && text === uPrompt) {
             threadRuntime.append({
                 role: "user",
                 content: [{ type: "text", text }],
@@ -21,9 +17,7 @@ export function UrlQuestions() {
     }
 
     useEffect(() => {
-        console.log("2")
         if (uPrompt) {
-            console.log("3")
             setTimeout(() => {
                 sendQuestionRef.current?.click()
             }, 400);
