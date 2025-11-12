@@ -1,11 +1,12 @@
 import { useThreadRuntime } from "@assistant-ui/react";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useQueryState } from "nuqs";
 
 export function UrlQuestions() {
     const threadRuntime = useThreadRuntime();
     const sendQuestionRef = useRef<HTMLDivElement>(null);
     const [uPrompt, setUPrompt] = useQueryState("uPrompt");
+    const [uQuery, setUQuery] = useState("");
 
     const handleSend = (text: string|null) => {
         if (text) {
@@ -18,16 +19,18 @@ export function UrlQuestions() {
 
     useEffect(() => {
         if (uPrompt) {
+            setUQuery(uPrompt);
             setTimeout(() => {
                 sendQuestionRef.current?.click()
             }, 400);
         }
-    }, [uPrompt]);
+        setUPrompt(null);
+    }, [uQuery]);
 
     return (
         <div
             ref={sendQuestionRef}
-            onClick={() => handleSend(uPrompt)}
+            onClick={() => handleSend(uQuery)}
             className="hidden"
         ></div>
     );
