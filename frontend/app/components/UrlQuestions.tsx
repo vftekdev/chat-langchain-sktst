@@ -4,6 +4,7 @@ import { useQueryState } from "nuqs";
 
 export function UrlQuestions() {
     const threadRuntime = useThreadRuntime();
+    const sendQuestionRef = useRef<HTMLDivElement>(null);
     const [uPrompt, setUPrompt] = useQueryState("uPrompt");
 
     const handleSend = (text: string|null) => {
@@ -15,7 +16,6 @@ export function UrlQuestions() {
         }
     }
 
-    const sendQuestionRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         if (uPrompt) {
             setTimeout(() => {
