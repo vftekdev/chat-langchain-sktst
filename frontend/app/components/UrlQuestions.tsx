@@ -10,23 +10,28 @@ export function UrlQuestions() {
 
     const handleSend = (text: string) => {
         threadRuntime.append({
-        role: "user",
-        content: [{ type: "text", text }],
+            role: "user",
+            content: [{ type: "text", text }],
         });
     }
 
-    const myDiv = document.getElementById('myDivId') as HTMLDivElement;
-    let flag = false;
-    if (myDiv && !flag && userId && !isRunning) {
-        myDiv.click();
-        flag = true;
-        setIsRunning(true);
-    }
+    const sendQuestionRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {sendQuestionRef.current?.click()}, []);
+
+
+    // const myDiv = document.getElementById('myDivId') as HTMLDivElement;
+    // let flag = false;
+    // if (myDiv && !flag && userId && !isRunning) {
+    //     myDiv.click();
+    //     flag = true;
+    //     setIsRunning(true);
+    // }
 
     return (
-        <div id="myDivId"
-        onClick={() => handleSend("What is dutertes first name?")}
-        className="flex w-full bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] rounded-lg shadow-lg cursor-pointer col-span-12 xl:col-span-4"
+        <div
+            ref="sendQuestionRef"
+            onClick={() => handleSend("What is dutertes first name?")}
+            className="flex w-full bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] rounded-lg shadow-lg cursor-pointer col-span-12 xl:col-span-4"
         >
             asdasd
         </div>
