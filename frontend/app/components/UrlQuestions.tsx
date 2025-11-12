@@ -29,7 +29,7 @@ export function UrlQuestions() {
 
     return (
         <div
-            ref="sendQuestionRef"
+            ref={sendQuestionRef}
             onClick={() => handleSend("What is dutertes first name?")}
             className="flex w-full bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] rounded-lg shadow-lg cursor-pointer col-span-12 xl:col-span-4"
         >
