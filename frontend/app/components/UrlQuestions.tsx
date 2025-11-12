@@ -19,7 +19,7 @@ export function UrlQuestions() {
     useEffect(() => {
         setTimeout(() => {
             sendQuestionRef.current?.click()
-        }, 2000)
+        }, 400)
     }, []);
 
     // const myDiv = document.getElementById('myDivId') as HTMLDivElement;
