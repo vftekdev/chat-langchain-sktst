@@ -20,6 +20,7 @@ export function UrlQuestions() {
     useEffect(() => {
         if (uPrompt) {
             uQuery = uPrompt;
+            console.log(uQuery);
             setTimeout(() => {
                 sendQuestionRef.current?.click()
             }, 400);
