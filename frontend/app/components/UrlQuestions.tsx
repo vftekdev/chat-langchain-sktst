@@ -17,7 +17,7 @@ export function UrlQuestions() {
     }
 
     useEffect(() => {
-        if (uPrompt) {
+        if (uPrompt && uPrompt?.length <= 250) {
             setTimeout(() => {
                 sendQuestionRef.current?.click()
             }, 400);
