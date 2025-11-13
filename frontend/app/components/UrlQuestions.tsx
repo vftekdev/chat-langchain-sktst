@@ -22,8 +22,7 @@ export function UrlQuestions() {
                 sendQuestionRef.current?.click()
             }, 400);
         }
-        setUPrompt(null);
-    }, []);
+    }, [uPrompt]);
 
     return (
         <div
