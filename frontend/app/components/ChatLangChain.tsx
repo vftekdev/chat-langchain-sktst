@@ -182,7 +182,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
               />
             </button>
             <div className="flex items-center text-[10px] md:text-xs dark:bg-[#1E1E1E] dark:text-white text-black font-helveticaneuelight border border-[#D7D7D7] rounded-lg p-2 m-3">
-              Claude 4.5 Haiku
+              Claude 4.5 Sonnet
             </div>
           </div>
           <div className="flex lg:ml-auto lg:mr-2 lg:mr-6 lg:my-4 mb-4 gap-2">
