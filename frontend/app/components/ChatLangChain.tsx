@@ -20,7 +20,6 @@ import { useGraphContext } from "../contexts/GraphContext";
 import { useQueryState } from "nuqs";
 import NextImage from "next/image";
 import SignOut from "../signout/SignOut";
-import { useThreadRuntime } from "@assistant-ui/react";
 
 function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
   const { toast } = useToast();
@@ -118,8 +117,6 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
     onNew,
   });
 
-  // const userlength = test.length;
-  // const truncatetext = userlength > 10 ? test.substring(0,10) + "..." : test;
   const [expanded, setExpanded] = useState(false);
 
   const clearMessages = () => {
@@ -143,16 +140,6 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
       document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
-
-  const threadRuntime = useThreadRuntime();
-
-  const handleSend = (text: string) => {
-    threadRuntime.append({
-      role: "user",
-      content: [{ type: "text", text }],
-    });
-  }
-  handleSend("What is Duterte's first name?");
 
   return (
     <>
@@ -195,12 +182,12 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
               />
             </button>
             <div className="flex items-center text-[10px] md:text-xs dark:bg-[#1E1E1E] dark:text-white text-black font-helveticaneuelight border border-[#D7D7D7] rounded-lg p-2 m-3">
-              Claude 4.5 Haiku
+              Claude 4.5 Sonnet
             </div>
           </div>
           <div className="flex lg:ml-auto lg:mr-2 lg:mr-6 lg:my-4 mb-4 gap-2">
             <div className="flex bg-[#F7F9FB] dark:bg-[#1E1E1E] dark:text-[#F9F9F9] relative rounded-md text-xs xl:text-sm">
-              <div onClick={() => setExpanded(curr => !curr)} className="flex flex-row items-center justify-center hover:cursor-pointer hover:bg-[#E5E7EB] rounded-lg px-3 py-2">
+              <div onClick={() => setExpanded(curr => !curr)} className="flex flex-row items-center justify-center hover:cursor-pointer hover:bg-[#E5E7EB] dark:hover:bg-black rounded-lg px-3 py-2">
                 <NextImage
                   src="/images/solar-user-bold.svg"
                   className="block dark:hidden"
@@ -232,18 +219,18 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
                   height={20}
                 />
               </div>
-              <div className={`absolute top-full right-0 mt-2 z-50 rounded shadow-lg bg-[#F7F9FB] w-max transition ease-in-out duration-200 ${expanded ? "transform opacity-100 scale-100" : "transform opacity-0 scale-95"}`}>
+              <div className={`absolute top-full right-0 mt-2 z-50 rounded shadow-lg bg-[#F7F9FB] dark:bg-[#1E1E1E] dark:text-white w-max transition ease-in-out duration-200 ${expanded ? "transform opacity-100 scale-100" : "transform opacity-0 scale-95"}`}>
                 <div className={`flex flex-col px-3 py-2 ${expanded ? "block" : "invisible"}`}>
                   <div className="p-2">
                     {test}
                   </div>
                   <form action={SignOut}>
-                    <button className="hover:bg-[#E5E7EB] w-full flex justify-end p-2 rounded-lg">Sign Out</button>
+                    <button className="hover:bg-[#E5E7EB] dark:hover:bg-black w-full flex justify-end p-2 rounded-lg">Sign Out</button>
                   </form>
                 </div>
               </div>
             </div>
-            <a className="flex items-center hover:border-0 bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">
+            <a className="flex items-center hover:border-0 bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] dark:hover:bg-black rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank">
               <NextImage
                 src="/images/ic-baseline-report.svg"
                 className="block dark:hidden"
@@ -260,7 +247,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
               />
               <div className="text-black dark:text-[#F9F9F9]">Report Issues</div>
             </a>
-            <a className="flex items-center hover:border-0 bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="/faq">
+            <a className="flex items-center hover:border-0 bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] dark:hover:bg-black rounded-md text-xs xl:text-sm px-3 py-2 gap-2" href="/faq">
               <NextImage
                 src="/images/help-icon.svg"
                 className="black dark:hidden"
