@@ -33,7 +33,10 @@ function ThreadHistoryComponent() {
     deleteThreadAndClearMessages,
   );
 
+  const [uPrompt, setUPrompt] = useQueryState("uPrompt");
+
   const createNewSession = async () => {
+    setUPrompt(null);
     setThreadId(null);
     clearMessages();
   };
