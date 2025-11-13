@@ -123,7 +123,10 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
     setMessages([]);
   };
 
+  const [uPrompt, setUPrompt] = useQueryState("uPrompt");
+
   const createNewSession = async () => {
+    setUPrompt(null);
     setThreadId(null);
     clearMessages();
   };
