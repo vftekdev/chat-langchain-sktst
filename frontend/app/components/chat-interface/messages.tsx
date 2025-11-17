@@ -92,7 +92,7 @@ function FeedbackButtons() {
 function CopyToClipboard () {
   return (
     <div>
-      <ActionBarPrimitive.Copy className="flex gap-2 items-center hover:text-[#006C68]">
+      <ActionBarPrimitive.Copy className="flex gap-2 items-center hover:text-[#006C68] cursor-pointer">
         <MessagePrimitive.If copied={false}>
           <p className="text-sm">Copy</p>
           <CopyIcon className="w-5 h-5"/>
@@ -117,7 +117,7 @@ export const AssistantMessage: FC = () => {
   return (
     <MessagePrimitive.Root className="w-full md:mx-0 mx-auto max-w-[95%]">
       <div className="bg-inherit text-black dark:text-[#F9F9F9] font-helveticaneuemedium max-w-full sm:max-w-3xl break-words leading-6 sm:leading-7">
-        <div className="flex flex-row gap-2 items-start border bg-[#FDF3E7] text-[#5F5038] mt-4 p-4">
+        <div className="flex flex-row gap-2 items-start border bg-[#FDF3E7] dark:bg-[#121212] text-[#5F5038] dark:text-[#F9F9F9] mt-4 p-4">
                     <NextImage
                         src="/images/warning-sign.svg"
                         className="pt-3"
