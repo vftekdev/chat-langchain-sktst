@@ -23,6 +23,7 @@ from langchain_voyageai import VoyageAIRerank
 
 import re
 from datetime import date
+from dateutil.relativedelta import relativedelta
 from backend.retrieval_graph import test_weaviate_query
 
 
@@ -155,12 +156,18 @@ async def create_research_plan(
 
         steps: list[str]
 
-    date_today = date.today().strftime("%B %d, %Y")
+    date_today = date.today()
+    date_today_string = date_today.strftime("%B %d, %Y")
+
+    previous_month_date = date_today - relativedelta(months=1)
+    previous_month_string = previous_month_date.strftime("%B %Y")
+    current_month_string = date_today.strftime("%B %Y")
+
     configuration = AgentConfiguration.from_runnable_config(config)
     if configuration.response_type == "simple":
         model = load_chat_model(configuration.query_model).with_structured_output(Plan)
         messages = [
-            {"role": "system", "content": configuration.quick_research_plan_system_prompt.format(date_today=date_today)}
+            {"role": "system", "content": configuration.quick_research_plan_system_prompt.format(date_today=date_today_string, previous_month=previous_month_string, current_month=current_month_string)}
         ] + state.messages
         response = cast(
             Plan, await model.ainvoke(messages, {"tags": ["langsmith:nostream"]})
@@ -179,7 +186,7 @@ async def create_research_plan(
     else:
         model = load_chat_model(configuration.query_model).with_structured_output(Plan)
         messages = [
-            {"role": "system", "content": configuration.research_plan_system_prompt.format(date_today=date_today)}
+            {"role": "system", "content": configuration.research_plan_system_prompt.format(date_today=date_today_string)}
         ] + state.messages
         response = cast(
             Plan, await model.ainvoke(messages, {"tags": ["langsmith:nostream"]})
@@ -291,7 +298,7 @@ async def respond(
         model="rerank-2-lite", voyageai_api_key=os.environ["VOYAGE_API_KEY"], top_k=6
     )
     state.documents = compressor.compress_documents(state.documents, state.query)
-    
+
     # top_k = 20
     # context = format_docs(state.documents[:top_k])
     context = format_docs(state.documents)

@@ -39,10 +39,10 @@ async def generate_queries(
         queries: list[str]
 
     # date_today = date.today().strftime("%B %d, %Y")
-    date_today = date.today().strftime("%Y")
+    # date_today = date.today().strftime("%Y")
     configuration = AgentConfiguration.from_runnable_config(config)
     if configuration.response_type == "simple":
-        return {"queries": ["The current year is " + date_today + ". " + state.question + " Consider the current year when searching for documents. Prioritize more recent documents."]}
+        return {"queries": [state.question]}
         # return {"queries": [state.question]}
     else:
         model = load_chat_model(configuration.query_model).with_structured_output(Response)
