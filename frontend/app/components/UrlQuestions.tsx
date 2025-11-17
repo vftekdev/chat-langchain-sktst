@@ -1,28 +1,12 @@
 import { useThreadRuntime } from "@assistant-ui/react";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useQueryState } from "nuqs";
 
 export function UrlQuestions() {
     const threadRuntime = useThreadRuntime();
     const sendQuestionRef = useRef<HTMLDivElement>(null);
     const [uPrompt, setUPrompt] = useQueryState("uPrompt");
-
-    function isReferrerFromVF(): boolean {
-        // document.referrer can be an empty string if there's no referrer
-        // or if the referrer policy prevents it from being sent
-        if (!document.referrer) {
-            return false;
-        }
-        try {
-            const referrerUrl = new URL(document.referrer);
-            // Compare the hostname (e.g., "example.com")
-            return referrerUrl.hostname === "verafiles.org" || referrerUrl.hostname === "factcheck.ph";
-        } catch (error) {
-            // Handle cases where document.referrer might not be a valid URL
-            console.error("Error parsing referrer URL:", error);
-            return false;
-        }
-    }
+    const [isFromVF, setIsFromVF] = useState(false);
 
     const handleSend = (text: string|null) => {
         if (text) {
@@ -34,7 +18,20 @@ export function UrlQuestions() {
     }
 
     useEffect(() => {
-        if (uPrompt && uPrompt?.length <= 250 && isReferrerFromVF()) {
+        if (document.referrer) {
+            try {
+                const referrerUrl = new URL(document.referrer);
+                // Compare the hostname (e.g., "example.com")
+                if (referrerUrl.hostname === "verafiles.org" || referrerUrl.hostname === "factcheck.ph") {
+                    setIsFromVF(true);
+                }
+            } catch (error) {
+                // Handle cases where document.referrer might not be a valid URL
+                console.error("Error parsing referrer URL:", error);
+            }
+        }
+
+        if (uPrompt && uPrompt?.length <= 250 && isFromVF) {
             setTimeout(() => {
                 sendQuestionRef.current?.click();
             }, 400);
