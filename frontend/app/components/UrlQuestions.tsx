@@ -36,8 +36,11 @@ export function UrlQuestions() {
     useEffect(() => {
         if (uPrompt && uPrompt?.length <= 250 && isReferrerFromVF()) {
             setTimeout(() => {
-                sendQuestionRef.current?.click()
+                sendQuestionRef.current?.click();
             }, 400);
+        }
+        else {
+            setUPrompt(null);
         }
     }, [uPrompt]);
 
