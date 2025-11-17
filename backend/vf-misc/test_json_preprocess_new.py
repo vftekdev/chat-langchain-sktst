@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 
 
-input_path = './backend/articles-20251022.json'
+input_path = './backend/vfarticles.json'
 output_path = './backend/test_data.json'
 articles = []
 
@@ -37,7 +37,7 @@ for article in data:
     article_data["rating"] = article["review_rating"]
     article_data["claim_author"] = article["claim_author"]
     article_data["explanation"] = article["rating_explanation"]
-    article_data["keywords"] = article["yoast_head_json"]["schema"]["@graph"][0]["keywords"]
+    article_data["keywords"] = article["yoast_head_json"]["schema"]["@graph"][0].get("keywords", [])
     article_data["post_content"] = (
                                     article["corrections_updates"] + " " +
                                     article["content"]["rendered"] + " " +
