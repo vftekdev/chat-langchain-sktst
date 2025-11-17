@@ -39,7 +39,7 @@ export function UrlQuestions() {
         else {
             setUPrompt(null);
         }
-    }, [uPrompt]);
+    }, [uPrompt, isFromVF]);
 
     return (
         <div
