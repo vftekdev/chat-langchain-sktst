@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { GraphProvider } from "./contexts/GraphContext";
 import { ChatLangChain } from "./components/ChatLangChain";
 import { Card } from "./components/ui/card";
@@ -9,23 +9,11 @@ export default async function SignIn() {
   const session = await auth();
   console.log(session);
   const user = session?.user;
-  let referrerUrl = new URL("");
-  useEffect(() => {
-          if (document.referrer) {
-              try {
-                  referrerUrl = new URL(document.referrer);
-                  console.log(referrerUrl);
-              } catch (error) {
-                  // Handle cases where document.referrer might not be a valid URL
-                  console.error("Error parsing referrer URL:", error);
-              }
-          }
-      }, []);
   return user ? (
     <main className="w-full">
       <React.Suspense fallback={null}>
         <GraphProvider>
-          <ChatLangChain test={user.name} referrerUrl={referrerUrl} />
+          <ChatLangChain test={user.name} />
         </GraphProvider>
       </React.Suspense>
     </main>
