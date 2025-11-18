@@ -24,8 +24,8 @@ export function UrlQuestions() {
                 console.log(referrerUrl);
                 // Compare the hostname (e.g., "example.com")
                 if ( referrerUrl.hostname === "verafiles.org"  ||
-    hostname.endsWith(".verafiles.org") ||  referrerUrl.hostname === "factcheck.ph" ||
-    hostname.endsWith(".factcheck.ph") ) {
+    referrerUrl.hostname.endsWith(".verafiles.org") ||  referrerUrl.hostname === "factcheck.ph" ||
+    referrerUrl.hostname.endsWith(".factcheck.ph") ) {
                     setIsFromVF(true);
                 }
             } catch (error) {
