@@ -271,7 +271,7 @@ function ChatLangChainComponent(props: {test:any, referrerUrl:any}): React.React
           </div>
         </div>
         <AssistantRuntimeProvider runtime={runtime}>
-          <ThreadChat submitDisabled={isSubmitDisabled} messages={messages} referrerUrl={props.referrerUrl} />
+          <ThreadChat submitDisabled={isSubmitDisabled} messages={messages} />
         </AssistantRuntimeProvider>
       </div>
       <Toaster />

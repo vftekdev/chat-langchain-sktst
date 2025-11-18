@@ -76,7 +76,6 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
               <ChatComposer
                 submitDisabled={props.submitDisabled}
                 messages={props.messages}
-                referrerUrl={props.referrerUrl}
               />
               <p className="tracking-wider text-black dark:text-white text-center font-helveticaneuethin text-xs md:text-sm mt-3 px-4 sm:px-12">
                 SEEK uses VERA Files articles to create answers using AI. 
@@ -114,7 +113,6 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
           <ChatComposer
             submitDisabled={props.submitDisabled}
             messages={props.messages}
-            referrerUrl={props.referrerUrl}
           />
           <p className="tracking-wider text-justify font-helveticaneuethin w-full mt-4">
               SEEK uses VERA Files articles to create answers using AI. 
