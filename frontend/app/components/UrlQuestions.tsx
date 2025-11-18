@@ -21,6 +21,7 @@ export function UrlQuestions() {
         if (document.referrer) {
             try {
                 const referrerUrl = new URL(document.referrer);
+                console.log(referrerUrl);
                 // Compare the hostname (e.g. "example.com")
                 if (referrerUrl.hostname === "verafiles.org" || referrerUrl.hostname.endsWith(".verafiles.org") ||
                     referrerUrl.hostname === "factcheck.ph" || referrerUrl.hostname.endsWith(".factcheck.ph")) {
