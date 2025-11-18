@@ -76,6 +76,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
               <ChatComposer
                 submitDisabled={props.submitDisabled}
                 messages={props.messages}
+                referrerUrl={props.referrerUrl}
               />
               <p className="tracking-wider text-black dark:text-white text-center font-helveticaneuethin text-xs md:text-sm mt-3 px-4 sm:px-12">
                 SEEK uses VERA Files articles to create answers using AI. 
@@ -98,7 +99,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
                 </h1>
               </div>
               <SuggestedQuestions />
-              <UrlQuestions />
+              <UrlQuestions referrerUrl={props.referrerUrl} />
               {/* <div id="myDivId"
               onClick={() => handleSend("What is dutertes first name?")}
               className="flex w-full bg-[#F7F9FB] dark:bg-[#1E1E1E] hover:bg-[#E5E7EB] rounded-lg shadow-lg cursor-pointer col-span-12 xl:col-span-4"
@@ -113,6 +114,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
           <ChatComposer
             submitDisabled={props.submitDisabled}
             messages={props.messages}
+            referrerUrl={props.referrerUrl}
           />
           <p className="tracking-wider text-justify font-helveticaneuethin w-full mt-4">
               SEEK uses VERA Files articles to create answers using AI. 
