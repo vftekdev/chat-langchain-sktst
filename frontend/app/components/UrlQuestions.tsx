@@ -42,7 +42,7 @@ export function UrlQuestions() {
             }, 400);
         }
         else {
-            setUPrompt(null);
+            // setUPrompt(null);
         }
     }, [uPrompt, isFromVF]);
 
