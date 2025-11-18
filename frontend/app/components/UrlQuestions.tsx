@@ -18,14 +18,17 @@ export function UrlQuestions() {
     }
 
     useEffect(() => {
+        
+    }, []);
+
+    useEffect(() => {
         if (document.referrer) {
             try {
                 const referrerUrl = new URL(document.referrer);
                 console.log(referrerUrl);
                 // Compare the hostname (e.g., "example.com")
-                if ( referrerUrl.hostname === "verafiles.org"  ||
-    referrerUrl.hostname.endsWith(".verafiles.org") ||  referrerUrl.hostname === "factcheck.ph" ||
-    referrerUrl.hostname.endsWith(".factcheck.ph") ) {
+                if (referrerUrl.hostname === "verafiles.org" || referrerUrl.hostname.endsWith(".verafiles.org") ||
+                    referrerUrl.hostname === "factcheck.ph" || referrerUrl.hostname.endsWith(".factcheck.ph")) {
                     setIsFromVF(true);
                 }
             } catch (error) {
@@ -33,9 +36,7 @@ export function UrlQuestions() {
                 console.error("Error parsing referrer URL:", error);
             }
         }
-    }, []);
-
-    useEffect(() => {
+        
         if (uPrompt && uPrompt?.length <= 250 && isFromVF) {
             setTimeout(() => {
                 sendQuestionRef.current?.click();
