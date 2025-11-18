@@ -2,7 +2,7 @@ import { useThreadRuntime } from "@assistant-ui/react";
 import React, { useEffect, useState, useRef } from "react";
 import { useQueryState } from "nuqs";
 
-export function UrlQuestions(props: {referrerUrl:any}) {
+export function UrlQuestions() {
     const threadRuntime = useThreadRuntime();
     const sendQuestionRef = useRef<HTMLDivElement>(null);
     const [uPrompt, setUPrompt] = useQueryState("uPrompt");
@@ -18,9 +18,9 @@ export function UrlQuestions(props: {referrerUrl:any}) {
     }
 
     useEffect(() => {
-        if (props.referrerUrl) {
+        if (document.referrer) {
             try {
-                const referrerUrl = props.referrerUrl;
+                const referrerUrl = new URL(document.referrer);
                 console.log(referrerUrl);
                 // Compare the hostname (e.g. "example.com")
                 if (referrerUrl.hostname === "verafiles.org" || referrerUrl.hostname.endsWith(".verafiles.org") ||
