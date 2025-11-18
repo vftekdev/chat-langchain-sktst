@@ -9,11 +9,12 @@ export default async function SignIn() {
   const session = await auth();
   console.log(session);
   const user = session?.user;
+  const referrerUrl = new URL(document.referrer);
   return user ? (
     <main className="w-full">
       <React.Suspense fallback={null}>
         <GraphProvider>
-          <ChatLangChain test={user.name} />
+          <ChatLangChain test={user.name} referrerUrl={referrerUrl} />
         </GraphProvider>
       </React.Suspense>
     </main>
