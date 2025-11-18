@@ -21,7 +21,7 @@ export function UrlQuestions() {
         if (document.referrer) {
             try {
                 const referrerUrl = new URL(document.referrer);
-                // Compare the hostname (e.g., "example.com")
+                // Compare the hostname (e.g. "example.com")
                 if (referrerUrl.hostname === "verafiles.org" || referrerUrl.hostname.endsWith(".verafiles.org") ||
                     referrerUrl.hostname === "factcheck.ph" || referrerUrl.hostname.endsWith(".factcheck.ph")) {
                     setIsFromVF(true);
@@ -40,9 +40,9 @@ export function UrlQuestions() {
             }, 400);
         }
         else {
-            // setUPrompt(null);
+            setUPrompt(null);
         }
-    }, [uPrompt, isFromVF]);
+    }, [isFromVF]);
 
     return (
         <div
