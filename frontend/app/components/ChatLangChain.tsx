@@ -21,7 +21,7 @@ import { useQueryState } from "nuqs";
 import NextImage from "next/image";
 import SignOut from "../signout/SignOut";
 
-function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
+function ChatLangChainComponent({test, referrerUrl} : {test:any; referrerUrl:URL}): React.ReactElement {
   const { toast } = useToast();
   const { threadsData, userData, graphData } = useGraphContext();
   const { userId } = userData;
