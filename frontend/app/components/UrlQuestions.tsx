@@ -33,7 +33,9 @@ export function UrlQuestions() {
                 console.error("Error parsing referrer URL:", error);
             }
         }
+    }, []);
 
+    useEffect(() => {
         if (uPrompt && uPrompt?.length <= 250 && isFromVF) {
             setTimeout(() => {
                 sendQuestionRef.current?.click();
