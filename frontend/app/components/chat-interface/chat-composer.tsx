@@ -13,6 +13,7 @@ import { ResponseTypeRadio } from "../ResponseTypeRadio";
 export interface ChatComposerProps {
   messages: BaseMessage[];
   submitDisabled: boolean;
+  referrerUrl: URL;
 }
 
 const CircleStopIcon = () => {

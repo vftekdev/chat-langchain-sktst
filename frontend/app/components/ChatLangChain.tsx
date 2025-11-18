@@ -21,7 +21,7 @@ import { useQueryState } from "nuqs";
 import NextImage from "next/image";
 import SignOut from "../signout/SignOut";
 
-function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
+function ChatLangChainComponent(props: {test:any, referrerUrl:any}): React.ReactElement {
   const { toast } = useToast();
   const { threadsData, userData, graphData } = useGraphContext();
   const { userId } = userData;
@@ -225,7 +225,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
               <div className={`absolute top-full right-0 mt-2 z-50 rounded shadow-lg bg-[#F7F9FB] dark:bg-[#1E1E1E] dark:text-white w-max transition ease-in-out duration-200 ${expanded ? "transform opacity-100 scale-100" : "transform opacity-0 scale-95"}`}>
                 <div className={`flex flex-col px-3 py-2 ${expanded ? "block" : "invisible"}`}>
                   <div className="p-2">
-                    {test}
+                    {props.test}
                   </div>
                   <form action={SignOut}>
                     <button className="hover:bg-[#E5E7EB] dark:hover:bg-black w-full flex justify-end p-2 rounded-lg">Sign Out</button>
@@ -271,7 +271,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
           </div>
         </div>
         <AssistantRuntimeProvider runtime={runtime}>
-          <ThreadChat submitDisabled={isSubmitDisabled} messages={messages} />
+          <ThreadChat submitDisabled={isSubmitDisabled} messages={messages} referrerUrl={props.referrerUrl} />
         </AssistantRuntimeProvider>
       </div>
       <Toaster />
