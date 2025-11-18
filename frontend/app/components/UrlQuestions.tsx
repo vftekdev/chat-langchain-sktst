@@ -40,9 +40,9 @@ export function UrlQuestions() {
             }, 400);
         }
         else {
-            setUPrompt(null);
+            // setUPrompt(null);
         }
-    }, [isFromVF]);
+    }, [uPrompt, isFromVF]);
 
     return (
         <div
