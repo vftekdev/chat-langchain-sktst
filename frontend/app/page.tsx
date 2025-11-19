@@ -1,4 +1,5 @@
 import React from "react";
+import { useQueryState } from "nuqs";
 import { GraphProvider } from "./contexts/GraphContext";
 import { ChatLangChain } from "./components/ChatLangChain";
 import { Card } from "./components/ui/card";
@@ -9,6 +10,12 @@ export default async function SignIn() {
   const session = await auth();
   console.log(session);
   const user = session?.user;
+  const [refUrlParam, setRefUrlParam] = useQueryState("");
+
+  if (user) {
+    setRefUrlParam(document.referrer);
+  }
+
   return user ? (
     <main className="w-full">
       <React.Suspense fallback={null}>
