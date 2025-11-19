@@ -7,7 +7,6 @@ export function UrlQuestions() {
     const sendQuestionRef = useRef<HTMLDivElement>(null);
     const [uPrompt, setUPrompt] = useQueryState("uPrompt");
     const [refUrl, setRefUrl] = useQueryState("refUrl");
-    const [fromGoogle, setFromGoogle] = useState(false);
     const [isFromVF, setIsFromVF] = useState(false);
 
     const handleSend = (text: string|null) => {
@@ -29,10 +28,10 @@ export function UrlQuestions() {
                     referrerUrl.hostname === "factcheck.ph" || referrerUrl.hostname.endsWith(".factcheck.ph")) {
                     setIsFromVF(true);
                 }
-                if (referrerUrl.hostname === "accounts.google.com" || referrerUrl.hostname.endsWith("accounts.google.com")) {
-                    const refUrlObj = new URL(refUrl ? refUrl : "");
-                    if (refUrlObj.hostname === "verafiles.org" || refUrlObj.hostname.endsWith(".verafiles.org") ||
-                        refUrlObj.hostname === "factcheck.ph" || refUrlObj.hostname.endsWith(".factcheck.ph")) {
+                else if (referrerUrl.hostname === "accounts.google.com" || referrerUrl.hostname.endsWith("accounts.google.com")) {
+                    const refUrlFromParam = new URL(refUrl ? refUrl : "");
+                    if (refUrlFromParam.hostname === "verafiles.org" || refUrlFromParam.hostname.endsWith(".verafiles.org") ||
+                        refUrlFromParam.hostname === "factcheck.ph" || refUrlFromParam.hostname.endsWith(".factcheck.ph")) {
                         setIsFromVF(true);
                     }
                 }
