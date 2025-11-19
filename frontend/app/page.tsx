@@ -1,6 +1,7 @@
 import React from "react";
 import { GraphProvider } from "./contexts/GraphContext";
 import { ChatLangChain } from "./components/ChatLangChain";
+import { RefUrl } from "./components/RefUrl";
 import { Card } from "./components/ui/card";
 import NextImage from "next/image";
 import { auth, signIn, signOut } from "@/auth";
@@ -56,6 +57,7 @@ export default async function SignIn() {
           </button>
         </form>
       </Card>
+      <RefUrl />
     </main>
   )
 }
