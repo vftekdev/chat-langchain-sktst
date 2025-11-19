@@ -8,6 +8,7 @@ export function UrlQuestions() {
     const [uPrompt, setUPrompt] = useQueryState("uPrompt");
     const [refUrl, setRefUrl] = useQueryState("refUrl");
     const [isFromVF, setIsFromVF] = useState(false);
+    const [delay, setDelay] = useState(400);
 
     const handleSend = (text: string|null) => {
         if (text) {
@@ -33,6 +34,7 @@ export function UrlQuestions() {
                     if (refUrlFromParam.hostname === "verafiles.org" || refUrlFromParam.hostname.endsWith(".verafiles.org") ||
                         refUrlFromParam.hostname === "factcheck.ph" || refUrlFromParam.hostname.endsWith(".factcheck.ph")) {
                         setIsFromVF(true);
+                        setDelay(800);
                     }
                 }
             } catch (error) {
@@ -47,7 +49,7 @@ export function UrlQuestions() {
             console.log("hello")
             setTimeout(() => {
                 sendQuestionRef.current?.click();
-            }, 400);
+            }, delay);
         }
         else {
             // setUPrompt(null);
