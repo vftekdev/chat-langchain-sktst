@@ -34,7 +34,7 @@ export function UrlQuestions() {
                     if (refUrlFromParam.hostname === "verafiles.org" || refUrlFromParam.hostname.endsWith(".verafiles.org") ||
                         refUrlFromParam.hostname === "factcheck.ph" || refUrlFromParam.hostname.endsWith(".factcheck.ph")) {
                         setIsFromVF(true);
-                        setDelay(800);
+                        setDelay(1600);
                     }
                 }
             } catch (error) {
