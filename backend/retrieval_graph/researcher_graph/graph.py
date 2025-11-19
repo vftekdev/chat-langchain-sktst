@@ -38,7 +38,7 @@ async def generate_queries(
     class Response(TypedDict):
         queries: list[str]
 
-    # date_today = date.today().strftime("%B %d, %Y")
+    date_today = date.today().strftime("%B %d, %Y")
     # date_today = date.today().strftime("%Y")
     configuration = AgentConfiguration.from_runnable_config(config)
     if configuration.response_type == "simple":
