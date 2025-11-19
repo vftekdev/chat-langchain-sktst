@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQueryState } from "nuqs";
 import { GraphProvider } from "./contexts/GraphContext";
 import { ChatLangChain } from "./components/ChatLangChain";
@@ -10,10 +10,11 @@ export default async function SignIn() {
   const session = await auth();
   console.log(session);
   const user = session?.user;
-  const [refUrlParam, setRefUrlParam] = useQueryState("");
+  const [refUrlParam, setRefUrlParam] = useState("");
 
   if (user) {
     setRefUrlParam(document.referrer);
+    console.log(refUrlParam);
   }
 
   return user ? (
