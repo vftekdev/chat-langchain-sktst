@@ -20,7 +20,6 @@ import { useGraphContext } from "../contexts/GraphContext";
 import { useQueryState } from "nuqs";
 import NextImage from "next/image";
 import SignOut from "../signout/SignOut";
-import ClearParams from "../signout/ClearParams"
 
 function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
   const { toast } = useToast();
