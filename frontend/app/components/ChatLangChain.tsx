@@ -20,6 +20,7 @@ import { useGraphContext } from "../contexts/GraphContext";
 import { useQueryState } from "nuqs";
 import NextImage from "next/image";
 import SignOut from "../signout/SignOut";
+import ClearParams from "../signout/ClearParams"
 
 function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
   const { toast } = useToast();
@@ -227,7 +228,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
                   <div className="p-2">
                     {test}
                   </div>
-                  <form action={SignOut}>
+                  <form action={() => { ClearParams(); SignOut(); }}>
                     <button className="hover:bg-[#E5E7EB] dark:hover:bg-black w-full flex justify-end p-2 rounded-lg">Sign Out</button>
                   </form>
                 </div>
