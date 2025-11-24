@@ -294,15 +294,16 @@ async def respond(
     #    top_k = 6
     #    state.documents = state.documents[:top_k]
     # else:
+    date_today = date.today().strftime("%B %d, %Y")
+
     compressor = VoyageAIRerank(
-        model="rerank-2-lite", voyageai_api_key=os.environ["VOYAGE_API_KEY"], top_k=6
+        model="rerank-2.5-lite", voyageai_api_key=os.environ["VOYAGE_API_KEY"], top_k=6
     )
-    state.documents = compressor.compress_documents(state.documents, state.query)
+    state.documents = compressor.compress_documents(state.documents, state.query + " Today is " + date_today + ". Prioritize the most recent information from the provided contexts. Each context includes a publish date - use the most up-to-date source when answering.")
 
     # top_k = 20
     # context = format_docs(state.documents[:top_k])
     context = format_docs(state.documents)
-    date_today = date.today().strftime("%B %d, %Y")
     prompt = configuration.response_system_prompt.format(context=context, date_today=date_today)
     messages = [{"role": "system", "content": prompt}] + state.messages
     response = await model.with_fallbacks([RunnableLambda(vf_when_all_is_lost)]).ainvoke(messages)
