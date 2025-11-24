@@ -48,6 +48,7 @@ export function UrlQuestions() {
         if (uPrompt && uPrompt?.length <= 250 && isFromVF) {
             console.log("hello")
             setTimeout(() => {
+                // setSpinnerFlag(false);
                 sendQuestionRef.current?.click();
             }, delay);
         }
