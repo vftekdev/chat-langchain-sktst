@@ -7,4 +7,8 @@ export default function ClearParams() {
     setUPrompt(null);
     setThreadId(null);
     setRefUrl(null);
+
+    return (
+        <div></div>
+    );
 }
