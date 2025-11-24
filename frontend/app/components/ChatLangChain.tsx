@@ -228,7 +228,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
                   <div className="p-2">
                     {test}
                   </div>
-                  <form action={() => { ClearParams(); SignOut(); }}>
+                  <form action={() => { SignOut(); ClearParams(); }}>
                     <button className="hover:bg-[#E5E7EB] dark:hover:bg-black w-full flex justify-end p-2 rounded-lg">Sign Out</button>
                   </form>
                 </div>
