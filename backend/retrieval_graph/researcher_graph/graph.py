@@ -18,7 +18,7 @@ from backend.retrieval_graph.researcher_graph.state import QueryState, Researche
 from backend.utils import load_chat_model
 
 from datetime import date
-
+from dateutil.relativedelta import relativedelta
 
 async def generate_queries(
     state: ResearcherState, *, config: RunnableConfig
