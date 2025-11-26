@@ -38,8 +38,14 @@ async def generate_queries(
     class Response(TypedDict):
         queries: list[str]
 
-    date_today = date.today().strftime("%B %d, %Y")
-    # date_today = date.today().strftime("%Y")
+    date_today = date.today()
+    date_today_string = date_today.strftime("%B %d, %Y")
+
+    previous_month_date = date_today - relativedelta(months=1)
+    previous_month_string = previous_month_date.strftime("%B %Y")
+    current_month_string = date_today.strftime("%B %Y")
+    current_year_string = date_today.strftime("%Y")
+
     configuration = AgentConfiguration.from_runnable_config(config)
     if configuration.response_type == "simple":
         return {"queries": [state.question]}
@@ -47,7 +53,7 @@ async def generate_queries(
     else:
         model = load_chat_model(configuration.query_model).with_structured_output(Response)
         messages = [
-            {"role": "system", "content": configuration.generate_query_system_prompt.format(date_today=date_today)},
+            {"role": "system", "content": configuration.generate_query_system_prompt.format(date_today=date_today_string, previous_month=previous_month_string, current_month=current_month_string, current_year=current_year_string)},
             {"role": "human", "content": state.question},
         ]
         response = cast(
