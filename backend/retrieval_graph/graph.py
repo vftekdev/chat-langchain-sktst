@@ -162,12 +162,13 @@ async def create_research_plan(
     previous_month_date = date_today - relativedelta(months=1)
     previous_month_string = previous_month_date.strftime("%B %Y")
     current_month_string = date_today.strftime("%B %Y")
+    current_year_string = date_today.strftime("%Y")
 
     configuration = AgentConfiguration.from_runnable_config(config)
     if configuration.response_type == "simple":
         model = load_chat_model(configuration.query_model).with_structured_output(Plan)
         messages = [
-            {"role": "system", "content": configuration.quick_research_plan_system_prompt.format(date_today=date_today_string, previous_month=previous_month_string, current_month=current_month_string)}
+            {"role": "system", "content": configuration.quick_research_plan_system_prompt.format(date_today=date_today_string, previous_month=previous_month_string, current_month=current_month_string, current_year=current_year_string)}
         ] + state.messages
         response = cast(
             Plan, await model.ainvoke(messages, {"tags": ["langsmith:nostream"]})
