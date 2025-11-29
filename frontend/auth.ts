@@ -21,7 +21,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if(profile?.email?.endsWith('@verafiles.org')){
         return true;
       } else {
-        return false;
+        return true;
       }
     }
 },
