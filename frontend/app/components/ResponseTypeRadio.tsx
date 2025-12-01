@@ -29,10 +29,10 @@ export function ResponseTypeComponent() {
       value={selectedResponseType}
       defaultValue="simple"
     >
-      <SelectTrigger className="w-fit text-[#1A7B77] mx-2 border-black dark:border-[#F9F9F9]">
+      <SelectTrigger className="w-fit text-[#1A7B77] dark:text-[#00CEC6] mx-2 border-black dark:border-[#F9F9F9]">
         <SelectValue placeholder="Quick Response" />
       </SelectTrigger>
-      <SelectContent className="text-[#1A7B77]">
+      <SelectContent className="text-[#1A7B77] dark:text-[#00CEC6]">
         {Object.entries(responseTypesAndLabels).map(([responseType, label]) => (
           <SelectItem className="" key={responseType} value={responseType}>
             <span className="m-0 font-helveticaneue tracking-wide">

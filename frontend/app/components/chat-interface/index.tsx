@@ -69,7 +69,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
         <div className="flex items-center justify-center flex-grow my-auto py-12">
           <div className="flex flex-col items-center bg-white rounded-3xl dark:bg-[#121212] relative px-8 sm:px-16 lg:px-20 py-12 w-full">
             <div className="flex flex-col items-center justify-center">
-              <p className="text-center text-[#006c68] font-bold text-3xl sm:text-4xl m-1">What would you like to know?</p>
+              <p className="text-center text-[#006c68] dark:text-[#00CEC6] font-bold text-3xl sm:text-4xl m-1">What would you like to know?</p>
               <p className="text-center text-black dark:text-white font-medium text-sm sm:text-lg m-1">SEEK helps you check facts and look for misinformation trends</p>
             </div>
             <div className="my-4 sm:mt-8">
@@ -81,7 +81,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
                 SEEK uses VERA Files articles to create answers using AI. 
                 AI answers may contain errors.<br/> 
                 Always check the sources cited to verify the facts.
-                <a className="text-blue hover:border-0" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank"> Report Issues.</a>
+                <a className="text-[#006c68] dark:text-[#00CEC6] hover:border-0" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank"> Report Issues.</a>
               </p>
             </div>
             <div className="w-full mt-2 md:mt-4">
@@ -93,7 +93,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
                   width={32}
                   height={32}
                 />
-                <h1 className="text-xl sm:text-2xl text-[#006c68] font-bold px-3">
+                <h1 className="text-xl sm:text-2xl text-[#006c68] dark:text-[#00CEC6] font-bold px-3">
                   Suggested Questions
                 </h1>
               </div>
@@ -118,7 +118,7 @@ export const ThreadChat: FC<ThreadChatProps> = (props: ThreadChatProps) => {
               SEEK uses VERA Files articles to create answers using AI. 
               AI answers may contain errors.<br/> 
               Always check the sources cited to verify the facts.
-              <a className="text-blue hover:border-0" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank"> Report Issues.</a>
+              <a className="text-[#006C68] dark:text-[#00CEC6] hover:border-0" href="https://verafiles.atlassian.net/jira/software/c/form/03737abd-4aaf-4e2c-960c-570ac7f11f12" target="_blank"> Report Issues.</a>
           </p>
         </div>
       )}
