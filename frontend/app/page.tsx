@@ -33,9 +33,9 @@ export default async function SignIn() {
         <h2 className="mt-2 font-helveticaneuemedium text-lg">Check your facts in less than a minute.</h2>
         <p className="mt-6 font-helveticaneuelight text-sm">
           By clicking “Login”, you agree to our
-          <a href="/toc" target="_blank"> Terms and Conditions</a>. 
+          <a className="text-[#006C68]" href="/toc" target="_blank"> Terms and Conditions</a>. 
           Learn how we process your data in our 
-          <a href="/privacy-policy" target="_blank"> Privacy Policy</a>.
+          <a className="text-[#006C68]" href="/privacy-policy" target="_blank"> Privacy Policy</a>.
         </p>
         <form className="mt-6 cursor-pointer flex justify-center w-full"
           action={async () => {

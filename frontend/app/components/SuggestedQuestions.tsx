@@ -2,7 +2,7 @@ import { useThreadRuntime } from "@assistant-ui/react";
 import NextImage from "next/image";
 
 const suggestedQuestions = [
-  "Give me the latest fact checks.",
+  "What is the common theme in the latest fact checks?",
   "What's the latest misinformation trend?",
   "Why the name VERA Files?",
 ];
