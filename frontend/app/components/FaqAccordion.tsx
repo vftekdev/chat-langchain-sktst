@@ -50,7 +50,7 @@ export function AccordionComponent() {
                     </Accordion.Trigger>
                     <Accordion.Content className="px-6 md:px-12 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown overflow-hidden">
                         <p className="pb-6">
-                            The Team updates SEEK's knowledge base every Monday at 10 a.m. with the most recent stories published on the VERA Files website.
+                            The Team updates SEEK's knowledge base everyday with the most recent stories published on the VERA Files website.
 
                             <br/><br/>SEEK's knowledge base is built on fact checks, fact sheets, news articles, and in-depth reports published on <a className="hover:border-0" href="https://verafiles.org" target="_blank">verafiles.org</a> since 2008. 
                             Apart from those authored by VERA Files staff, this also includes analyses by Tsek.ph, select articles by freelance journalists, and in-depth reports by the UP Third World Studies Center*.
@@ -132,10 +132,7 @@ export function AccordionComponent() {
                     </Accordion.Trigger>
                     <Accordion.Content className="px-6 md:px-12 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown overflow-hidden">
                         <p className="pb-6">
-                            At the moment, you are among the select few chosen to test out SEEK in its early stages of development. 
-                            This Beta testing phase is crucial in determining the next steps we take. We want to ensure that we develop a product that's valuable for our audiences.
-
-                            <br/><br/>We'll keep you updated on our plans after SEEK's Beta testing phase!
+                            As of Nov. 30, SEEK is now available to the general public in open beta mode! The SEEK Team held a closed beta period with over 70 people in August 2025.
                         </p>
                     </Accordion.Content>
                 </Accordion.Item>
