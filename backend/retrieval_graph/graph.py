@@ -298,7 +298,7 @@ async def respond(
     date_today = date.today().strftime("%B %d, %Y")
 
     compressor = VoyageAIRerank(
-        model="rerank-2.5-lite", voyageai_api_key=os.environ["VOYAGE_API_KEY"], top_k=6
+        model="rerank-2.5-lite", voyageai_api_key=os.environ["VOYAGE_API_KEY"], top_k=8
     )
     state.documents = compressor.compress_documents(state.documents, state.query + " Today is " + date_today + ". Prioritize the most recent information from the provided contexts. Each context includes a publish date - use the most up-to-date source when answering.")
 
