@@ -32,7 +32,7 @@ export function AccordionComponent() {
                     </Accordion.Trigger>
                     <Accordion.Content className="px-6 md:px-12 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown overflow-hidden">
                         <p className="pb-6">
-                            SEEK is an AI-powered search assistant that uses over 5,400 VERA Files articles (and counting) as its knowledge base and a Large Language Model (i.e. Claude 3.7 Sonnet, specifically for SEEK) to craft an answer.
+                            SEEK is an AI-powered search assistant that uses over 5,400 VERA Files articles (and counting) as its knowledge base and a Large Language Model (i.e. Claude 4.5 Sonnet, specifically for SEEK) to craft an answer.
 
                             <br/><br/>When you ask a question, it will search its knowledge base according to how it understands your question (i.e. meaning-based search or semantic search). The retrieved parts of articles are then sent together with SEEK's instructions to the LLM to give you an answer. 
                             However, LLMs by nature are non-deterministic* and may misunderstand or hallucinate, that is why we keep a reminder in our app for you to always read the cited stories.
@@ -235,7 +235,7 @@ export function AccordionComponent() {
                             <br/><br/><span className="font-helveticaneue">What does it mean if SEEK has a good score?</span>
 
                             <br/><br/>Based on our tests, SEEK earned high scores in generating accurate answers, but scored poorly in context relevancy. 
-                            This means that the Large Language Model behind SEEK, Claude 3.7 Sonnet, is doing a good job of avoiding hallucinations and producing answers that directly address your questions. 
+                            This means that the Large Language Model behind SEEK, Claude 4.5 Sonnet, is doing a good job of avoiding hallucinations and producing answers that directly address your questions. 
                             However, the tool needs improvement in omitting extraneous details from the sources from which it draws its answers. 
                         </p>
                     </Accordion.Content>
