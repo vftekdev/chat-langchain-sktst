@@ -1,45 +1,111 @@
-# 🦜️🔗 Chat LangChain
+<p align="center">
+<img src="https://seek.verafiles.org/frontend/images/seek-logo.svg" alt="SEEK Logo" width="120">
+</p>
 
-This repo is an implementation of a chatbot specifically focused on question answering over the [LangChain documentation](https://python.langchain.com/).
-Built with [LangChain](https://github.com/langchain-ai/langchain/), [LangGraph](https://github.com/langchain-ai/langgraph/), and [Next.js](https://nextjs.org).
+🔎 SEEK AI Powered Search Assistant
 
-Deployed version: [chat.langchain.com](https://chat.langchain.com)
+This repository hosts the SEEK AI powered search assistant, a project developed by VERA Files. It is a fork and adaptation of the original Chat LangChain application.
 
-> Looking for the JS version? Click [here](https://github.com/langchain-ai/chat-langchainjs).
+SEEK is designed to provide accurate, in-depth answers based on a specialized knowledge base, specifically drawing from VERA Files' fact checks, fact sheets, and reports sourced from the verafiles.org website.
 
-The app leverages LangChain and LangGraph's streaming support and async API to update the page in real time for multiple users.
+✨ Key Technical Changes from Original Fork
 
-## Running locally
+The original RAG architecture was substantially modified to address common issues like source hallucination, context loss ("lost in the middle"), and temporal blindness. The following technical changes represent a complete overhaul of the Retrieval-Augmented Generation (RAG) pipeline.
 
-This project is now deployed using [LangGraph Cloud](https://langchain-ai.github.io/langgraph/cloud/), which means you won't be able to run it locally (or without a LangGraph Cloud account). If you want to run it WITHOUT LangGraph Cloud, please use the code and documentation from this [branch](https://github.com/langchain-ai/chat-langchain/tree/langserve).
+1. Custom Ingestion and Chunking Strategy
 
-> [!NOTE]
-> This [branch](https://github.com/langchain-ai/chat-langchain/tree/langserve) **does not** have the same set of features.
+Our ingestion pipeline is configured to optimize context flow and source traceability.
 
-## 📚 Technical description
+Feature
 
-There are two components: ingestion and question-answering.
+Configuration
 
-Ingestion has the following steps:
+Rationale
 
-1. Pull html from documentation site as well as the Github Codebase
-2. Load html with LangChain's [RecursiveURLLoader](https://python.langchain.com/docs/integrations/document_loaders/recursive_url_loader) and [SitemapLoader](https://python.langchain.com/docs/integrations/document_loaders/sitemap)
-3. Split documents with LangChain's [RecursiveCharacterTextSplitter](https://api.python.langchain.com/en/latest/text_splitter/langchain.text_splitter.RecursiveCharacterTextSplitter.html)
-4. Create a vectorstore of embeddings, using LangChain's [Weaviate vectorstore wrapper](https://python.langchain.com/docs/integrations/vectorstores/weaviate) (with OpenAI's embeddings).
+Chunking Size & Overlap
 
-Question-Answering has the following steps:
+Chunk Size: 3,000 characters. Overlap: A high overlap of 400 characters.
 
-1. Given the chat history and new user input, determine what a standalone question would be using an LLM.
-2. Given that standalone question, look up relevant documents from the vectorstore.
-3. Pass the standalone question and relevant documents to the model to generate and stream the final answer.
-4. Generate a trace URL for the current chat session, as well as the endpoint to collect feedback.
+The chunk size is adapted to the typical length of a fact-check article to ensure the first chunk contains both the misinformation claim and the factual debunking. The high overlap maintains contiguity across chunks, preventing hallucination caused by the "lost in the middle" effect.
 
-## Documentation
+Source Metadata
 
-Looking to use or modify this Use Case Accelerant for your own needs? We've added a few docs to aid with this:
+Documents are processed into a JSON format where each text chunk includes rich, XML-tagged metadata.
 
-- **[Concepts](./CONCEPTS.md)**: A conceptual overview of the different components of Chat LangChain. Goes over features like ingestion, vector stores, query analysis, etc.
-- **[Modify](./MODIFY.md)**: A guide on how to modify Chat LangChain for your own needs. Covers the frontend, backend and everything in between.
-- **[LangSmith](./LANGSMITH.md)**: A guide on adding robustness to your application using LangSmith. Covers observability, evaluations, and feedback.
-- **[Production](./PRODUCTION.md)**: Documentation on preparing your application for production usage. Explains different security considerations, and more.
-- **[Deployment](./DEPLOYMENT.md)**: How to deploy your application to production. Covers setting up production databases, deploying the frontend, and more.
+This resolves source hallucination issues by ensuring the chunk itself carries its citation data.
+
+Metadata Fields
+
+<title>, <url>, <author>, published date (text format), and post date (ISO8601 UTC format, e.g., 2025-04-01T12:30:00Z).
+
+The specific post date field (a date type) is critical for temporal filtering in retrieval.
+
+2. Advanced Retrieval Logic
+
+The RAG backend implements a sophisticated retrieval system that adjusts its behavior based on user intent and temporal requirements.
+
+Feature
+
+Details
+
+Dual Retrieval Modes
+
+Simple Response: Executes one query retrieval, generating a single query prompt from the user's question.
+
+
+
+Think Deeper Response: Generates three different queries from the user's question, resulting in a more comprehensive set of retrieved contexts.
+
+Temporal-Aware Retrieval
+
+If the user query contains temporal keywords (e.g., "latest," "current," or "recent" articles), a special Weaviate retrieval command is triggered. This command uses the date filter on the post date metadata field to fetch the latest 12 matching contexts from the vector store.
+
+3. LLM and Prompt Engineering
+
+The system uses a specific Large Language Model (LLM) tailored for fact-based RAG and is guided by structured prompts to ensure fidelity and freshness.
+
+Component
+
+Model & Technique
+
+Rationale
+
+Core LLM
+
+Anthropic Claude Sonnet 4.5 (used for query generation and final answer generation).
+
+The Anthropic family of models is preferred for its commitment to AI principles and adherence to provided facts. Crucially, it natively recognizes and processes XML-based tag information in the context, allowing us to explicitly instruct the model on how to use the embedded source metadata for accurate citations.
+
+Reranking
+
+Voyage rerank-2.5-lite. The reranker is supplied with an additional instructional prompt: Today is "{date_today}". Prioritize the most recent information from the provided contexts. Each context includes a publish date - use the most up-to-date source when reranking..
+
+This ensures that even if older documents are retrieved, the contexts fed to the LLM are ordered by relevance and temporal freshness, reducing the chance of citing outdated information.
+
+System Prompt
+
+The answer generation system prompt contains a date anchor to bias the final answer toward current information: -- Today is {date_today}. Prioritize the most recent information from the provided contexts. Each context includes a publish date - use the most up-to-date source when answering..
+
+Provides a final layer of control to ensure the LLM prioritizes the freshest information during synthesis.
+
+🖥️ Frontend Overview
+
+The frontend is built using ReactJS and TypeScript.
+
+Design: A complete UI/UX overhaul was performed to create a SEEK-themed user interface that aligns with the VERA Files visual identity and color palette.
+
+Security & User Management: User login was implemented using AuthJS and Prisma to provide enhanced security and user tracking.
+
+Response Mode UI: The user interface features a control for the dual conversation modes:
+
+Quick Response: Geared toward casual conversation with a 10-20 second response time.
+
+Think Deeper: Focuses on more complex, in-depth answers, executing a detailed research plan with a 20-30 second response time.
+
+🧑‍💻 SEEK Technical Team
+
+Zuriel Aeneas Cham: Frontend developer
+
+Wyron Mark Co: Backend developer
+
+Sarah Escandor-Tomas: Technical Lead
