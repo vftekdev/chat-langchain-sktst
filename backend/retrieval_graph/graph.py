@@ -300,7 +300,7 @@ async def respond(
     compressor = VoyageAIRerank(
         model="rerank-2.5-lite", voyageai_api_key=os.environ["VOYAGE_API_KEY"], top_k=8
     )
-    state.documents = compressor.compress_documents(state.documents, state.query + " Today is " + date_today + ". Prioritize the most recent information from the provided contexts. Each context includes a publish date - use the most up-to-date source when answering.")
+    state.documents = compressor.compress_documents(state.documents, state.query + " Today is " + date_today + ". Prioritize the most recent information from the provided contexts. Each context includes a publish date - use the most up-to-date source when reranking.")
 
     # top_k = 20
     # context = format_docs(state.documents[:top_k])
