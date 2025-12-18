@@ -128,12 +128,14 @@ def metadata_func(record: dict, metadata: dict) -> dict:
     metadata["category"] = "None" if record.get("category") == "" else record.get("category")
     metadata["title"] = "None" if record.get("article_title") == "" else record.get("article_title")
     metadata["post_date"] = "None" if record.get("post_date") == "" else record.get("post_date")
-    metadata["last_accessed_at"] = "None" if record.get("post_date") == "" else record.get("post_date")
+    metadata["created_at"] = "None" if record.get("created_at") == "" else record.get("created_at")
+    metadata["last_accessed_at"] = "None" if record.get("last_accessed_at") == "" else record.get("last_accessed_at")
     metadata["publish_date"] = "None" if record.get("publish_date") == "" else record.get("publish_date")
     metadata["claim_author"] = "None" if record.get("claim_author") == "" else record.get("claim_author")
     metadata["claim"] = "None" if record.get("claim") == "" else record.get("claim")
     metadata["rating"] = "None" if record.get("rating") == "" else record.get("rating")
     metadata["explanation"] = "None" if record.get("explanation") == "" else record.get("explanation")
+    metadata["keywords"] = "None" if record.get("keywords") == "" else record.get("keywords")
     metadata["source"] = "None" if record.get("url") == "" else record.get("url")
 
     return metadata
@@ -229,6 +231,7 @@ def ingest_docs():
                 + '\n<claim>' + str(doc.metadata.get("claim", "None")) + '</claim>'
                 + '\n<rating>' + str(doc.metadata.get("rating", "None")) + '</rating>'
                 + '\n<explanation>' + str(doc.metadata.get("explanation", "None")) + '</explanation>'
+                + '\n<keywords>' + str(doc.metadata.get("keywords", "None")) + '</keywords>'
                 + '\n<source_url>' + str(doc.metadata.get("source", "None")) + '</source_url>'
                 + '\n\n'
             )
