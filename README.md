@@ -1,5 +1,5 @@
 <p align="center">
-<img src="/frontend/images/seek-logo.svg" alt="SEEK Logo" width="120">
+<img src="/frontend/public/images/seek-logo.svg" alt="SEEK Logo" width="120">
 </p>
 
 🔎 SEEK AI Powered Search Assistant
