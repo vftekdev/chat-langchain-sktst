@@ -52,9 +52,9 @@ The frontend is built using ReactJS and TypeScript.
 
 * **Response Mode UI:** The user interface features a control for the dual conversation modes:
 
-  * Quick Response: Geared toward casual conversation with a 10-20 second response time.
+  * **Quick Response**: Geared toward casual conversation with a 10-20 second response time.
 
-  * Think Deeper: Focuses on more complex, in-depth answers, executing a detailed research plan with a 20-30 second response time.
+  * **Think Deeper**: Focuses on more complex, in-depth answers, executing a detailed research plan with a 20-30 second response time.
 
 # 🧑‍💻 SEEK Technical Team
 
