@@ -58,8 +58,8 @@ The frontend is built using ReactJS and TypeScript.
 
 # 🧑‍💻 SEEK Technical Team
 
-* Zuriel Aeneas Cham: Frontend developer
+* **Zuriel Aeneas Cham**: Frontend developer
 
-* Wyron Mark Co: Backend developer
+* **Wyron Mark Co**: Backend developer
 
-* Sarah Escandor-Tomas: Technical Lead
+* **Sarah Escandor-Tomas**: Technical Lead
