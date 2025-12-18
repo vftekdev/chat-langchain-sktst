@@ -44,11 +44,11 @@ The system uses a specific Large Language Model (LLM) tailored for fact-based RA
 
 ## 🖥️ Frontend Overview
 
-The frontend is built using ReactJS and TypeScript.
+The frontend is built using **ReactJS** and **TypeScript**.
 
 * **Design:** A complete UI/UX overhaul was performed to create a SEEK-themed user interface that aligns with the VERA Files visual identity and color palette.
 
-* **Security & User Management:** User login was implemented using AuthJS and Prisma to provide enhanced security and user tracking.
+* **Security & User Management:** User login was implemented using **AuthJS** and **Prisma** to provide enhanced security and user tracking.
 
 * **Response Mode UI:** The user interface features a control for the dual conversation modes:
 
