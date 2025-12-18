@@ -20,7 +20,7 @@ Our ingestion pipeline is configured to optimize context flow and source traceab
 | --- | --- | --- | 
 | Chunking Size & Overlap | Chunk Size: 3,000 characters. Overlap: A high overlap of 400 characters. | The chunk size is adapted to the typical length of a fact-check article to ensure the first chunk contains both the misinformation claim and the factual debunking. The high overlap maintains contiguity across chunks, preventing hallucination caused by the "lost in the middle" effect. | 
 | Source Metadata | Documents are processed into a JSON format where each text chunk includes rich, XML-tagged metadata. | This resolves source hallucination issues by ensuring the chunk itself carries its citation data. | 
-| Metadata Fields | `&lt;title&gt;`, `&lt;url&gt;`, `&lt;author&gt;`, `&lt;published date&gt;` (text format), and `post date` (ISO8601 UTC format, e.g., `2025-04-01T12:30:00Z`). | The specific post date field (a date type) is critical for temporal filtering in retrieval. | 
+| Metadata Fields | ` <title> `, `<url>`, `<author>`, `<published date>` (text format), and `post date` (ISO8601 UTC format, e.g., `2025-04-01T12:30:00Z`). | The specific post date field (a date type) is critical for temporal filtering in retrieval. | 
 
 ## 2. Advanced Retrieval Logic
 
