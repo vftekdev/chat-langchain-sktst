@@ -149,7 +149,7 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
     {showPopup && (
       <div onClick={() => setShowPopup(false)} className="fixed left-0 top-0 bg-black bg-opacity-50 z-[9999] h-screen w-full">
         <div className="flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg z-[999] px-6 py-4">
-          <p className="text-center">Is SEEK actually useful to you? Help us find out.<br/>Take our 5-minute survey <a href="https://forms.gle/EifTpvka4cfWRVr39" target="_blank" className="cursor-pointer hover:border-0"><span className="text-[#006c68]">here</span></a>.</p>
+          <p className="text-center">💡 Is SEEK actually useful to you? Help us find out.<br/>Take our 5-minute survey <a href="https://forms.gle/EifTpvka4cfWRVr39" target="_blank" className="cursor-pointer hover:border-0"><span className="text-[#006c68]">here</span></a>.</p>
           <button onClick={() => setShowPopup(false)} className="hover:bg-[#E5E7EB] rounded-md p-2">Close</button>
         </div>
       </div>
