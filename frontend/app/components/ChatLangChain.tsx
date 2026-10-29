@@ -132,17 +132,17 @@ function ChatLangChainComponent({test} : {test:any}): React.ReactElement {
   };
 
   const [showPopup, setShowPopup] = useState(false);
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (e.clientY < 10) {
-        setShowPopup(true);
-      }
-    };
-    document.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleMouseMove = (e: MouseEvent) => {
+  //     if (e.clientY < 10) {
+  //       setShowPopup(true);
+  //     }
+  //   };
+  //   document.addEventListener("mousemove", handleMouseMove);
+  //   return () => {
+  //     document.removeEventListener("mousemove", handleMouseMove);
+  //   };
+  // }, []);
 
   return (
     <>
