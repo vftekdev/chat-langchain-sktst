@@ -11,7 +11,7 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.retrievers import BaseRetriever
 from langchain_core.runnables import RunnableConfig
 from langchain_weaviate import WeaviateVectorStore
-from langchain_community.retrievers import TimeWeightedVectorStoreRetriever
+from langchain_classic.retrievers import TimeWeightedVectorStoreRetriever
 # from langchain_community.vectorstores import Chroma
 
 from backend.configuration import BaseConfiguration
