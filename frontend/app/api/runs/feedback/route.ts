@@ -16,10 +16,14 @@ export async function POST(req: NextRequest) {
     const lsClient = new Client({
       apiKey: process.env.LANGCHAIN_API_KEY,
     });
+    const project = await lsClient.readProject({
+      projectName: process.env.LANGCHAIN_PROJECT ?? "default",
+    });
 
     const feedback = await lsClient.createFeedback(runId, feedbackKey, {
       score,
       comment,
+      sessionId: project.id,
     });
 
     return NextResponse.json(

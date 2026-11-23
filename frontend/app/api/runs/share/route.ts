@@ -7,10 +7,19 @@ const RETRY_DELAY = 5000; // 5 seconds
 async function shareRunWithRetry(
   lsClient: Client,
   runId: string,
-): Promise<string> {
+  projectId: string,
+  traceId: string,
+): Promise<void> {
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
-      return await lsClient.shareRun(runId);
+      const share = await lsClient.runs.share.create(runId, {
+        session_id: projectId,
+        trace_id: traceId,
+      });
+      if (!share.share_token) {
+        throw new Error("The server did not return a share token.");
+      }
+      return;
     } catch (error) {
       if (attempt === MAX_RETRIES) {
         throw error;
@@ -44,7 +53,27 @@ export async function POST(req: NextRequest) {
   });
 
   try {
-    const sharedRunURL = await shareRunWithRetry(lsClient, runId);
+    const project = await lsClient.readProject({
+      projectName: process.env.LANGCHAIN_PROJECT ?? "default",
+    });
+    const run = await lsClient.runs.retrieve(runId, {
+      project_id: project.id,
+      selects: ["TRACE_ID"],
+    });
+    if (!run.trace_id) {
+      throw new Error(`Could not resolve the root trace for run ${runId}.`);
+    }
+
+    await shareRunWithRetry(lsClient, runId, project.id, run.trace_id);
+
+    const sharedRun = await lsClient.runs.retrieve(run.trace_id, {
+      project_id: project.id,
+      selects: ["SHARE_URL"],
+    });
+    if (!sharedRun.share_url) {
+      throw new Error(`Could not resolve the share URL for run ${runId}.`);
+    }
+    const sharedRunURL = sharedRun.share_url;
 
     return new NextResponse(JSON.stringify({ sharedRunURL }), {
       status: 200,
