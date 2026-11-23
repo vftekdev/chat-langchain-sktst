@@ -5,42 +5,66 @@ from langsmith import Client
 client = Client()
 # fetch from langsmith
 ROUTER_SYSTEM_PROMPT = (
-    client.pull_prompt("verafiles/seek-search-assistant_router-prompt")
+    client.pull_prompt(
+        "verafiles/seek-search-assistant_router-prompt",
+        dangerously_pull_public_prompt=True,
+    )
     .messages[0]
     .prompt.template
 )
 GENERATE_QUERIES_SYSTEM_PROMPT = (
-    client.pull_prompt("langchain-ai/chat-langchain-generate-queries-prompt")
+    client.pull_prompt(
+        "langchain-ai/chat-langchain-generate-queries-prompt",
+        dangerously_pull_public_prompt=True,
+    )
     .messages[0]
     .prompt.template
 )
 GENERATE_QUERY_SYSTEM_PROMPT = (
-    client.pull_prompt("verafiles/seek_search_assistant-generate_query_prompt")
+    client.pull_prompt(
+        "verafiles/seek_search_assistant-generate_query_prompt",
+        dangerously_pull_public_prompt=True,
+    )
     .messages[0]
     .prompt.template
 )
 MORE_INFO_SYSTEM_PROMPT = (
-    client.pull_prompt("verafiles/seek-search-assistant_more_info_prompt")
+    client.pull_prompt(
+        "verafiles/seek-search-assistant_more_info_prompt",
+        dangerously_pull_public_prompt=True,
+    )
     .messages[0]
     .prompt.template
 )
 RESEARCH_PLAN_SYSTEM_PROMPT = (
-    client.pull_prompt("verafiles/seek-search-assistant_research_plan_prompt")
+    client.pull_prompt(
+        "verafiles/seek-search-assistant_research_plan_prompt",
+        dangerously_pull_public_prompt=True,
+    )
     .messages[0]
     .prompt.template
 )
 QUICK_RESEARCH_PLAN_SYSTEM_PROMPT = (
-    client.pull_prompt("verafiles/seek-search-assistant_quick_research_plan_prompt")
+    client.pull_prompt(
+        "verafiles/seek-search-assistant_quick_research_plan_prompt",
+        dangerously_pull_public_prompt=True,
+    )
     .messages[0]
     .prompt.template
 )
 GENERAL_SYSTEM_PROMPT = (
-    client.pull_prompt("verafiles/seek-search-assistant_general_prompt")
+    client.pull_prompt(
+        "verafiles/seek-search-assistant_general_prompt",
+        dangerously_pull_public_prompt=True,
+    )
     .messages[0]
     .prompt.template
 )
 RESPONSE_SYSTEM_PROMPT = (
-    client.pull_prompt("verafiles/seek_search_assistant-response_prompt")
+    client.pull_prompt(
+        "verafiles/seek_search_assistant-response_prompt",
+        dangerously_pull_public_prompt=True,
+    )
     .messages[0]
     .prompt.template
 )
