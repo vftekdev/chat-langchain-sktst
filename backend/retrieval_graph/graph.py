@@ -218,20 +218,24 @@ async def conduct_research(state: AgentState) -> dict[str, Any]:
 
     user_query = (state.query).lower()
 
-    pattern_date = r"(latest|recent|current)\s+(fact\s+check|fact\s+sheet|report|article)"
+    pattern_date = r"\b(latest|recent|current)\b"
     match_date = re.search(pattern_date, user_query, re.IGNORECASE)
     category_after_match = None
     pattern_author = r"(article by|articles by|authored by|written by)\s+(\w+\s+\w+)"
     match_author = re.search(pattern_author, user_query, re.IGNORECASE)
     author_after_match = None
-    pattern_topic = r"about|on"
     pattern_topic = r"(fact\s+check|fact\s+sheet|report|article)(.*)(about|on)"
     match_topic = re.search(pattern_topic, user_query, re.IGNORECASE)
 
     if match_author and not match_topic:
         author_after_match = match_author.group(2)
     if match_date and not match_topic:
-        category_after_match = match_date.group(2)
+        category_match = re.search(
+            r"(fact\s+check|fact\s+sheet|report|article)",
+            user_query,
+            re.IGNORECASE,
+        )
+        category_after_match = category_match.group(1) if category_match else None
 
     if author_after_match or category_after_match:
         result = test_weaviate_query.make_weaviate_query(user_query=user_query, match_author_name=author_after_match, match_category=category_after_match)

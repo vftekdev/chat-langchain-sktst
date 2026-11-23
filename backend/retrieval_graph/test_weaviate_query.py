@@ -46,12 +46,12 @@ def make_weaviate_query(user_query, match_author_name=None, match_category=None)
                         Filter.all_of(doc_filters)
                     ),
                     sort=Sort.by_property(name="post_date", ascending=False),
-                    limit=6
+                    limit=12
                 )
             else:
                 response = test_collection.query.fetch_objects(
                     sort=Sort.by_property(name="post_date", ascending=False),
-                    limit=6
+                    limit=12
                 )
 
             docs_list = []
